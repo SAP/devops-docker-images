@@ -1,7 +1,7 @@
 # Description
 
 A collection of Dockerfiles for images that can be used to implement Continuous Delivery pipelines 
-for SAP development projects with project "Piper" or any other CD tool.
+for SAP development projects with project ["Piper"](https://github.com/SAP/jenkins-library) or any other CD tool.
 
 # Requirements
 
