@@ -19,10 +19,10 @@ guidance below.
 Generally speaking, you should fork this repository, make changes in your own
 fork, and then submit a pull-request. All new code should have been thoroughly
 tested end-to-end in order to validate implemented features and the presence or
-lack of defects. All new classes and methods _must_ come with automated unit
+lack of defects. All new scripts and docker files _must_ come with automated (unit)
 tests.
 
-The contract of functionality exposed by classes and methods functionality needs
+The contract of functionality exposed by docker files functionality needs
 to be documented, so it can be properly used. Implementation of a functionality
 and its documentation shall happen within the same commit(s).
 
