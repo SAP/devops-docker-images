@@ -12,11 +12,6 @@ A container environment e.g. docker is needed to build and run docker images.
 To download and install docker please follow the instructions at the [docker website](https://www.docker.com/get-started) according your operating system.
 
 
-# Limitations
-
-Scenarios using docker-in-docker may not work under docker for MS Windows.
-
-
 # How to obtain support
 
 Feel free to open new issues for feature requests, bugs or general feedback on
