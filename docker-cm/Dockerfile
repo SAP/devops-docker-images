@@ -3,7 +3,8 @@ FROM openjdk:8-jre-slim
 ARG version=2.0.1
 
 RUN apt-get update && apt-get install -y \
-      curl
+      curl && \
+    rm -rf /var/lib/apt/lists/*
 
 ENV CMCLIENT_HOME /opt/sap/cmclient
 
