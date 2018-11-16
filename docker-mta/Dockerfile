@@ -3,7 +3,9 @@ FROM openjdk:8-jre-slim
 ARG MTA_VERSION=1.1.7
 
 RUN apt-get update && apt-get install -y \
-      curl
+      curl && \
+    rm -rf /var/lib/apt/lists/*
+
 
 ENV MTA_JAR_LOCATION='/opt/sap/mta.jar'
 RUN mkdir -p `dirname ${MTA_JAR_LOCATION}`; \
@@ -22,6 +24,5 @@ RUN mkdir -p `dirname ${MTA_JAR_LOCATION}`; \
 
 RUN apt-get remove --purge --autoremove -y \
       curl
-
 
 ENTRYPOINT ["java", "-jar", "/opt/sap/mta.jar"]
