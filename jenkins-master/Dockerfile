@@ -2,6 +2,9 @@ FROM jenkins/jenkins:lts
 
 USER root
 
+COPY init_jenkins.groovy /usr/share/jenkins/ref/init.groovy.d/init_jenkins.groovy.override
+COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         apt-transport-https \
@@ -17,21 +20,12 @@ RUN apt-get update && \
        stable" && \
     apt-get update && \
     apt-get -y --no-install-recommends install docker-ce && \
-    rm -rf /var/lib/apt/lists/* /var/cache/apt/*
-
-COPY init_s4sdk_library.groovy /usr/share/jenkins/ref/init.groovy.d/init_s4sdk_library.groovy.override
-COPY init_executors.groovy /usr/share/jenkins/ref/init.groovy.d/init_executors.groovy.override
-
-# install plugins
-COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
-RUN /usr/local/bin/install-plugins.sh $(tr '\n' ' ' < /usr/share/jenkins/ref/plugins.txt)
-
-RUN chown -R jenkins /usr/share/jenkins/ref
+    rm -rf /var/lib/apt/lists/* /var/cache/apt/*  && \
+    /usr/local/bin/install-plugins.sh $(tr '\n' ' ' < /usr/share/jenkins/ref/plugins.txt) && \ 
+    chown -R jenkins /usr/share/jenkins/ref && \
+    echo 2.0 > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state
 
 USER jenkins
-
-#For 2.x-derived images, to indicate that this Jenkins installation is fully configured.
-RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state
 
 VOLUME /var/jenkins_ssl
 ENV JENKINS_OPTS --httpPort=8080 --httpsPort=-1
