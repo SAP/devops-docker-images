@@ -25,5 +25,3 @@ RUN PROTOCOL='http' && \
 
 RUN apt-get remove --purge --autoremove -y \
       curl
-
-ENTRYPOINT ["cmclient"]
