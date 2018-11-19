@@ -25,4 +25,3 @@ RUN mkdir -p `dirname ${MTA_JAR_LOCATION}`; \
 RUN apt-get remove --purge --autoremove -y \
       curl
 
-ENTRYPOINT ["java", "-jar", "/opt/sap/mta.jar"]
