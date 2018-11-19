@@ -14,9 +14,12 @@ RUN mkdir -p `dirname ${MTA_JAR_LOCATION}`; \
          --cookie "eula_3_1_agreed=tools.hana.ondemand.com/developer-license-3_1.txt;" \
          --output ${MTA_JAR_LOCATION} \
       https://tools.hana.ondemand.com/additional/mta_archive_builder-${MTA_VERSION}.jar && \
+    curl --fail \
+         --silent \
+         --output `dirname ${MTA_JAR_LOCATION}`/mta-license.txt \
+       https://tools.hana.ondemand.com/developer-license-3_1.txt && \
     INSTALLED_VERSION=`java -jar ${MTA_JAR_LOCATION} --version` && \
     echo "[INFO] mta version: \"${INSTALLED_VERSION}\"."
-
     # Check below should be active, but we get version 1.1.8 installed
     # when demanding version 1.1.7. When activating the check below, don't forget to add
     # ' && \' to the line above
