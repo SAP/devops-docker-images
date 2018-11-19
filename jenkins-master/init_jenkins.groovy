@@ -62,7 +62,8 @@ def createIfMissing(String libName, String gitUrl, String defaultBranch) {
     }
 
     if (!exists) {
-        libs.add(lib)
-        globalLibraries.setLibraries(libs)
+        newLibs = new ArrayList(libs)
+        newLibs.add(lib)
+        globalLibraries.setLibraries(newLibs)
     }
 }

@@ -4,7 +4,6 @@ blueocean
 build-monitor-plugin
 build-timeout
 checkmarx
-cloudbees-folder
 command-launcher
 credentials
 credentials-binding
