@@ -17,6 +17,7 @@ RUN PROTOCOL='http' && \
     mkdir -p "${CMCLIENT_HOME}" && \
     curl --silent --show-error  "${PROTOCOL}://${REPO_URL}/`echo ${G}|sed 's|\.|/|g'`/${A}/${V}/${A}-${V}.${P}" \
     |tar -C "${CMCLIENT_HOME}" -xvzf - && \
+    curl --silent --show-error --output ${CMCLIENT_HOME}/LICENSE https://raw.githubusercontent.com/SAP/devops-cm-client/master/LICENSE && \
     chown -R root:root "${CMCLIENT_HOME}" && \
     ln -s "${CMCLIENT_HOME}/bin/cmclient" "/usr/local/bin/cmclient" && \
     INSTALLED_VERSION=`cmclient -version |sed -e 's/ :.*//g'` && \
