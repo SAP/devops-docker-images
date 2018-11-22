@@ -5,11 +5,11 @@ for SAP development projects with project ["Piper"](https://github.com/SAP/jenki
 
 # Requirements
 
-A container environment e.g. docker is needed to build and run docker images.
+A container environment e.g. Docker is needed to build and run Docker images.
 
 # Download and Installation
 
-To download and install docker please follow the instructions at the [docker website](https://www.docker.com/get-started) according your operating system.
+To download and install docker please follow the instructions at the [Docker website](https://www.docker.com/get-started) according your operating system.
 
 To build these Dockerfiles:
 ````
