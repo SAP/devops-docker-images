@@ -21,6 +21,6 @@ RUN PROTOCOL='http' && \
     ln -s "${CMCLIENT_HOME}/bin/cmclient" "/usr/local/bin/cmclient" && \
     apt-get remove --purge --autoremove -y \
       curl && \
-    INSTALLED_VERSION=`cmclient -version |sed -e 's/ :.*//g'` && \
+    INSTALLED_VERSION=`cmclient --version |sed -e 's/ :.*//g'` && \
     echo "[INFO] cm client version: ${INSTALLED_VERSION}" && \
     [ "${version}" = "${INSTALLED_VERSION}" ] || { echo "[ERROR] Installed version of cm client ('${INSTALLED_VERSION}') does not match expected version ('${version}')." && exit 1; }
