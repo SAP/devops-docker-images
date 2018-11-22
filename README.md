@@ -1,7 +1,7 @@
 # Description
 
 A collection of Dockerfiles for images that can be used to implement Continuous Delivery pipelines 
-for SAP development projects with project ["Piper"](https://github.com/SAP/jenkins-library) or any other CD tool.
+for SAP development projects with project ["Piper"](https://github.com/SAP/jenkins-library) on Jenkins or any other CD tool. Docker containers simplify the Jenkins setup, because they encapsulate tools and environments that are required to execute pipeline steps.
 
 # Requirements
 
@@ -11,6 +11,13 @@ A container environment e.g. docker is needed to build and run docker images.
 
 To download and install docker please follow the instructions at the [docker website](https://www.docker.com/get-started) according your operating system.
 
+To build these Dockerfiles:
+````
+git clone https://github.com/SAP/devops-docker-images
+cd devops-docker-images/<specific-image>
+docker build .
+````
+Specific instructions how to run the containers are stored within the same directory.
 
 # How to obtain support
 
