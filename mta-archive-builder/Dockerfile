@@ -39,8 +39,18 @@ RUN apt-get update && apt-get install -y \
     ln -s ${NODE_HOME}/node-${NODE_VERSION}-linux-x64/bin/npm /usr/local/bin/npm && \
     INSTALLED_NODE_VERSION=`node --version` && \
     echo "[INFO] node version: \"${INSTALLED_NODE_VERSION}\"." && \
+    #
+    # Provide SAP registry
+    #
+    npm config set @sap:registry https://npm.sap.com --global && \
+    #
+    # Cleanup curl (was only needed for downloading artifacts)
+    #
     apt-get remove --purge --autoremove -y \
       curl && \
+    #
+    # Provide dedicated user for running the image
+    #
     useradd --home-dir ${MTA_USER_HOME} \
             --create-home \
             --shell /bin/bash \
