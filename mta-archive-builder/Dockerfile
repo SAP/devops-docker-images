@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
       https://tools.hana.ondemand.com/additional/mta_archive_builder-${MTA_VERSION}.jar && \
     curl --fail \
          --silent \
-         --output `dirname ${MTA_HOME}`/mta-license.txt \
+         --output ${MTA_HOME}/LICENSE.txt \
        https://tools.hana.ondemand.com/developer-license-3_1.txt && \
     ln -s ${MTA_HOME}/bin/mtaBuild.sh /usr/local/bin/mtaBuild && \
     INSTALLED_VERSION=`mtaBuild --version` && \
