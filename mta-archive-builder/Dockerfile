@@ -1,5 +1,6 @@
 FROM openjdk:8-jre-slim
 
+ARG MTA_USER_HOME=/home/mta
 ARG MTA_HOME='/opt/sap/mta'
 ARG MTA_VERSION=1.1.7
 
@@ -24,9 +25,19 @@ RUN apt-get update && apt-get install -y \
     INSTALLED_VERSION=`mtaBuild --version` && \
     echo "[INFO] mta version: \"${INSTALLED_VERSION}\"." && \
     apt-get remove --purge --autoremove -y \
-      curl
+      curl && \
+    useradd --home-dir ${MTA_USER_HOME} \
+            --create-home \
+            --shell /bin/bash \
+            --user-group \
+            --uid 1000 \
+            --comment 'SAP-MTA tooling' \
+            --password `echo weUseMta |openssl passwd -1 -stdin` mta
     # Check below should be active, but we get version 1.1.8 installed
     # when demanding version 1.1.7. When activating the check below, don't forget to add
     # ' && \' to the line above
     # [ "${MTA_VERSION}" = "${INSTALLED_VERSION}" ] || { echo "[ERROR] Installed version '${INSTALLED_VERSION}' does not match expected version '${MTA_VERSION}'."; exit 1; }
 
+WORKDIR /home/mta
+
+USER mta
