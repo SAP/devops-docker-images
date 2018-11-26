@@ -2,7 +2,7 @@ FROM openjdk:8-jre-slim
 
 ARG MTA_VERSION=1.1.7
 
-ENV MTA_JAR_LOCATION='/opt/sap/mta.jar'
+ENV MTA_JAR_LOCATION='/opt/sap/mta/lib/mta.jar'
 
 RUN apt-get update && apt-get install -y \
       curl && \
