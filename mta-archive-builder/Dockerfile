@@ -1,8 +1,11 @@
 FROM openjdk:8-jre-slim
 
+ARG MTA_HOME='/opt/sap/mta'
 ARG MTA_VERSION=1.1.7
 
-ENV MTA_JAR_LOCATION='/opt/sap/mta/lib/mta.jar'
+ENV MTA_JAR_LOCATION="${MTA_HOME}/lib/mta.jar"
+
+ADD scripts/mtaBuild.sh ${MTA_HOME}/bin/mtaBuild.sh
 
 RUN apt-get update && apt-get install -y \
       curl && \
@@ -15,9 +18,10 @@ RUN apt-get update && apt-get install -y \
       https://tools.hana.ondemand.com/additional/mta_archive_builder-${MTA_VERSION}.jar && \
     curl --fail \
          --silent \
-         --output `dirname ${MTA_JAR_LOCATION}`/mta-license.txt \
+         --output `dirname ${MTA_HOME}`/mta-license.txt \
        https://tools.hana.ondemand.com/developer-license-3_1.txt && \
-    INSTALLED_VERSION=`java -jar ${MTA_JAR_LOCATION} --version` && \
+    ln -s ${MTA_HOME}/bin/mtaBuild.sh /usr/local/bin/mtaBuild && \
+    INSTALLED_VERSION=`mtaBuild --version` && \
     echo "[INFO] mta version: \"${INSTALLED_VERSION}\"." && \
     apt-get remove --purge --autoremove -y \
       curl
