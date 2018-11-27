@@ -10,7 +10,7 @@ This repository will contain two types of Dockerfiles. The folder [`jenkins-mast
 
 For detailed usage information please check the README.md in the corresponding folder.
 
-Images in preparation:
+Dockerfiles in preparation:
 * [Jenkins](jenkins-master/): preconfigured Jenkins to run project "Piper" pipelines.
 * [MTA archive builder](mta-archive-builder/): build SAP Multitarget Applications with the [MTA archive builder](https://help.sap.com/viewer/58746c584026430a890170ac4d87d03b/Cloud/en-US/ba7dd5a47b7a4858a652d15f9673c28d.html) (ready to build nodejs and Java applications)
 * [CM Client](cm-client/): interact with SAP Solution Manager or CTS
