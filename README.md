@@ -1,11 +1,11 @@
 # Description
 
-This is a collection of Dockerfiles for images that can be used to implement Continuous Delivery pipelines 
-for SAP development projects with project ["Piper"](https://github.com/SAP/jenkins-library) on Jenkins. Docker 
+This is a collection of Dockerfiles for images that can be used in Continuous Delivery pipelines 
+for SAP development projects with project ["Piper"](https://github.com/SAP/jenkins-library) on [Jenkins](https://jenkins.io/). Docker 
 containers simplify your CD tool setup setup, encapsulating tools and environments that are 
 required to execute pipeline steps.
 
-If you want to learn how to use project "Piper" please have a look at [the documentation](https://sap.github.io/jenkins-library/). Introductory material and a lot of SAP scenarios not covered by project "Piper" are described in our [Continuous Integration Best Practices](https://developers.sap.com/tutorials/ci-best-practices-intro.html)
+If you want to learn how to use project "Piper" please have a look at [the documentation](https://sap.github.io/jenkins-library/). Introductory material and a lot of SAP scenarios not covered by project "Piper" are described in our [Continuous Integration Best Practices](https://developers.sap.com/tutorials/ci-best-practices-intro.html).
 
 This repository will contain two type of Dockerfiles. The folder [`jenkins/`](jenkins/) contains a Dockerfile for a Jenkins server, which is preconfigured to run project "Piper" pipelines. The other folders contain Dockerfiles for Docker images which are used in the pipeline to run steps, such as MTA builds or deployments to the SAP Cloud Platform. These images can also be used flexibly in your custom stack without project "Piper" or Jenkins.
 
@@ -44,7 +44,7 @@ docker pull <image-name>:<version>
 docker run ...
 ````
 
-### 3) Project "Piper"
+### 3) Via project "Piper"
 In case you are using project "Piper" you can configure certain steps to use docker images instead of the local Jenkins environment. These steps will automaticall pull and run these images.
 
 # How to obtain support
