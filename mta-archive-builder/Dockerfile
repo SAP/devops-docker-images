@@ -63,6 +63,6 @@ RUN apt-get update && apt-get install -y \
     # ' && \' to the line above
     # [ "${MTA_VERSION}" = "${INSTALLED_MTA_VERSION}" ] || { echo "[ERROR] Installed mta version '${INSTALLED_MTA_VERSION}' does not match expected mta version '${MTA_VERSION}'."; exit 1; }
    [ "${NODE_VERSION}" = "${INSTALLED_NODE_VERSION}" ] || { echo "[ERROR] Installed node version '${INSTALLED_NODE_VERSION}' does not match expected node version '${NODE_VERSION}'."; exit 1; }
-WORKDIR /home/mta
+WORKDIR /project
 
 USER mta
