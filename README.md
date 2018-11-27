@@ -1,7 +1,7 @@
 # Description
 
-This is a collection of Dockerfiles for images that can be used in Continuous Delivery pipelines 
-for SAP development projects. The images are optimized for use with project ["Piper"](https://github.com/SAP/jenkins-library) on [Jenkins](https://jenkins.io/). Docker containers simplify your CD tool setup setup, encapsulating 
+This is a collection of _Dockerfiles_ for images that can be used in _Continuous Delivery_(CD) pipelines 
+for SAP development projects. The images are optimized for use with project ["Piper"](https://github.com/SAP/jenkins-library) on [Jenkins](https://jenkins.io/). Docker containers simplify your CD tool setup, encapsulating 
 tools and environments that are required to execute pipeline steps.
 
 If you want to learn how to use project "Piper" please have a look at [the documentation](https://sap.github.io/jenkins-library/). Introductory material and a lot of SAP scenarios not covered by project "Piper" are described in our [Continuous Integration Best Practices](https://developers.sap.com/tutorials/ci-best-practices-intro.html).
@@ -23,7 +23,7 @@ A [Docker](https://www.docker.com/) environment is needed to build and run Docke
 
 To download and install docker please follow the instructions at the [Docker website](https://www.docker.com/get-started) according your operating system.
 
-You can consume these images in three different flavours:
+You can consume these images in three different flavors:
 
 ### 1) Build locally and run
 
@@ -44,7 +44,7 @@ docker run ...
 ````
 
 ### 3) Via project "Piper"
-In case you are using [project "Piper"](https://sap.github.io/jenkins-library/) you can configure certain steps to use docker images instead of the local Jenkins environment. These steps will automaticall pull and run these images.
+In case you are using [project "Piper"](https://sap.github.io/jenkins-library/) you can configure certain steps to use docker images instead of the local Jenkins environment. These steps will automatically pull and run these images.
 
 # How to obtain support
 
