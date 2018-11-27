@@ -1,11 +1,24 @@
 # Description
 
-A collection of Dockerfiles for images that can be used to implement Continuous Delivery pipelines 
-for SAP development projects with project ["Piper"](https://github.com/SAP/jenkins-library) on Jenkins or any other CD tool. Docker containers simplify the Jenkins setup, because they encapsulate tools and environments that are required to execute pipeline steps.
+This is a collection of Dockerfiles for images that can be used to implement Continuous Delivery pipelines 
+for SAP development projects with project ["Piper"](https://github.com/SAP/jenkins-library) on Jenkins. Docker 
+containers simplify your CD tool setup setup, because they encapsulate tools and environments that are 
+required to execute pipeline steps.
+
+If you want to learn how to use project "Piper" please have a look at [the documentation](https://sap.github.io/jenkins-library/). Introductory material and a lot of 
+
+This repository will contain two type of Dockerfiles. The folder `jenkins` contains a Dockerfile for a Jenkins server, which is preconfigured to run project "Piper" pipelines. The other folders contain Dockerfiles for Docker images which are used in the pipeline to run steps, such as MTA builds or deployments to the SAP Cloud Platform. These images can also be used flexibly in your custom stack without project "Piper" or Jenkins.
+
+For detailed usage information please check the readme in the corresponding folder.
+
+Repository Content in preparation:
+* [Jenkins](jenkins/): preconfigured Jenkins to run project "Piper" pipelines.
+* [MTA archive builder](mta-archive-builder/): build SAP Multitarget Applications with the [MTA archive builder](https://help.sap.com/viewer/58746c584026430a890170ac4d87d03b/Cloud/en-US/ba7dd5a47b7a4858a652d15f9673c28d.html) (ready to build nodejs and Java applications)
+* [CM Client](cm-client/): interact with SAP Solution Manager or CTS
 
 # Requirements
 
-A container environment e.g. Docker is needed to build and run Docker images.
+A [Docker](https://www.docker.com/) environment is needed to build and run Docker images. You should be familiar with basic docker commands to build and run these images.
 
 # Download and Installation
 
