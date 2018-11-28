@@ -26,3 +26,10 @@ The contract of functionality exposed by docker files functionality needs
 to be documented, so it can be properly used. Implementation of a functionality
 and its documentation shall happen within the same commit(s).
 
+#### Consistent USER Instruction in the Dockerfile
+
+Set the user name (or UID) and the user group (or GID) to UID 1000 and GID 1000 to be consistent ith the Jenkins image.
+
+````
+USER 1000:1000
+````
