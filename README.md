@@ -1,6 +1,6 @@
 # Description
 
-This is a collection of _Dockerfiles_ for images that can be used in _Continuous Delivery_(CD) pipelines 
+This is a collection of _Dockerfiles_ for images that can be used in _Continuous Delivery_ (CD) pipelines 
 for SAP development projects. The images are optimized for use with project ["Piper"](https://github.com/SAP/jenkins-library) on [Jenkins](https://jenkins.io/). Docker containers simplify your CD tool setup, encapsulating 
 tools and environments that are required to execute pipeline steps.
 
