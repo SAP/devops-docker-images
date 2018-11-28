@@ -1,23 +1,50 @@
 # Description
 
-A collection of Dockerfiles for images that can be used to implement Continuous Delivery pipelines 
-for SAP development projects with project ["Piper"](https://github.com/SAP/jenkins-library) on Jenkins or any other CD tool. Docker containers simplify the Jenkins setup, because they encapsulate tools and environments that are required to execute pipeline steps.
+This is a collection of _Dockerfiles_ for images that can be used in _Continuous Delivery_(CD) pipelines 
+for SAP development projects. The images are optimized for use with project ["Piper"](https://github.com/SAP/jenkins-library) on [Jenkins](https://jenkins.io/). Docker containers simplify your CD tool setup, encapsulating 
+tools and environments that are required to execute pipeline steps.
+
+If you want to learn how to use project "Piper" please have a look at [the documentation](https://sap.github.io/jenkins-library/). Introductory material and a lot of SAP scenarios not covered by project "Piper" are described in our [Continuous Integration Best Practices](https://developers.sap.com/tutorials/ci-best-practices-intro.html).
+
+This repository will contain two types of Dockerfiles. The folder [`jenkins-master/`](jenkins/) contains a Dockerfile for a Jenkins CI server, which is preconfigured to run project "Piper" pipelines. The other folders contain Dockerfiles for Docker images which are used in the pipeline to run steps, such as MTA builds or deployments to the SAP Cloud Platform. These images can also be used flexibly in your custom environments without project "Piper" or Jenkins.
+
+For detailed usage information please check the README.md in the corresponding folder.
+
+Dockerfiles in preparation:
+* [Jenkins](jenkins-master/): preconfigured Jenkins to run project "Piper" pipelines.
+* [MTA archive builder](mta-archive-builder/): build SAP Multitarget Applications with the [MTA archive builder](https://help.sap.com/viewer/58746c584026430a890170ac4d87d03b/Cloud/en-US/ba7dd5a47b7a4858a652d15f9673c28d.html) (ready to build nodejs and Java applications)
+* [CM Client](cm-client/): interact with SAP Solution Manager or CTS
 
 # Requirements
 
-A container environment e.g. Docker is needed to build and run Docker images.
+A [Docker](https://www.docker.com/) environment is needed to build and run Docker images. You should be familiar with basic docker commands to build and run these images.
 
 # Download and Installation
 
 To download and install docker please follow the instructions at the [Docker website](https://www.docker.com/get-started) according your operating system.
 
-To build these Dockerfiles:
+You can consume these images in three different flavors:
+
+### 1) Build locally and run
+
+Clone this repository, change directories to the desired Dockerfile and build it:
 ````
 git clone https://github.com/SAP/devops-docker-images
 cd devops-docker-images/<specific-image>
 docker build .
+docker run ...
 ````
 Specific instructions how to run the containers are stored within the same directory.
+
+### 2) Pull from hub.docker.com
+We build the Dockerfiles for your convenience and store them on https://hub.docker.com/.
+````
+docker pull <image-name>:<version>
+docker run ...
+````
+
+### 3) Via project "Piper"
+In case you are using [project "Piper"](https://sap.github.io/jenkins-library/) you can configure certain steps to use docker images instead of the local Jenkins environment. These steps will automatically pull and run these images.
 
 # How to obtain support
 
