@@ -16,6 +16,7 @@ ghprb
 github-branch-source
 greenballs
 htmlpublisher
+http_request
 jacoco
 junit
 kubernetes
