@@ -31,7 +31,7 @@ To download and install docker please follow the instructions at the [Docker web
 
 You can consume these images in three different flavors:
 
-### 1) Build locally and run
+1. Build locally and run
 
 Clone this repository, change directories to the desired Dockerfile and build it:
 ````
@@ -42,14 +42,14 @@ docker run ...
 ````
 Specific instructions how to run the containers are stored within the same directory.
 
-### 2) Pull from hub.docker.com
+2. Pull from hub.docker.com
 We build the Dockerfiles for your convenience and store them on https://hub.docker.com/.
 ````
 docker pull <image-name>:<version>
 docker run ...
 ````
 
-### 3) Via project "Piper"
+3. Via project "Piper"
 In case you are using [project "Piper"](https://sap.github.io/jenkins-library/) you can configure certain steps to use docker images instead of the local Jenkins environment. These steps will automatically pull and run these images.
 
 # How to obtain support
