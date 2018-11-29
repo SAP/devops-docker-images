@@ -21,7 +21,9 @@ Dockerfiles in preparation:
 
 # General Requirements
 
-A [Docker](https://www.docker.com/) environment is needed to build and run Docker images. You should be familiar with basic docker commands to build and run these images. Each individual Dockerfile may have additional requirements. Those requirements are documented with each Dockerfile.
+A [Docker](https://www.docker.com/) environment is needed to build and run Docker images. You should be familiar with basic docker commands to build and run these images. In case you need to fetch the Dockerfiles and this project's sources to build them locally, a [Git client](https://git-scm.com/) is required.
+
+Each individual Dockerfile may have additional requirements. Those requirements are documented with each Dockerfile.
 
 # Download and Installation
 
