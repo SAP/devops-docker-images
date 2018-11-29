@@ -6,7 +6,7 @@ tools and environments that are required to execute pipeline steps.
 
 If you want to learn how to use project "Piper" please have a look at [the documentation](https://github.com/SAP/jenkins-library/blob/master/README.md). Introductory material and a lot of SAP scenarios not covered by project "Piper" are described in our [Continuous Integration Best Practices](https://developers.sap.com/tutorials/ci-best-practices-intro.html).
 
-This repository will contain two types of Dockerfiles. The folder [`jenkins-master/`](jenkins/) contains a Dockerfile for a Jenkins CI server, which is preconfigured to run project "Piper" pipelines. The other folders contain Dockerfiles for Docker images which are used in the pipeline to run steps, such as MTA builds or deployments to the SAP Cloud Platform. These images can also be used flexibly in your custom environments without project "Piper" or Jenkins.
+This repository contains Dockerfiles that are designed to run project "Piper" pipelines. Nevertheless, they can also be used flexibly in any custom environment and automation process.
 
 For detailed usage information please check the README.md in the corresponding folder.
 
