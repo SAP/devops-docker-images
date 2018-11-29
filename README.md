@@ -27,7 +27,7 @@ Each individual Dockerfile may have additional requirements. Those requirements 
 
 # Download and Installation
 
-To download and install docker please follow the instructions at the [Docker website](https://www.docker.com/get-started) according your operating system.
+To download and install Docker please follow the instructions at the [Docker website](https://www.docker.com/get-started) according your operating system.
 
 You can consume these images in three different flavors:
 
