@@ -19,9 +19,9 @@ Dockerfiles in preparation:
 | CM Client | Interact with SAP Solution Manager or CTS using the command line. | [cm-client/](cm-client/) |
 
 
-# Requirements
+# General Requirements
 
-A [Docker](https://www.docker.com/) environment is needed to build and run Docker images. You should be familiar with basic docker commands to build and run these images.
+A [Docker](https://www.docker.com/) environment is needed to build and run Docker images. You should be familiar with basic docker commands to build and run these images. Each individual Dockerfile may have additional requirements. Those requirements are documented with each Dockerfile.
 
 # Download and Installation
 
