@@ -11,6 +11,9 @@ ADD scripts/mtaBuild.sh ${MTA_HOME}/bin/mtaBuild.sh
 RUN apt-get update && apt-get install -y \
       curl && \
     rm -rf /var/lib/apt/lists/* && \
+    #
+    # Install mta
+    #
     mkdir -p `dirname ${MTA_JAR_LOCATION}` && \
     curl --fail \
          --silent \
