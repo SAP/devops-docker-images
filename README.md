@@ -10,8 +10,10 @@ This repository contains Dockerfiles that are designed to run project "Piper" pi
 
 For detailed usage information please check the README.md in the corresponding folder.
 
-###  Dockerfiles 
+###  Dockerfiles
+
 The following files are still being prepared, and are not yet released:
+
 | Name | Description | Link |
 |------|-------------|------|
 | Jenkins | Preconfigured Jenkins to run project "Piper" pipelines. | [jenkins-master/](jenkins-master/) |
@@ -21,7 +23,7 @@ The following files are still being prepared, and are not yet released:
 
 ## General Requirements
 
-A [Docker](https://www.docker.com/) environment is needed to build and run Docker images. You should be familiar with basic docker commands to build and run these images. In case you need to fetch the Dockerfiles and this project's sources to build them locally, a [Git client](https://git-scm.com/) is required.
+A [Docker](https://www.docker.com/) environment is needed to build and run Docker images. You should be familiar with basic Docker commands to build and run these images. In case you need to fetch the Dockerfiles and this project's sources to build them locally, a [Git client](https://git-scm.com/) is required.
 
 Each individual Dockerfile may have additional requirements. Those requirements are documented with each Dockerfile.
 
@@ -34,13 +36,15 @@ You can consume these images in three different flavors:
 1. Build locally and run
 
     Clone this repository, change directories to the desired Dockerfile and build it:
+    
 ````
 git clone https://github.com/SAP/devops-docker-images
 cd devops-docker-images/<specific-image>
 docker build .
 docker run ...
 ````
-    Specific instructions how to run the containers are stored within the same directory.
+
+Specific instructions how to run the containers are stored within the same directory.
 
 2. Pull from hub.docker.com
 
