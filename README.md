@@ -1,4 +1,4 @@
-# Description
+## Description
 
 This is a collection of [_Dockerfiles_](https://docs.docker.com/engine/reference/builder/) for images that can be used in _Continuous Delivery_ (CD) pipelines 
 for SAP development projects. The images are optimized for use with project ["Piper"](https://github.com/SAP/jenkins-library) on [Jenkins](https://jenkins.io/). Docker containers simplify your CD tool setup, encapsulating 
@@ -10,7 +10,7 @@ This repository contains Dockerfiles that are designed to run project "Piper" pi
 
 For detailed usage information please check the README.md in the corresponding folder.
 
-##  Dockerfiles 
+###  Dockerfiles 
 The following files are still being prepared, and are not yet released:
 | Name | Description | Link |
 |------|-------------|------|
@@ -19,13 +19,13 @@ The following files are still being prepared, and are not yet released:
 | CM Client | Interact with SAP Solution Manager or CTS using the command line. | [cm-client/](cm-client/) |
 
 
-# General Requirements
+## General Requirements
 
 A [Docker](https://www.docker.com/) environment is needed to build and run Docker images. You should be familiar with basic docker commands to build and run these images. In case you need to fetch the Dockerfiles and this project's sources to build them locally, a [Git client](https://git-scm.com/) is required.
 
 Each individual Dockerfile may have additional requirements. Those requirements are documented with each Dockerfile.
 
-# Download and Installation
+## Download and Installation
 
 To download and install Docker please follow the instructions at the [Docker website](https://www.docker.com/get-started) according your operating system.
 
@@ -52,17 +52,17 @@ docker run ...
 3. Via project "Piper"
 In case you are using [project "Piper"](https://sap.github.io/jenkins-library/) you can configure certain steps to use docker images instead of the local Jenkins environment. These steps will automatically pull and run these images.
 
-# How to obtain support
+## How to obtain support
 
 Feel free to open new issues for feature requests, bugs or general feedback on
 the [GitHub issues page of this project][devops-images-issues].
 
-# Contributing
+## Contributing
 
 Read and understand our [contribution guidelines][contribution]
 before opening a pull request.
 
-# [License][license]
+## License
 
 Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved.
 This file is licensed under the Apache Software License, v. 2 except as noted
