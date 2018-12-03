@@ -11,7 +11,7 @@ This repository contains Dockerfiles that are designed to run project "Piper" pi
 For detailed usage information please check the README.md in the corresponding folder.
 
 ##  Dockerfiles 
-
+The following files are still being prepared, and are not yet released:
 | Name | Description | Link |
 |------|-------------|------|
 | Jenkins | Preconfigured Jenkins to run project "Piper" pipelines. | [jenkins-master/](jenkins-master/) |
