@@ -1,0 +1,9 @@
+{
+  "name": "ABAP RFC Upload",
+  "version": "0.0.1",
+  "description": "This packge.json only describes the dependncies to be able to call node-rfc",
+  "private": true,
+  "devDependencies": {
+  
+  }
+}

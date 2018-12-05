@@ -1,0 +1,12 @@
+#! /bin/sh
+
+#start the uuid daemon
+uuidd
+
+
+/opt/sap/workspace/node_modules/grunt-cli/bin/grunt -d -v --stack --no-color --gruntfile Gruntfile_ABAP.js "$@"
+
+if [ -f dev_rfc.trc ] 
+then
+   cat dev_rfc.trc
+fi
