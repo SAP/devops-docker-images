@@ -36,7 +36,7 @@ def initLibraries(){
 
     String piperLibraryOsUrl = env.PIPER_LIBRARY_OS_URL ?: "https://github.com/SAP/jenkins-library.git"
     String piperLibraryOsBranch = env.PIPER_LIBRARY_OS_BRANCH ?: "master"
-    createIfMissing("piper-library-os", piperLibraryOsUrl, piperLibraryOsBranch)
+    createIfMissing("piper-lib-os", piperLibraryOsUrl, piperLibraryOsBranch)
     
     String s4sdkLibraryUrl = env.S4SDK_LIBRARY_URL ?: "https://github.com/SAP/cloud-s4-sdk-pipeline-lib.git"
     String s4sdkLibraryBranch = env.S4SDK_LIBRARY_BRANCH ?: "master"
