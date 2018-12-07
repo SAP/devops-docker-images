@@ -25,12 +25,6 @@ You can [build][dockerbuild] your docker image in different ways.
 
 The build arguments can be a local path or an URL. Please consider the rules for the build context and the used [ADD][dockerbuildadd] command.
 
-Example: Build it with local file system context. Before, you have to clone this repository and copy the SAPCAR and  NWRFC SAR file
-into this directory.
-```
-docker build --build-arg SAPCAR_FILE=SAPCAR_1110-80000935.EXE --build-arg NWRFC_FILE=NWRFC_49-20004565.SAR .
-```
-
 Example: Build it with URLs
 ```
 docker build --build-arg SAPCAR_FILE=https://<repoURL>/SAPCAR --build-arg NWRFC_FILE=https://<repoURL>/NWRFC.SAR --file Dockerfile myrepo.git#:node-rfc
@@ -49,16 +43,15 @@ docker build --build-arg SAPCAR_FILE=https://<repoURL>/SAPCAR --build-arg NWRFC_
 | **ABAP_APPLICATION_NAME** | ABAP Application name |
 | **ABAP_APPLICATION_DESC** | ABAP Application description |
 | **ABAP_PACKAGE** | ABAP package name |
-| **JOB_URL**      |  Back reference of calling job |
-| **NEXUS_SNAPSHOT_REPO** | Intermediate nexus repo |
+| **ZIP_FILE_URL**     |  URL of the zip file location to upload |
 | **GIT_COMMIT** | git commit id |
 
 Run it with:
 
 ```
-docker run -v <local path>:/opt/sap/target --env <Envornment variables> <image> cts createTransportRequest|uploadToABAP|releaseTransport
+docker run -v <local path>:/var/sap/data --env <Envornment variables> <image> cts createTransportRequest|uploadToABAP|releaseTransport
 ```
-You have to mount the location of the zip file into the container to /opt/sap/target. For more details about intermediate files please refer to our [best practices][bestpractice].
+You have to mount the location of the zip file into the container to /var/sap/data. For more details about intermediate files please refer to our [best practices][bestpractice].
 
 [piper]: https://sap.github.io/jenkins-library/
 [noderfc]: https://sap.github.io/node-rfc/install.html

@@ -14,15 +14,12 @@ module.exports = function(grunt) {
     var abapApplicationName = process.env.ABAP_APPLICATION_NAME;
     var abapApplicationDesc = process.env.ABAP_APPLICATION_DESC;
     var abapPackage = process.env.ABAP_PACKAGE;
-    var jobURL = process.env.JOB_URL;
-    var nexusSnapshotRepoURL = process.env.NEXUS_SNAPSHOT_REPO;
+    var zipFileURL = process.env.ZIP_FILE_URL;
     var gitCommit = process.env.GIT_COMMIT;
     var targetDir = process.env.SAPDATADIR;
 
     // Global Variables
-    var zipFileSuffix = "-opt-static-abap.zip";
     var ctsDataFile = targetDir + "/CTS_Data.txt";
-    var nexusGroupId = "com.yourcompany";
 
     // Project configuration.
     var abapConn = {
@@ -44,8 +41,7 @@ module.exports = function(grunt) {
         uploadToABAP: {
             options: {
                 conn: abapConn,
-                zipFile: targetDir + "/<%= pkg.name %>" + zipFileSuffix,
-                zipFileURL: nexusSnapshotRepoURL + "/" + nexusGroupId.replace(/\./g, "/") + "/<%= pkg.name %>/<%= pkg.version %>-SNAPSHOT/<%= pkg.name %>-<%= pkg.version %>-SNAPSHOT.zip",
+                zipFileURL: zipFileURL,
                 codePage: "UTF8"
             }
         },
@@ -145,13 +141,7 @@ module.exports = function(grunt) {
             transportRequest = JSON.parse(fs.readFileSync(ctsDataFile, { encoding: "utf8" })).REQUESTID;
         }
         grunt.log.writeln("Transport request:", transportRequest);
-        var url = "";
-        if (!(typeof this.options().zipFile === "undefined") && fs.existsSync(this.options().zipFile)) {
-            url = jobURL + "/ws/" + this.options().zipFile;
-        }
-        else {
-            url = this.options().zipFileURL;
-        }
+        var url = this.options().zipFileURL;
         var importParameters = {
             IV_URL: url,
             IV_SAPUI5_APPLICATION_NAME: abapApplicationName,
