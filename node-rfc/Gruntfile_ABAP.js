@@ -17,9 +17,9 @@ module.exports = function(grunt) {
     var jobURL = process.env.JOB_URL;
     var nexusSnapshotRepoURL = process.env.NEXUS_SNAPSHOT_REPO;
     var gitCommit = process.env.GIT_COMMIT;
+    var targetDir = process.env.SAPDATADIR;
 
     // Global Variables
-    var targetDir = "target";
     var zipFileSuffix = "-opt-static-abap.zip";
     var ctsDataFile = targetDir + "/CTS_Data.txt";
     var nexusGroupId = "com.yourcompany";

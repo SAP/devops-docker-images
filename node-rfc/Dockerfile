@@ -5,11 +5,14 @@ USER root
 ARG SAPCAR_FILE
 ARG NWRFC_FILE
 
-ENV WORKSPACE=/opt/sap/workspace
-ENV TARGETDIR=$WORKSPACE/target
-ENV PATH=$PATH:$WORKSPACE
-
 ENV DEBIAN_FRONTEND=noninteractive
+
+ENV SAPDIR=/opt/sap
+ENV SAPBIN=${SAPDIR}/bin
+ENV SAPDATADIR=/var/sap/data
+ENV PATH=${SAPBIN}:$PATH
+
+
 
 RUN apt-get update && \
     mkdir -p /run/uuidd && \
@@ -19,11 +22,11 @@ RUN apt-get update && \
 ADD $SAPCAR_FILE /usr/local/bin/SAPCAR
 ADD $NWRFC_FILE /tmp/$NWRFC_FILE
 
-RUN mkdir -p $TARGETDIR
+RUN mkdir -p ${SAPDATADIR}
 
 # unpack rfc library
 RUN chmod a+x /usr/local/bin/SAPCAR
-WORKDIR /opt/sap
+WORKDIR ${SAPDIR}
 RUN /usr/local/bin/SAPCAR -xvf /tmp/$NWRFC_FILE && \
 	rm -f /tmp/$NWRFC_FILE
 	
@@ -34,10 +37,10 @@ COPY nwrfcsdk.conf /etc/ld.so.conf.d/nwrfcsdk.conf
 
 RUN ldconfig -v
     
-WORKDIR $WORKSPACE
-COPY Gruntfile_ABAP.js $WORKSPACE/Gruntfile_ABAP.js
-COPY package.json $WORKSPACE/package.json
-COPY cts $WORKSPACE/cts
+WORKDIR ${SAPBIN}
+COPY Gruntfile_ABAP.js ${SAPBIN}/Gruntfile_ABAP.js
+COPY package.json ${SAPBIN}/package.json
+COPY cts ${SAPBIN}/cts
 
 
 RUN    chmod a+x cts && \
@@ -49,7 +52,7 @@ RUN    chmod a+x cts && \
 	   npm install && \
 	   cat package.json
 	   
-VOLUME $TARGETDIR
+VOLUME $SAPDATADIR
 
 	
 	
