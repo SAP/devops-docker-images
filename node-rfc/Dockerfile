@@ -44,11 +44,10 @@ COPY cts ${SAPBIN}/cts
 
 
 RUN    chmod a+x cts && \
-       npm config set loglevel=error && \
-	   npm install grunt --save-dev && \
-	   npm install grunt-contrib-jshint --save-dev && \
-	   npm install grunt-cli --save-dev && \
-       npm install node-rfc@next --save-dev && \
+	   npm install grunt --save && \
+	   npm install grunt-contrib-jshint --save && \
+	   npm install grunt-cli --save && \
+       npm install node-rfc@next --save && \
 	   npm install && \
 	   cat package.json
 	   
