@@ -27,8 +27,6 @@ RUN apt-get update && \
 
 USER jenkins
 
-VOLUME /var/jenkins_ssl
-ENV JENKINS_OPTS --httpPort=8080 --httpsPort=-1
 ENV JAVA_OPTS $JAVA_OPTS -Djenkins.install.runSetupWizard=false -Dhudson.model.DirectoryBrowserSupport.CSP=
 
-EXPOSE 8080
+EXPOSE 8080 8443
