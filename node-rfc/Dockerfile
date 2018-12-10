@@ -13,44 +13,35 @@ ENV SAPDATADIR=/var/sap/data
 ENV PATH=${SAPBIN}:$PATH
 
 
-
-RUN apt-get update && \
-    mkdir -p /run/uuidd && \
-	apt-get install -y apt-utils uuid-runtime bzip2 && \
-	rm -rf /var/lib/apt/lists/* /var/cache/apt/*
-
 ADD $SAPCAR_FILE /usr/local/bin/SAPCAR
 ADD $NWRFC_FILE /tmp/$NWRFC_FILE
 
-RUN mkdir -p ${SAPDATADIR}
-
-# unpack rfc library
-RUN chmod a+x /usr/local/bin/SAPCAR
-WORKDIR ${SAPDIR}
-RUN /usr/local/bin/SAPCAR -xvf /tmp/$NWRFC_FILE && \
-	rm -f /tmp/$NWRFC_FILE
-	
-# configure rfc library
-RUN mkdir -p /etc/ld.so.conf.d/
-
 COPY nwrfcsdk.conf /etc/ld.so.conf.d/nwrfcsdk.conf
-
-RUN ldconfig -v
-    
-WORKDIR ${SAPBIN}
 COPY Gruntfile_ABAP.js ${SAPBIN}/Gruntfile_ABAP.js
 COPY package.json ${SAPBIN}/package.json
 COPY cts ${SAPBIN}/cts
 
+WORKDIR ${SAPBIN}
 
-RUN    chmod a+x cts && \
-	   npm install grunt --save && \
-	   npm install grunt-contrib-jshint --save && \
-	   npm install grunt-cli --save && \
-       npm install node-rfc@next --save && \
-	   npm install && \
-	   cat package.json
-	   
+RUN apt-get update && \
+    mkdir -p /run/uuidd && \
+	apt-get install -y apt-utils uuid-runtime bzip2 && \
+	rm -rf /var/lib/apt/lists/* /var/cache/apt/* && \
+	mkdir -p ${SAPDATADIR} && \
+    chmod a+x /usr/local/bin/SAPCAR && \
+    chmod a+x cts && \
+    cd ${SAPDIR} && \
+    /usr/local/bin/SAPCAR -xvf /tmp/$NWRFC_FILE && \
+	rm -f /tmp/$NWRFC_FILE && \
+	ldconfig -v && \
+	cd ${SAPBIN} && \
+	npm install grunt --save && \
+    npm install grunt-contrib-jshint --save && \
+	npm install grunt-cli --save && \
+    npm install node-rfc@next --save && \
+	npm install && \
+	cat package.json
+
 VOLUME $SAPDATADIR
 
 	
