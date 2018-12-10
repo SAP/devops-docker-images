@@ -25,22 +25,22 @@ WORKDIR ${SAPBIN}
 
 RUN apt-get update && \
     mkdir -p /run/uuidd && \
-	apt-get install -y apt-utils uuid-runtime bzip2 && \
-	rm -rf /var/lib/apt/lists/* /var/cache/apt/* && \
-	mkdir -p ${SAPDATADIR} && \
+    apt-get install -y apt-utils uuid-runtime bzip2 && \
+    rm -rf /var/lib/apt/lists/* /var/cache/apt/* && \
+    mkdir -p ${SAPDATADIR} && \
     chmod a+x /usr/local/bin/SAPCAR && \
     chmod a+x cts && \
     cd ${SAPDIR} && \
     /usr/local/bin/SAPCAR -xvf /tmp/$NWRFC_FILE && \
-	rm -f /tmp/$NWRFC_FILE && \
-	ldconfig -v && \
-	cd ${SAPBIN} && \
-	npm install grunt --save && \
+    rm -f /tmp/$NWRFC_FILE && \
+    ldconfig -v && \
+    cd ${SAPBIN} && \
+    npm install grunt --save && \
     npm install grunt-contrib-jshint --save && \
-	npm install grunt-cli --save && \
+    npm install grunt-cli --save && \
     npm install node-rfc@next --save && \
-	npm install && \
-	cat package.json
+    npm install && \
+    cat package.json
 
 VOLUME $SAPDATADIR
 
