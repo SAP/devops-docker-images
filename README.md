@@ -63,7 +63,7 @@ docker run ...
 ## How to obtain support
 
 Feel free to open new issues for feature requests, bugs or general feedback on
-the [GitHub issues page of this project][devops-images-issues].
+the [GitHub issues page of this project][devops-docker-images-issues].
 
 ## Contributing
 
