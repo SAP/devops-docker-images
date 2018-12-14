@@ -17,7 +17,7 @@ ADD $SAPCAR_FILE /usr/local/bin/SAPCAR
 ADD $NWRFC_FILE /tmp/$NWRFC_FILE
 
 COPY nwrfcsdk.conf /etc/ld.so.conf.d/nwrfcsdk.conf
-COPY Gruntfile_ABAP.js ${SAPBIN}/Gruntfile_ABAP.js
+COPY run_rfc_task.js ${SAPBIN}/run_rfc_task.js
 COPY package.json ${SAPBIN}/package.json
 COPY cts ${SAPBIN}/cts
 
@@ -29,18 +29,13 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/* && \
     mkdir -p ${SAPDATADIR} && \
     chmod a+x /usr/local/bin/SAPCAR && \
-    chmod a+x cts && \
+    chmod a+x ${SAPBIN}/cts && \
     cd ${SAPDIR} && \
     /usr/local/bin/SAPCAR -xvf /tmp/$NWRFC_FILE && \
     rm -f /tmp/$NWRFC_FILE && \
     ldconfig -v && \
     cd ${SAPBIN} && \
-    npm install grunt --save && \
-    npm install grunt-contrib-jshint --save && \
-    npm install grunt-cli --save && \
-    npm install node-rfc@next --save && \
-    npm install && \
-    cat package.json
+    npm install grunt grunt-contrib-jshint grunt-cli node-rfc@next --save
 
 VOLUME $SAPDATADIR
 

@@ -4,7 +4,7 @@
 uuidd
 
 
-$SAPBIN/node_modules/grunt-cli/bin/grunt -d -v --stack --no-color --gruntfile Gruntfile_ABAP.js "$@"
+$SAPBIN/node_modules/grunt-cli/bin/grunt -d -v --stack --no-color --gruntfile run_rfc_task.js "$@"
 
 if [ -f dev_rfc.trc ] 
 then
