@@ -35,7 +35,7 @@ RUN apt-get update && \
     rm -f /tmp/$NWRFC_FILE && \
     ldconfig -v && \
     cd ${SAPBIN} && \
-    npm install grunt grunt-contrib-jshint grunt-cli node-rfc@next --save
+    npm install --verbose --global grunt grunt-contrib-jshint grunt-cli --save
 
 VOLUME $SAPDATADIR
 
