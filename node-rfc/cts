@@ -3,7 +3,8 @@
 #start the uuid daemon before accessing the library
 uuidd
 
-
+#This cd needs to be done if you want to use it with Jenkins docker plugin
+cd $SAPBIN
 $SAPBIN/node_modules/grunt-cli/bin/grunt -d -v --stack --no-color --gruntfile run_rfc_task.js "$@"
 
 if [ -f dev_rfc.trc ] 
