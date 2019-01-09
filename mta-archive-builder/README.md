@@ -4,6 +4,10 @@
 
 `docker run --rm -v `pwd`:/project -it mta:latest mtaBuild --version`
 
+or
+
+`docker run --rm -v `pwd`:/project -it mta:latest mtaBuild --mtar dummy.mtar --build-target NEO build`
+
 The folder containing the project needs to be mounted into the image at `/project`.
 
 # About this image
