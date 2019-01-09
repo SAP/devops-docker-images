@@ -34,6 +34,11 @@ RUN apt-get update && apt-get install -y \
     INSTALLED_MTA_VERSION=`mtaBuild --version` && \
     echo "[INFO] mta version: \"${INSTALLED_MTA_VERSION}\"." && \
     #
+    # Install git
+    #
+    apt-get update && \
+    apt-get install -y git && \
+    #
     # Install node
     #
     NODE_HOME=/opt/nodejs; mkdir -p ${NODE_HOME} && \
