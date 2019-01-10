@@ -141,7 +141,8 @@ def extractCredentials(URL proxyURL) {
 def deleteOldInitFiles(){
     List oldFiles= [
         'init_s4sdk_library.groovy',
-        'init_executors.groovy'
+        'init_executors.groovy',
+        'init_proxy.groovy'
     ]
 
     String initDirectory = "${System.getenv("JENKINS_HOME")}/init.groovy.d/"
