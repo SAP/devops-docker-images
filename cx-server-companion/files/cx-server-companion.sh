@@ -397,9 +397,9 @@ function init_nexus()
     echo "Initializing Nexus"
 
     if [ ! -z "${no_proxy}" ]; then
-        local no_proxy_nexus_init="${no_proxy},REPLACE-ME-nexus"
+        local no_proxy_nexus_init="${no_proxy},${nexus_container_name}"
     else
-        local no_proxy_nexus_init="REPLACE-ME-nexus"
+        local no_proxy_nexus_init="${nexus_container_name}"
     fi
 
     no_proxy=${no_proxy_nexus_init} node /cx-server/init-nexus.js "{\"mvn_repository_url\": \"${mvn_repository_url}\", \"npm_registry_url\": \"${npm_registry_url}\", \"http_proxy\": \"${http_proxy}\", \"https_proxy\": \"${https_proxy}\", \"no_proxy\": \"${no_proxy}\"}"
