@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Ensure that docker is installed
+command -v docker > /dev/null 2>&1 || { echo >&2 "Docker does not seem to be installed. Please install docker and ensure that the docker command is included in \$PATH."; exit 1; }
+
+source server.cfg
+
+# Ensure backup_directory is set
+backup_directory="${backup_directory:-$(pwd)/backup}"
+mkdir -p "${backup_directory}"
+
+if [ -z "${DEVELOPER_MODE}" ]; then docker pull REPLACE-ME/cxserver-companion; fi
+
+# Run Docker without '-it' flag on Jenkins to prevent our integration test from getting stuck
+if docker run --rm -it hello-world > /dev/null 2>&1 ; then
+    DOCKER_IT_FLAG='-it'
+else
+    echo No interactive terminal, run Docker without '-it' flag
+fi
+
+mount_parameters=()
+mount_parameters+="--mount source=${backup_directory},target=/backup,type=bind "
+mount_parameters+="--mount source=$(pwd),target=/cx-server/mount,type=bind "
+mount_parameters+="--mount source=${jenkins_home},target=/jenkins_home,type=volume "
+
+if [ "${tls_enabled}" == true ] && [ ! -z "${tls_certificate_directory}" ] ; then
+    mount_parameters+="--mount source=${tls_certificate_directory},target=${tls_certificate_directory},type=bind "
+fi
+
+# These parentheses ensure that the update mechanism doesn't execute the commands from the updated script
+{
+    docker run --rm ${DOCKER_IT_FLAG} --workdir /cx-server/mount ${mount_parameters} --volume /var/run/docker.sock:/var/run/docker.sock --env DEVELOPER_MODE --env http_proxy --env https_proxy --env no_proxy --env host_os=unix --env cx_server_path="$(pwd)" REPLACE-ME/cxserver-companion /cx-server/cx-server-companion.sh "$@"
+    exit $?
+}
