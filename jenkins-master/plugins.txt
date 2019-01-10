@@ -35,6 +35,7 @@ rebuild
 saferestart
 ssh-agent
 timestamper
+warnings-ng
 workflow-aggregator
 workflow-basic-steps
 workflow-cps
