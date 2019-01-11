@@ -29,7 +29,7 @@ function verboseLog() {
 
 verboseLog(templateValues)
 
-let baseUrl = 'http://REPLACE-ME-nexus:8081/'
+let baseUrl = 'http://cx-nexus:8081/'
 let scriptTemplateFilePath = '/cx-server/nexus-init-repos.groovy'
 if (appConfig.runLocally) {
     baseUrl = 'http://localhost:8081/'

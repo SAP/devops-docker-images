@@ -1,13 +1,13 @@
 #!/bin/bash
 
-readonly container_name='REPLACE-ME-jenkins-master'
-readonly nexus_container_name='REPLACE-ME-nexus'
+readonly container_name='cx-jenkins-master'
+readonly nexus_container_name='cx-nexus'
 readonly cache_docker_image='sonatype/nexus3:3.13.0'
 readonly cxserver_companion_docker_image='REPLACE-ME/cxserver-companion'
 readonly container_port_http=8080
 readonly container_port_https=8443
 
-readonly network_name='REPLACE-ME-network'
+readonly network_name='cx-network'
 
 readonly bold_start="\033[1m"
 readonly bold_end="\033[0m"
