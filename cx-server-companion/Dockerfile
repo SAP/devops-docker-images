@@ -10,7 +10,7 @@ RUN apk add --no-cache bash docker curl && \
 WORKDIR /cx-server
 
 COPY files/* ./
-
+COPY life-cycle-scripts/* ./life-cycle-scripts/
 # Package cx-server(.bat) in this image so we can update them for the user without curl-ing
 ADD ${cx_server_base_uri} ${cx_server_base_uri}.bat ./
 
