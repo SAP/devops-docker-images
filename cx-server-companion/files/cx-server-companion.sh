@@ -576,7 +576,7 @@ function display_help()
     echo ""
     echo "Usage: cx-server [COMMAND]"
     echo ""
-    echo "Tool for controlling the lifecycle of the S/4HANA Cloud SDK Cx server."
+    echo "Tool for controlling the lifecycle of the Cx server."
     echo "Use server.cfg for customizing parameters."
     echo ""
     echo "Commands:"
