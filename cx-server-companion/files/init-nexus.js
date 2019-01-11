@@ -29,6 +29,7 @@ function verboseLog() {
 
 verboseLog(templateValues)
 
+//The URL is accessible only by other containers that are connected to the same docker network
 let baseUrl = 'http://cx-nexus:8081/'
 let scriptTemplateFilePath = '/cx-server/nexus-init-repos.groovy'
 if (appConfig.runLocally) {
@@ -36,6 +37,10 @@ if (appConfig.runLocally) {
     scriptTemplateFilePath = appConfig.scriptTemplateFilePath
 }
 
+/*
+ * The base64 encoded authorization is a default Nexus credentials.
+ * The URL is accessible only by other containers that are connected to the same docker network
+ */
 const nexusRequest = request.defaults({
     headers: {
         'Authorization': 'Basic YWRtaW46YWRtaW4xMjM=',
