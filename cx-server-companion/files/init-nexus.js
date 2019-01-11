@@ -91,6 +91,10 @@ nexusRequest
     })
 
 function runScript() {
+    /*
+     * The base64 encoded authorization is a default Nexus credentials.
+     * The URL is accessible only by other containers that are connected to the same docker network
+     */
     request(`${baseUrl}service/rest/v1/script/init-repos/run`, {
             method: 'POST',
             headers: {
