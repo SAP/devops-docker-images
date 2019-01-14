@@ -3,7 +3,7 @@
 readonly container_name='cx-jenkins-master'
 readonly nexus_container_name='cx-nexus'
 readonly cache_docker_image='sonatype/nexus3:3.13.0'
-readonly cxserver_companion_docker_image='REPLACE-ME/cxserver-companion'
+readonly cxserver_companion_docker_image='replace-me/cxserver-companion'
 readonly container_port_http=8080
 readonly container_port_https=8443
 
@@ -435,7 +435,7 @@ function start_jenkins_container()
             print_jenkins_config
             echo ""
 
-            image_name="REPLACE-ME/jenkins-master-customized"
+            image_name="replace-me/jenkins-master-customized"
 
             run "docker build --pull -t ${image_name} ${customDockerfileDir}"
             if [ $? -ne "0" ]; then
@@ -645,7 +645,7 @@ function remove_networks()
 function read_configuration()
 {
     dos2unix /cx-server/mount/server.cfg
-    source default-server.cfg
+    source /cx-server/default-server.cfg
     source /cx-server/mount/server.cfg
     if [ $? -ne 0 ]; then
         log_error 'Failed to load config from server.cfg file.'

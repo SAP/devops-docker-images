@@ -5,16 +5,16 @@ This allows us to make the Cx Server work on Windows easily.
 
 This has a few consequences for developing the script, which are described in this document.
 
-When you make changes to `cx-server-companion/cx-server-companion.sh`, you need to build the `REPLACE-ME/cxserver-companion` image locally.
+When you make changes to `cx-server-companion/cx-server-companion.sh`, you need to build the `replace-me/cxserver-companion` image locally.
 From this directory (`jenkins-master/cx-server`), the command to do so is:
 
 ```bash
-docker build [--build-arg cx_server_base_uri=https://github.some.domain/raw/path/to/cx-server] -t REPLACE-ME/cxserver-companion ../../REPLACE-ME-cxserver-companion
+docker build [--build-arg cx_server_base_uri=https://github.some.domain/raw/path/to/cx-server] -t replace-me/cxserver-companion ../../replace-me-cxserver-companion
 ```
 
 The build argument `cx_server_base_uri` is optional and only required if you don't want to use the `cx-server` version from GitHub.com.
 
-When you make changes to `REPLACE-ME/jenkins-master`, you also need to build the image locally.
+When you make changes to `replace-me/jenkins-master`, you also need to build the image locally.
 The important part is that you tag the image after building it.
 Assuming you changed an image, configured the `docker_registry` and `image_name` in the `server.cfg`, then you have to tag your image locally with `docker_registry/image_name`.
 
