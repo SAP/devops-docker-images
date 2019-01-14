@@ -1,7 +1,7 @@
 FROM node:11-alpine
 
 ARG npm_registry=https://registry.npmjs.org/
-ARG cx_server_base_uri=https://raw.githubusercontent.com/SAP/devops-docker-images/master/jenkins-master/replace-me
+ARG cx_server_base_uri=https://raw.githubusercontent.com/SAP/devops-docker-images/master/cx-server-companion/life-cycle-scripts/cx-server
 
 #Install dependencies for running the cx server script in this container
 RUN apk add --no-cache bash docker curl && \
