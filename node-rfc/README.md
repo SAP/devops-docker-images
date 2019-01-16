@@ -44,7 +44,7 @@ docker build --build-arg SAPCAR_FILE=https://<repoURL>/SAPCAR --build-arg NWRFC_
 | **ABAP_APPLICATION_DESC** | ABAP Application description |
 | **ABAP_PACKAGE** | ABAP package name |
 | **ZIP_FILE_URL**     |  URL of the zip file location to upload |
-| **GIT_COMMIT** | git commit id |
+| **TRANSPORT_DESCRIPTION** | Transport description text |
 
 Run it with:
 
