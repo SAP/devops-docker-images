@@ -9,7 +9,7 @@ source server.cfg
 backup_directory="${backup_directory:-$(pwd)/backup}"
 mkdir -p "${backup_directory}"
 
-if [ -z "${DEVELOPER_MODE}" ]; then docker pull replace-me/cxserver-companion; fi
+if [ -z "${DEVELOPER_MODE}" ]; then docker pull ppiper/cxserver-companion; fi
 
 # Run Docker without '-it' flag on Jenkins to prevent our integration test from getting stuck
 if docker run --rm -it hello-world > /dev/null 2>&1 ; then
@@ -29,6 +29,6 @@ fi
 
 # These parentheses ensure that the update mechanism doesn't execute the commands from the updated script
 {
-    docker run --rm ${DOCKER_IT_FLAG} --workdir /cx-server/mount ${mount_parameters} --volume /var/run/docker.sock:/var/run/docker.sock --env DEVELOPER_MODE --env http_proxy --env https_proxy --env no_proxy --env host_os=unix --env cx_server_path="$(pwd)" replace-me/cxserver-companion /cx-server/cx-server-companion.sh "$@"
+    docker run --rm ${DOCKER_IT_FLAG} --workdir /cx-server/mount ${mount_parameters} --volume /var/run/docker.sock:/var/run/docker.sock --env DEVELOPER_MODE --env http_proxy --env https_proxy --env no_proxy --env host_os=unix --env cx_server_path="$(pwd)" ppiper/cxserver-companion /cx-server/cx-server-companion.sh "$@"
     exit $?
 }

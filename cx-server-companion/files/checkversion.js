@@ -2,7 +2,7 @@
 'use strict';
 
 /***
- * This script consumes a docker image name in the form of replace-me/jenkins-master:v2 (where the tag is optional)
+ * This script consumes a docker image name in the form of ppiper/jenkins-master:v2 (where the tag is optional)
  * and checks whether a higher version is available on Docker Hub. If yes, it returns with exit code 3 and prints the
  * currently highest version to STDOUT. If the supplied value is the newest version, 0 is returned.
  */
@@ -67,7 +67,7 @@ function parseDockerImageInfo(strDockerImage) {
     // image string might contain docker registry url
     const urlMatch = strDockerImage.match(/\//g);
     if (!urlMatch || (urlMatch.length > 1)) {
-        exit(`Invalid image name: '${strDockerImage}'. Expected format: 'replace-me/jenkins-master:tag'`, RETURN_CODES.INVALID_IMAGE_NAME);
+        exit(`Invalid image name: '${strDockerImage}'. Expected format: 'ppiper/jenkins-master:tag'`, RETURN_CODES.INVALID_IMAGE_NAME);
     }
 
     const match = strDockerImage.match(/(.*\/.*):(.*)/);

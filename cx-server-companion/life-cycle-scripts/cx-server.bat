@@ -11,10 +11,10 @@ IF "%~1"==update (
 
 IF "%CD%"=="" GOTO WORKING_DIR_EMPTY
 
-IF "%DEVELOPER_MODE%"=="" docker pull replace-me/cxserver-companion
+IF "%DEVELOPER_MODE%"=="" docker pull ppiper/cxserver-companion
 
 (
-    docker run --rm -it --workdir /cx-server/mount --volume //var/run/docker.sock:/var/run/docker.sock --mount source="%CD%",target=/cx-server/mount,type=bind --env DEVELOPER_MODE --env http_proxy --env https_proxy --env no_proxy --env host_os=windows --env cx_server_path="%CD%" replace-me/cxserver-companion /cx-server/cx-server-companion.sh %~1 %~2
+    docker run --rm -it --workdir /cx-server/mount --volume //var/run/docker.sock:/var/run/docker.sock --mount source="%CD%",target=/cx-server/mount,type=bind --env DEVELOPER_MODE --env http_proxy --env https_proxy --env no_proxy --env host_os=windows --env cx_server_path="%CD%" ppiper/cxserver-companion /cx-server/cx-server-companion.sh %~1 %~2
     IF NOT %ERRORLEVEL% == 0 GOTO RUN_ERROR
     GOTO END
 )

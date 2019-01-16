@@ -22,3 +22,4 @@ RUN npm config set registry=$npm_registry&& \
     dos2unix cx-server && \
     chmod +x cx-server cx-server-companion.sh && \
     unix2dos cx-server.bat
+ENV PATH="/cx-server:${PATH}"
