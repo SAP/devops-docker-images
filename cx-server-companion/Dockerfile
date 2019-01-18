@@ -14,7 +14,7 @@ COPY life-cycle-scripts/* ./life-cycle-scripts/
 # Package cx-server(.bat) in this image so we can update them for the user without curl-ing
 ADD ${cx_server_base_uri} ${cx_server_base_uri}.bat ./
 
-RUN npm config set registry=$npm_registry&& \
+RUN npm config set registry=$npm_registry && \
     npm install && \
     npm config delete registry && \
     # If the repository was cloned on Windows, the script might have \CR\LF line endings. Ensure it has only \LF.

@@ -645,7 +645,7 @@ function remove_networks()
 function read_configuration()
 {
     dos2unix /cx-server/mount/server.cfg
-    source /cx-server/default-server.cfg
+    source /cx-server/server-default.cfg
     source /cx-server/mount/server.cfg
     if [ $? -ne 0 ]; then
         log_error 'Failed to load config from server.cfg file.'
