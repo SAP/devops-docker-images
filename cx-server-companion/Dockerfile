@@ -21,5 +21,6 @@ RUN npm config set registry=$npm_registry && \
     dos2unix cx-server-companion.sh && \
     dos2unix cx-server && \
     chmod +x cx-server cx-server-companion.sh && \
-    unix2dos cx-server.bat
+    unix2dos cx-server.bat && \
+    chmod +x ./life-cycle-scripts/init-cx-server
 ENV PATH="/cx-server:${PATH}"

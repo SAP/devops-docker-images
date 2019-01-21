@@ -36,8 +36,8 @@ fi
     docker run --rm ${DOCKER_IT_FLAG} --workdir /cx-server/mount "${mount_parameters[@]}" \
         --volume /var/run/docker.sock:/var/run/docker.sock \
         --env DEVELOPER_MODE \
-        --env host_os=unix
+        --env host_os=unix \
         --env cx_server_path="$(pwd)" \
-        s4sdk/cxserver-companion /cx-server/cx-server-companion.sh "$@"
+        ppiper/cxserver-companion /cx-server/cx-server-companion.sh "$@"
     exit $?
 }
