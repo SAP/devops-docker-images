@@ -15,7 +15,7 @@ module.exports = function(grunt) {
     var abapApplicationDesc = process.env.ABAP_APPLICATION_DESC;
     var abapPackage = process.env.ABAP_PACKAGE;
     var zipFileURL = process.env.ZIP_FILE_URL;
-    var transportDescritpion = process.env.TRANSPORT_DESCRIPTION;
+    var transportDescription = process.env.TRANSPORT_DESCRIPTION;
     var targetDir = process.env.SAPDATADIR;
 
     // Global Variables
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
             options: {
                 conn: abapConn,
                 author: abapDevelopmentUser,
-                description: transportDescritpion
+                description: transportDescription
             }
         },
         uploadToABAP: {
