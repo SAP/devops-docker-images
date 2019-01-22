@@ -4,9 +4,11 @@
 uuidd
 
 
-$SAPBIN/node_modules/grunt-cli/bin/grunt -d -v --stack --no-color --gruntfile $SAPBIN/run_rfc_task.js "$@"
+$SAPBIN/node_modules/grunt-cli/bin/grunt --stack --no-color --gruntfile $SAPBIN/run_rfc_task.js "$@"
+RC=$?
 
 if [ -f dev_rfc.trc ] 
 then
    cat dev_rfc.trc
 fi
+exit $RC 
