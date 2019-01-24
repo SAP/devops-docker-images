@@ -20,8 +20,8 @@ RUN npm config set registry=$npm_registry && \
     # If the repository was cloned on Windows, the script might have \CR\LF line endings. Ensure it has only \LF.
     dos2unix cx-server-companion.sh && \
     dos2unix cx-server && \
-    dos2unix ./life-cycle-scripts/init-cx-server && \
+    dos2unix init-cx-server && \
     chmod +x cx-server cx-server-companion.sh && \
     unix2dos cx-server.bat && \
-    chmod +x ./life-cycle-scripts/init-cx-server
+    chmod +x init-cx-server
 ENV PATH="/cx-server:${PATH}"
