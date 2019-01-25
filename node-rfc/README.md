@@ -10,7 +10,7 @@ This Dockerfile provides an easy and consumable way for the node-rfc wrapper and
 * General requirements can be found at the [repository readme][general]
 * An S-User for [SAP ONE][sapone]
 * Please Download SAPCAR for Linux on x86_64 from [SAP ONE][sapone]
-* Please Download NWRFC library ```SAP NW RFC SDK 7.20``` for Linux on x86_64 from [SAP ONE][sapone]
+* Please Download NWRFC library ```SAP NW RFC SDK 7.50``` for Linux on x86_64 from [SAP ONE][sapone]
 * A local docker image repository
 
 ## How to build it
@@ -20,14 +20,13 @@ You can [build][dockerbuild] your docker image in different ways.
 ### Build Arguments
 | Argument | Description |
 | ---------| ------------|
-| **SAPCAR_FILE** |Path to SAPCAR file |
-| **NWRFC_FILE** | Path to your NWRFC SAR file |
+| **NWRFC_FILE** | Path to your NWRFC zip file |
 
 The build arguments can be a local path or an URL. Please consider the rules for the build context and the used [ADD][dockerbuildadd] command.
 
 Example: Build it with URLs
 ```
-docker build --build-arg SAPCAR_FILE=https://<repoURL>/SAPCAR --build-arg NWRFC_FILE=https://<repoURL>/NWRFC.SAR --file Dockerfile myrepo.git#:node-rfc
+docker build  --build-arg NWRFC_FILE=https://<repoURL>/NWRFC.zip --file Dockerfile myrepo.git#:node-rfc
 ```
 
 ## How to execute it
@@ -43,7 +42,7 @@ docker build --build-arg SAPCAR_FILE=https://<repoURL>/SAPCAR --build-arg NWRFC_
 | **ABAP_APPLICATION_NAME** | ABAP Application name |
 | **ABAP_APPLICATION_DESC** | ABAP Application description |
 | **ABAP_PACKAGE** | ABAP package name |
-| **ZIP_FILE_URL**     |  URL of the zip file location to upload |
+| **ZIP_FILE_URL**     |  URL of the UI5 zip file location to upload |
 | **TRANSPORT_DESCRIPTION** | Transport description text |
 
 Run it with:

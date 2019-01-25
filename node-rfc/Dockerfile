@@ -2,7 +2,6 @@ FROM node:slim
 
 USER root
 
-ARG SAPCAR_FILE
 ARG NWRFC_FILE
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -12,8 +11,6 @@ ENV SAPBIN=${SAPDIR}/bin
 ENV SAPDATADIR=/var/sap/data
 ENV PATH=${SAPBIN}:$PATH
 
-
-ADD $SAPCAR_FILE /usr/local/bin/SAPCAR
 ADD $NWRFC_FILE /tmp/$NWRFC_FILE
 
 COPY nwrfcsdk.conf /etc/ld.so.conf.d/nwrfcsdk.conf
@@ -25,13 +22,12 @@ WORKDIR ${SAPBIN}
 
 RUN apt-get update && \
     mkdir -p /run/uuidd && \
-    apt-get install -y apt-utils uuid-runtime bzip2 && \
+    apt-get install -y apt-utils uuid-runtime bzip2 unzip && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/* && \
     mkdir -p ${SAPDATADIR} && \
-    chmod a+x /usr/local/bin/SAPCAR && \
     chmod a+x ${SAPBIN}/cts && \
     cd ${SAPDIR} && \
-    /usr/local/bin/SAPCAR -xvf /tmp/$NWRFC_FILE && \
+    unzip /tmp/$NWRFC_FILE && \
     rm -f /tmp/$NWRFC_FILE && \
     ldconfig -v && \
     cd ${SAPBIN} && \
