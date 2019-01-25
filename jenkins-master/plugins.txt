@@ -5,6 +5,7 @@ build-monitor-plugin
 build-timeout
 checkmarx
 command-launcher
+configuration-as-code
 credentials
 credentials-binding
 cucumber-testresult-plugin
