@@ -187,9 +187,10 @@ module.exports = function(grunt) {
         rfcConnect("BAPI_CTREQUEST_RELEASE", importParameters, this)
             .then(
             function(returnValue) {
-				if (returnValue.RETURN.TYPE == "E" || returnValue.RETURN.TYPE == "W") {
+            if (returnValue.RETURN.TYPE == "E" || returnValue.RETURN.TYPE == "W") {
                     grunt.log.errorlns("Error invoking", "BAPI_CTREQUEST_RELEASE");
-					grunt.log.writeln("Return:", returnValue);
+                    grunt.log.writeln("Return:", returnValue);
+
                     done(false);
                     return;
                 }
