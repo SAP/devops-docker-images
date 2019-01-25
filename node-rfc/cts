@@ -4,11 +4,22 @@
 uuidd
 
 
-$SAPBIN/node_modules/grunt-cli/bin/grunt --stack --no-color --gruntfile $SAPBIN/run_rfc_task.js "$@"
+$SAPBIN/node_modules/grunt-cli/bin/grunt --stack --no-color --gruntfile $SAPBIN/run_rfc_task.js "$@" > /dev/stderr
 RC=$?
 
-if [ -f dev_rfc.trc ] 
+# In case a transport request has been created this file provides the ID of
+# the transport request in a json format like {"REQUESTID":"ZZZK9NNNNN"}
+TRANSPORT_REQUEST_FILE="${SAPDATADIR}/CTS_Data.txt"
+TRACE_FILE=dev_rfc.trc
+
+if [ -f "${TRACE_FILE}" ]
 then
-   cat dev_rfc.trc
+  cat "${TRACE_FILE}" > /dev/stderr
 fi
-exit $RC 
+
+if [ -f "${TRANSPORT_REQUEST_FILE}" ]
+then
+   cat "${TRANSPORT_REQUEST_FILE}"
+fi
+exit $RC
+ 
