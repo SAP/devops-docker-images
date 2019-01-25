@@ -4,7 +4,7 @@
 uuidd
 
 
-$SAPBIN/node_modules/grunt-cli/bin/grunt --stack --no-color --gruntfile $SAPBIN/run_rfc_task.js "$@"
+$SAPBIN/node_modules/grunt-cli/bin/grunt --stack --no-color --gruntfile $SAPBIN/run_rfc_task.js "$@" > /dev/stderr
 RC=$?
 
 # In case a transport request has been created this file provides the ID of
