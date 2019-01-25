@@ -7,8 +7,9 @@ uuidd
 $SAPBIN/node_modules/grunt-cli/bin/grunt --stack --no-color --gruntfile $SAPBIN/run_rfc_task.js "$@"
 RC=$?
 
-if [ -f dev_rfc.trc ] 
+if [ -f /var/sap/data/CTS_Data.txt ]
 then
-   cat dev_rfc.trc
+   cat /var/sap/data/CTS_Data.txt
 fi
-exit $RC 
+exit $RC
+ 
