@@ -21,8 +21,7 @@ COPY cts ${SAPBIN}/cts
 WORKDIR ${SAPBIN}
 
 RUN apt-get update && \
-    mkdir -p /run/uuidd && \
-    apt-get install -y apt-utils uuid-runtime bzip2 unzip && \
+    apt-get install -y apt-utils bzip2 unzip && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/* && \
     mkdir -p ${SAPDATADIR} && \
     chmod a+x ${SAPBIN}/cts && \
