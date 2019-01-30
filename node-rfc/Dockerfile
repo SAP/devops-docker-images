@@ -24,6 +24,7 @@ RUN apt-get update && \
     apt-get install -y apt-utils bzip2 unzip && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/* && \
     mkdir -p ${SAPDATADIR} && \
+    chown 1000:1000 ${SAPDATADIR} &&\
     chmod a+x ${SAPBIN}/cts && \
     cd ${SAPDIR} && \
     unzip /tmp/$NWRFC_FILE && \
