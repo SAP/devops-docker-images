@@ -154,7 +154,7 @@ module.exports = function(grunt) {
         rfcConnect("/UI5/UI5_REPOSITORY_LOAD_HTTP", importParameters, this)
             .then(
             function(returnValue) {
-				if (returnValue.EV_SUCCESS == "E" || returnValue.EV_SUCCESS == "W") {
+                if (returnValue.EV_SUCCESS == "E" || returnValue.EV_SUCCESS == "W") {
                     grunt.log.errorlns("Error invoking", "/UI5/UI5_REPOSITORY_LOAD_HTTP");
                     grunt.log.writeln("Return:", returnValue);
                     done(false);
