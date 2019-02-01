@@ -48,9 +48,8 @@ docker build  --build-arg NWRFC_FILE=https://<repoURL>/NWRFC.zip --file Dockerfi
 Run it with:
 
 ```
-docker run -v <local path>:/var/sap/data --env <Envornment variables> <image> cts createTransportRequest|uploadToABAP|releaseTransport
+docker run --env <Envornment variables> <image> cts createTransportRequest|uploadToABAP|releaseTransport
 ```
-You have to mount the location of the zip file into the container to /var/sap/data. For more details about intermediate files please refer to our [best practices][bestpractice].
 
 [piper]: https://sap.github.io/jenkins-library/
 [noderfc]: https://sap.github.io/node-rfc/install.html
