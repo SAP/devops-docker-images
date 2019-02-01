@@ -132,11 +132,8 @@ module.exports = function(grunt) {
     grunt.registerTask("uploadToABAP", "Uploads the application to the ABAP System", function(transportRequest) {
         grunt.log.writeln("Uploading to ABAP");
         if (!transportRequest) {
-            if (!fs.existsSync(ctsDataFile)) {
-                grunt.log.errorlns("No Transport request specified. Pass one explicitly or run createTransportRequest first.");
-                return (false);
-            }
-            transportRequest = JSON.parse(fs.readFileSync(ctsDataFile, { encoding: "utf8" })).REQUESTID;
+            grunt.log.errorlns("No Transport request specified.");
+            return (false);
         }
         grunt.log.writeln("Transport request:", transportRequest);
         var url = this.options().zipFileURL;
@@ -171,11 +168,8 @@ module.exports = function(grunt) {
     grunt.registerTask("releaseTransport", "Releases an ABAP Transport Request", function(transportRequest) {
         grunt.log.writeln("Releasing Transport Request");
         if (!transportRequest) {
-            if (!fs.existsSync(ctsDataFile)) {
-                grunt.log.errorlns("No Transport request specified. Pass one explicitly or run createTransportRequest first.");
-                return (false);
-            }
-            transportRequest = JSON.parse(fs.readFileSync(ctsDataFile, { encoding: "utf8" })).REQUESTID;
+            grunt.log.errorlns("No Transport request specified.");
+            return (false);
         }
         grunt.log.writeln("Transport request:", transportRequest);
         var importParameters = {
