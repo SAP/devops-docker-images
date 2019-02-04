@@ -19,6 +19,16 @@ To build this image locally, open a terminal in the directory of the Dockerfile 
 docker build -t ppiper/cf-cli .
 ```
 
+## Usage
+
+Recommended usage of this image is via [`cloudFoundryDeploy`](https://sap.github.io/jenkins-library/steps/cloudFoundryDeploy/) pipeline step.
+
+For using the `cf` tool via this image, it can be invoked like in this command
+
+```
+docker run ppiper/cf-cli cf
+```
+
 ## License
 
 Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved.
