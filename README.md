@@ -19,6 +19,7 @@ The following files are still being prepared, and are not yet released:
 | Jenkins | Preconfigured Jenkins to run project "Piper" pipelines. | [jenkins-master/](jenkins-master/) |
 | MTA Archive Builder | Build SAP Multitarget Applications with the [MTA archive builder](https://help.sap.com/viewer/58746c584026430a890170ac4d87d03b/Cloud/en-US/ba7dd5a47b7a4858a652d15f9673c28d.html). | [mta-archive-builder/](mta-archive-builder/) |
 | CM Client | Interact with SAP Solution Manager or CTS using the command line. | [cm-client/](cm-client/) |
+| CloudFoundry CLI | Command line tools for CloudFoundry, with blue-green deploy and MTA plugin | [cf-cli](cf-cli/) |
 
 
 ## General Requirements
