@@ -12,6 +12,6 @@ RUN mkdir /app && unzip /usr/share/jenkins/jenkins.war -d /app/jenkins \
 COPY --from=maven /jenkinsfile-runner/app/target/appassembler /app
 
 ENTRYPOINT ["/app/bin/jenkinsfile-runner", \
-            "--jenkins-war", "/app/jenkins",\
-            "--plugins", "/usr/share/jenkins/ref/plugins",\
+            "--jenkins-war", "/app/jenkins", \
+            "--plugins", "/usr/share/jenkins/ref/plugins", \
             "--file", "/workspace"]
