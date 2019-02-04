@@ -7,7 +7,7 @@ RUN git clone -b 1.0-beta-6 https://github.com/jenkinsci/jenkinsfile-runner && \
 FROM ppiper/jenkins-master
 
 USER root
-RUN mkdir /app && unzip /usr/share/jenkins/jenkins.war -d /app/jenkins \
+RUN mkdir /app && unzip /usr/share/jenkins/jenkins.war -d /app/jenkins && \
     mkdir -p /var/cx-server/jenkins-configuration
 COPY --from=maven /jenkinsfile-runner/app/target/appassembler /app
 
