@@ -361,6 +361,10 @@ function start_nexus_container()
         environment_variable_parameters+="$(get_proxy_parameters "${cache_docker_image}")"
         environment_variable_parameters+="${effective_java_opts}"
 
+        if [ -e /cx-server/mount/jenkins-configuration ]; then
+            environment_variable_parameters+=(-e CASC_JENKINS_CONFIG=/var/cx-server/jenkins-configuration)
+        fi
+
         print_nexus_config
 
         local nexus_port_mapping=""
