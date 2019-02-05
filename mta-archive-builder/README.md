@@ -17,4 +17,8 @@ The folder containing the project needs to be mounted into the image at `/projec
 - SAP Multi Target Archive Builder (MTA)
 - Node
 - SAP registry (@sap:registry https://npm.sap.com) contained in global node configuration.
+- Maven
 
+MTA delegates to other build tools. This image provides node and maven, so MTA can delegate
+to these build technologies. In case more build tools are needed inherit from this image and
+add more build tools.
