@@ -1,4 +1,4 @@
-### Description
+## Description
 
 This is a collection of [_Dockerfiles_](https://docs.docker.com/engine/reference/builder/) for images that can be used in _Continuous Delivery_ (CD) pipelines 
 for SAP development projects. The images are optimized for use with project ["Piper"](https://github.com/SAP/jenkins-library) on [Jenkins](https://jenkins.io/). Docker containers simplify your CD tool setup, encapsulating 
@@ -21,7 +21,7 @@ The following files are still being prepared, and are not yet released:
 | CM Client | Interact with SAP Solution Manager or CTS using the command line. | [cm-client/](cm-client/) |
 
 
-### General Requirements
+## General Requirements
 
 A [Docker](https://www.docker.com/) environment is needed to build and run Docker images. You should be familiar with basic Docker commands to build and run these images. In case you need to fetch the Dockerfiles and this project's sources to build them locally, a [Git client](https://git-scm.com/) is required.
 
@@ -67,7 +67,7 @@ In order to use the toolkit, you need a file named `cx-server` and a configurati
 You can generate these files using the docker command
 
 ```sh
-docker run -it --rm -u `id -u`:`id -g` -v ${PWD}:/cx-server/mount/ ppiper/cxserver-companion:latest init
+docker run -it --rm -u `id -u`:`id -g` -v ${PWD}:/cx-server/mount/ ppiper/cxserver-companion:latest init-cx-server
 ``` 
 
 Once the files are generated in the current directory, you can launch the below command to start the Jenkins server.
@@ -78,17 +78,17 @@ Once the files are generated in the current directory, you can launch the below 
 
 If you would like to customize the Jenkins, [the operations guide](docs/operations/cx-server-lifecycle.md) will provide more information on this along with the lifecycle management of the Jenkins. 
 
-### How to obtain support
+## How to obtain support
 
 Feel free to open new issues for feature requests, bugs or general feedback on
 the [GitHub issues page of this project][devops-docker-images-issues].
 
-### Contributing
+## Contributing
 
 Read and understand our [contribution guidelines][contribution]
 before opening a pull request.
 
-### License
+## License
 
 Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved.
 This file is licensed under the Apache Software License, v. 2 except as noted
