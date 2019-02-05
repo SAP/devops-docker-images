@@ -4,7 +4,7 @@ then
     echo "There was an error in generating cx-server file"
     echo "Please make sure that you have mounted your local directory to the comanion"
     echo "Example:"
-    echo "         docker run -it --rm -u \`id -u\`:\`id -g\` -v \${PWD}:/cx-server/mount/ ppiper/cxserver-companion:latest init"
+    echo "         docker run -it --rm -u \`id -u\`:\`id -g\` -v \${PWD}:/cx-server/mount/ ppiper/cxserver-companion:latest init-cx-server"
 else
     echo "The cx-server and the server.cfg files have been generated"
     echo "Please give the execute permission to the file cx-server"

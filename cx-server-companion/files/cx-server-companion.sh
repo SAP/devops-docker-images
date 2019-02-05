@@ -2,7 +2,7 @@
 
 readonly container_name='cx-jenkins-master'
 readonly nexus_container_name='cx-nexus'
-readonly cache_docker_image='sonatype/nexus3:3.13.0'
+readonly cache_docker_image='sonatype/nexus3:3.14.0'
 readonly cxserver_companion_docker_image='ppiper/cxserver-companion'
 readonly container_port_http=8080
 readonly container_port_https=8443
@@ -598,13 +598,13 @@ function display_help()
     echo "Use server.cfg for customizing parameters."
     echo ""
     echo "Commands:"
-    command_help_text 'start'         'Starts the server container using the configured parameters for jenkins_home, docker_registry, docker_image, http_port.'
-    command_help_text 'status'        'Display status information about Cx Server'
-    command_help_text 'stop'          'Stops the running server container.'
+    command_help_text 'start'         "Starts the server container using the configured parameters for jenkins_home, docker_registry, docker_image, http_port."
+    command_help_text 'status'        "Display status information about Cx Server"
+    command_help_text 'stop'          "Stops the running server container."
     command_help_text 'remove'        "Removes a stopped server container. A subsequent call of 'start' will instantiate a fresh container."
     command_help_text 'backup'        "Takes a backup of the configured 'jenkins_home' and stores it in the configured 'backup_directory'."
     command_help_text 'restore'       "Restores the content of the configured 'jenkins_home' by the contents of the provided backup file. Usage: 'cx-server restore <absolute_path_to_backup_file>'."
-    command_help_text 'update script' 'Explicitly pull the Docker image containing this script to update to its latest version. Running this is not required, since the image is updated automatically.'
+    command_help_text 'update script' "Explicitly pull the Docker image containing this script to update to its latest version. Running this is not required, since the image is updated automatically."
     command_help_text 'update image'  "Updates the configured 'docker_image' to the newest available version of Cx Server image on Docker Hub."
     command_help_text 'help'          "Shows this help text."
 }
