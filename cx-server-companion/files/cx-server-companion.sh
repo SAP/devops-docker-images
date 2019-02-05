@@ -148,9 +148,9 @@ function get_proxy_parameters()
         # append to whatever is there
         no_proxy_values+=("${x_no_proxy}")
     fi
-    
-    if [ "${behind_proxy}" = true ]; then	
-        no_proxy_values+=("${nexus_container_name}")	
+
+    if [ "${behind_proxy}" = true ]; then
+        no_proxy_values+=("${nexus_container_name}")
     fi
 
     if [ ${#no_proxy_values[@]} != 0 ]; then
@@ -247,6 +247,12 @@ function stop_jenkins_container()
     retry 360 5 0 "is_container_status ${container_name} 'exited'"
 }
 
+function stop_jenkins_unsafe()
+{
+    echo 'Force-stopping Cx server'
+    docker stop ${container_name}
+}
+
 function stop_nexus()
 {
     nexus_container_id="$(get_container_id "${nexus_container_name}")"
@@ -257,6 +263,12 @@ function stop_nexus()
         run docker stop "${nexus_container_name}"
         remove_networks
     fi
+}
+
+function stop_nexus_unsafe()
+{
+    echo 'Force-stopping nexus'
+    docker stop ${nexus_container_name}
 }
 
 function get_image_environment_variable()
@@ -464,8 +476,8 @@ function start_jenkins_container()
                 image_name="${docker_image}"
             fi
 
-            if [ -z ${DEVELOPER_MODE} ]; then 
-                run "docker pull ${image_name}"; 
+            if [ -z ${DEVELOPER_MODE} ]; then
+                run "docker pull ${image_name}";
                 if [ $? -ne "0" ]; then
                     log_error "Failed to pull '$image_name'."
                     exit $?;
@@ -833,9 +845,14 @@ elif [ "$1" == "start" ]; then
     start_nexus
     start_jenkins
 elif [ "$1" == "stop" ]; then
-    check_image_update
-    stop_jenkins
-    stop_nexus
+    if [ "$2" == "--force" ]; then
+        stop_jenkins_unsafe
+        stop_nexus_unsafe
+    else
+        check_image_update
+        stop_jenkins
+        stop_nexus
+    fi
 elif [ "$1" == "start_cache" ]; then
     start_nexus
 elif [ "$1" == "stop_cache" ]; then
