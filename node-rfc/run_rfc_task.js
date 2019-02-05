@@ -144,7 +144,8 @@ module.exports = function(grunt) {
             IV_PACKAGE: abapPackage,
             IV_WORKBENCH_REQUEST: transportRequest,
             IV_TEST_MODE: "-",
-            IV_EXTERNAL_CODE_PAGE: this.options().codePage
+            IV_EXTERNAL_CODE_PAGE: this.options().codePage,
+            IV_DELTA_MODE: "X"
         };
         var done = this.async();
         grunt.log.writeln("Uploading application from", url);
