@@ -5,7 +5,7 @@ This guide describes life-cycle management of the Cx Server for Continuous Integ
 #### Introduction
 The `cx-server` and the `server.cfg` files will help to manage the complete lifecycle of Jenkins server. You can generated these file by using the below docker command.
 ```
-docker run -it --rm -u `id -u`:`id -g` -v ${PWD}:/cx-server/mount/ ppiper/cxserver-companion:latest init
+docker run -it --rm -u $(id -u):$(id -g) -v ${PWD}:/cx-server/mount/ ppiper/cxserver-companion:latest init-cx-server
 ```
 
 For the convenient usage of the script, a [completion script](https://raw.githubusercontent.com/SAP/devops-docker-images/master/cx-server-companion/cx-server/life-cycle-scrips/cx-server-completion.bash) for `cx-server` is provided. 
@@ -51,7 +51,7 @@ The `cx-server` can be customized to fit your use case. The `server.cfg` file co
   |`mvn_repository_url`| | Maven central repository URL| It will be used if you need to configure a custom maven repository|
   |`npm_registry_url`| | Central NPM registry| It will be used if you need to configure a custom npm registry|
   |`x_nexus_java_opts`| | | You can configure the JAVA_OPTS of the download cache server using this option|
-
+  
 #### Life-cycle of `cx-server` 
 ##### start
 You can start the Jenkins server by launching the `start` command.

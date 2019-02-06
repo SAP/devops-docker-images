@@ -67,7 +67,7 @@ In order to use the toolkit, you need a file named `cx-server` and a configurati
 You can generate these files using the docker command
 
 ```sh
-docker run -it --rm -u `id -u`:`id -g` -v ${PWD}:/cx-server/mount/ ppiper/cxserver-companion:latest init-cx-server
+docker run -it --rm -u $(id -u):$(id -g) -v ${PWD}:/cx-server/mount/ ppiper/cxserver-companion:latest init-cx-server
 ``` 
 
 Once the files are generated in the current directory, you can launch the below command to start the Jenkins server.
@@ -76,7 +76,7 @@ Once the files are generated in the current directory, you can launch the below 
 ./cx-server start
 ```
 
-If you would like to customize the Jenkins, [the operations guide](docs/operations/cx-server-lifecycle.md) will provide more information on this along with the lifecycle management of the Jenkins. 
+If you would like to customize the Jenkins, [the operations guide](https://github.com/SAP/devops-docker-images/blob/master/docs/operations/cx-server-lifecycle.md) will provide more information on this along with the lifecycle management of the Jenkins. 
 
 ## How to obtain support
 
