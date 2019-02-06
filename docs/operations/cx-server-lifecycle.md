@@ -207,5 +207,3 @@ You can find the logs of the `cx-server` and the caching server as part of the D
 docker logs cx-jenkins-master
 docker logs cx-nexus
 ```
-
-

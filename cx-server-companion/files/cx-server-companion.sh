@@ -577,6 +577,10 @@ function start_jenkins_container()
                 log_error "Ensure that the TLS certificate jenkins.crt and the private key jenkins.key exist inside the tls directory"
                 exit 1
             fi
+            if [ "${host_os}" = windows ] ; then
+                log_error "TLS is not supported on Windows. For a productive usage please use Linux."
+                exit 1
+            fi
             mount_parameters+=(-v "${cx_server_path}/tls:/var/ssl/jenkins")
             environment_variable_parameters+=(-e "JENKINS_OPTS=--httpsCertificate=/var/ssl/jenkins/jenkins.crt --httpsPrivateKey=/var/ssl/jenkins/jenkins.key --httpsPort=${container_port_https} --httpPort=${container_port_http}")
         else

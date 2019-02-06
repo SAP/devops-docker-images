@@ -11,7 +11,7 @@ IF "%~1"==update (
 
 IF "%CD%"=="" GOTO WORKING_DIR_EMPTY
 
-IF "%DEVELOPER_MODE%"=="" docker pull s4sdk/cxserver-companion
+IF "%DEVELOPER_MODE%"=="" docker pull ppiper/cxserver-companion
 
 (
     docker run --rm -it --workdir /cx-server/mount --volume //var/run/docker.sock:/var/run/docker.sock --mount source="%CD%",target=/cx-server/mount,type=bind --env DEVELOPER_MODE --env host_os=windows --env cx_server_path="%CD%" ppiper/cxserver-companion /cx-server/cx-server-companion.sh %~1 %~2
