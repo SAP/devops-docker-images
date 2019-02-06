@@ -1,6 +1,5 @@
 #!/usr/bin/env groovy
 import com.sap.piper.JenkinsController
-import com.sap.piper.JenkinsJobController
 
 @Library(['s4sdk-pipeline-library', 'piper-library-os']) _
 
@@ -21,14 +20,13 @@ timeout(time: 5, unit: 'HOURS') {
         JenkinsController jenkins
 
         stage('Start Jenkins') {
-            jenkins = new JenkinsController(script: this, jenkinsUrl: "http://${env.HOST}")
+            jenkins = new JenkinsController(this, "http://${env.HOST}")
             jenkins.waitForJenkinsStarted()
         }
 
         stage('Test Pipeline with Example Projects') {
-            def jenkinsJob = jenkins.createJob("${env.PPIPER_INFRA_IT_TEST_PROJECT}", 'infrastructure-integration-test')
-            jenkinsJob.buildJob()
-            jenkinsJob.waitForSuccess("infrastructure-integration-test")
+            jenkins.buildJob('infrastructure-integration-test')
+            jenkins.waitForSuccess('infrastructure-integration-test', 'infrastructure-integration-test')
         }
     }
 }
