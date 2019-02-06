@@ -15,7 +15,7 @@ readonly cxserver_mount=/cx-server/mount
 readonly backup_folder="${cxserver_mount}/backup"
 readonly tls_folder="${cxserver_mount}/tls"
 
-readonly alpine='alpine:3.9'
+readonly alpine_docker_image='alpine:3.9'
 
 
 readonly bold_start="\033[1m"
@@ -620,11 +620,11 @@ function backup_volume()
 
     # FNR will skip the header and awk will print only 4th column of the output.
     local free_space=$(df -h "${backup_folder}" | awk 'FNR > 1 {print $4}')
-    local used_space=$(docker run --rm -v "${jenkins_home}":/jenkins_home_dir "${alpine}" du -sh /jenkins_home_dir | awk '{print $1}')
+    local used_space=$(docker run --rm -v "${jenkins_home}":/jenkins_home_dir "${alpine_docker_image}" du -sh /jenkins_home_dir | awk '{print $1}')
     log_info "Available free space on the host is ${free_space} and the size of the volume is ${used_space}"
 
     local free_space_bytes=$(df "${backup_folder}" | awk 'FNR > 1 {print $4}')
-    local used_space_bytes=$(docker run --rm -v "${jenkins_home}":/jenkins_home_dir "${alpine}" du -s /jenkins_home_dir | awk '{print $1}')
+    local used_space_bytes=$(docker run --rm -v "${jenkins_home}":/jenkins_home_dir "${alpine_docker_image}" du -s /jenkins_home_dir | awk '{print $1}')
     # Defensive estimation: Backup needs twice the volume size (copying + zipping)
     local estimated_free_space_after_backup=$(expr ${free_space_bytes} - $(expr ${used_space_bytes} \* 2))
 
@@ -639,7 +639,7 @@ function backup_volume()
 
     # Perform backup by first creating a temp copy and then taring the copy.
     # Reason: tar fails if files are changed during the runtime of the command.
-    docker run --rm -v "${jenkins_home}":/jenkins_home_dir --volumes-from "${cxserver_companion_container_id}" "${alpine}" \
+    docker run --rm -v "${jenkins_home}":/jenkins_home_dir --volumes-from "${cxserver_companion_container_id}" "${alpine_docker_image}" \
         sh -c "mkdir -p ${backup_temp_folder} && \
             rm -rf ${backup_temp_folder} && \
             cp -pr /jenkins_home_dir ${backup_temp_folder} && \
@@ -706,7 +706,7 @@ function restore_volume()
         stop_jenkins
         log_info "Starting to restore the state of '${jenkins_home}' from '${backup_filename}'"
 
-        docker run --rm -v "${jenkins_home}":/jenkins_home_dir --volumes-from "${cxserver_companion_container_id}" "${alpine}" \
+        docker run --rm -v "${jenkins_home}":/jenkins_home_dir --volumes-from "${cxserver_companion_container_id}" "${alpine_docker_image}" \
             sh -c "rm -rf /jenkins_home_dir/* /jenkins_home_dir/..?* /jenkins_home_dir/.[!.]* \
             && ls -al / \
             && tar -C /jenkins_home_dir/ -zxf ${backup_filepath} \
