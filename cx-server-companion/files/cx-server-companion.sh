@@ -677,7 +677,7 @@ function display_help()
     command_help_text 'stop'          "Stops the running server container."
     command_help_text 'remove'        "Removes a stopped server container. A subsequent call of 'start' will instantiate a fresh container."
     command_help_text 'backup'        "Takes a backup of the configured 'jenkins_home' and stores it in the backup directory."
-    command_help_text 'restore'       "Restores the content of the configured 'jenkins_home' by the contents of the provided backup file. Usage: 'cx-server restore <name of backup file>'."
+    command_help_text 'restore'       "Restores the content of the configured 'jenkins_home' by the contents of the provided backup file. Usage: 'cx-server restore <name of the backup file>'."
     command_help_text 'update script' "Explicitly pull the Docker image containing this script to update to its latest version. Running this is not required, since the image is updated automatically."
     command_help_text 'update image'  "Updates the configured 'docker_image' to the newest available version of Cx Server image on Docker Hub."
     command_help_text 'help'          "Shows this help text."
