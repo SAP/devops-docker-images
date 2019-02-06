@@ -27,12 +27,10 @@ docker build -t localhost:5000/ppiper/jenkins-master:latest ../jenkins-master
 docker build --build-arg cx_server_base_uri=https://raw.githubusercontent.com/fwilhe/devops-docker-images/master/jenkins-master/cx-server/cx-server -t localhost:5000/ppiper/cxserver-companion:latest ../cx-server-companion
 docker build -t localhost:5000/ppiper/cf-cli ../cf-cli
 
-docker tag localhost:5000/ppiper/container-structure-test:latest ppiper/container-structure-test:latest
 docker tag localhost:5000/ppiper/jenkins-master:latest ppiper/jenkins-master:latest
 docker tag localhost:5000/ppiper/cxserver-companion:latest ppiper/cxserver-companion:latest
 docker tag localhost:5000/ppiper/cf-cli ppiper/cf-cli:latest
 
-docker push localhost:5000/ppiper/container-structure-test:latest
 docker push localhost:5000/ppiper/jenkins-master:latest
 docker push localhost:5000/ppiper/cxserver-companion:latest
 docker push localhost:5000/ppiper/cf-cli:latest
