@@ -1,0 +1,12 @@
+jenkins:
+  numExecutors: 10
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+              scope: GLOBAL
+              id: "devops-docker-images-IT-cf"
+              username: ${PPIPER_INFRA_IT_CF_USERNAME}
+              password: ${PPIPER_INFRA_IT_CF_PASSWORD}
+              description: "SAP CP account for infrastructure testing"

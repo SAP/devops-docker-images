@@ -1,0 +1,34 @@
+#!/usr/bin/env groovy
+import com.sap.piper.JenkinsController
+import com.sap.piper.JenkinsJobController
+
+@Library(['s4sdk-pipeline-library', 'piper-library-os']) _
+
+timeout(time: 5, unit: 'HOURS') {
+
+    node("master") {
+        stage('Init') {
+            deleteDir()
+            checkout scm
+            if (!env.HOST) {
+                error "Violated assumption: Environment variable env.HOST is not set. This must be set as the hostname."
+            }
+            if (!env.PPIPER_INFRA_IT_TEST_PROJECT) {
+                error "Violated assumption: Environment variable env.PPIPER_INFRA_IT_TEST_PROJECT is not set. This must be set as a link to a git repository of a suitable test project."
+            }
+        }
+
+        JenkinsController jenkins
+
+        stage('Start Jenkins') {
+            jenkins = new JenkinsController(script: this, jenkinsUrl: "http://${env.HOST}")
+            jenkins.waitForJenkinsStarted()
+        }
+
+        stage('Test Pipeline with Example Projects') {
+            def jenkinsJob = jenkins.createJob("${env.PPIPER_INFRA_IT_TEST_PROJECT}", 'infrastructure-integration-test')
+            jenkinsJob.buildJob()
+            jenkinsJob.waitForSuccess("infrastructure-integration-test")
+        }
+    }
+}

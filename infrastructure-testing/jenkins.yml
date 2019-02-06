@@ -1,0 +1,20 @@
+jenkins:
+  numExecutors: 10
+unclassified:
+  globallibraries:
+    libraries:
+    - defaultVersion: "master"
+      name: "s4sdk-pipeline-library"
+      retriever:
+        modernSCM:
+          scm:
+            git:
+              remote: "https://github.com/SAP/cloud-s4-sdk-pipeline-lib.git"
+#Fixme: Use master branch once https://github.com/SAP/jenkins-library/pull/477 is merged
+    - defaultVersion: "jenkins-controller"
+      name: "piper-library-os"
+      retriever:
+        modernSCM:
+          scm:
+            git:
+              remote: "https://github.com/SAP/jenkins-library.git"
