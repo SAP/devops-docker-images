@@ -5,10 +5,6 @@ command -v docker > /dev/null 2>&1 || { echo >&2 "Docker does not seem to be ins
 
 source server.cfg
 
-# Ensure backup_directory is set
-backup_directory="${backup_directory:-$(pwd)/backup}"
-mkdir -p "${backup_directory}"
-
 if [ -z "${DEVELOPER_MODE}" ]; then
     docker pull ppiper/cxserver-companion;
 fi
@@ -20,24 +16,17 @@ else
     echo No interactive terminal, run Docker without '-it' flag
 fi
 
-mount_parameters=()
-mount_parameters+=(--mount source="${backup_directory},target=/backup,type=bind")
-mount_parameters+=(--mount source="$(pwd),target=/cx-server/mount,type=bind")
-mount_parameters+=(--mount source="${jenkins_home},target=/jenkins_home,type=volume")
-
-if [ "${tls_enabled}" == true ] && [ ! -z "${tls_certificate_directory}" ] ; then
-    mount_parameters+=(--mount source="${tls_certificate_directory},target=${tls_certificate_directory},type=bind")
-fi
-
 # These braces ensure that the block in them cannot be overridden by updating this file on the fly.
 # The exit inside protects against unintended effect when the new script file is bigger than its old version.
 # See: https://stackoverflow.com/questions/3398258/edit-shell-script-while-its-running
 {
-    docker run --rm ${DOCKER_IT_FLAG} --workdir /cx-server/mount "${mount_parameters[@]}" \
+    docker run --rm ${DOCKER_IT_FLAG} \
+        --mount source="${PWD},target=/cx-server/mount,type=bind" \
+        --workdir /cx-server/mount \
         --volume /var/run/docker.sock:/var/run/docker.sock \
         --env DEVELOPER_MODE \
         --env host_os=unix \
-        --env cx_server_path="$(pwd)" \
+        --env cx_server_path="${PWD}" \
         ppiper/cxserver-companion /cx-server/cx-server-companion.sh "$@"
     exit $?
 }
