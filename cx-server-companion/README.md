@@ -7,21 +7,21 @@ This image is to be used as described in the [operations guide](https://github.c
 
 This image is published to Docker Hub and can be pulled via the command
 
-```
+```sh
 docker pull ppiper/cx-server-companion
 ```
 
 ## Build
 
-To build this image locally, open a terminal in the directory of the Dockerfile and run
+To build this image locally, open a terminal in the directory of the `Dockerfile` and run
 
-```
+```sh
 docker build -t ppiper/cx-server-companion .
 ```
 
 ## Usage
 
-This image is to be used by the cx-server script as a [sidecar](https://docs.microsoft.com/en-us/azure/architecture/patterns/sidecar) container. In order to use this image to it's complete potential, use the cx-server script. You can generate the same using the below command.
+This image is to be used by the cx-server script as a [sidecar](https://docs.microsoft.com/en-us/azure/architecture/patterns/sidecar) container. In order to use this image to its complete potential, use the `cx-server` script. You can generate it using the below command.
 
 ```sh
 docker run -it --rm -u $(id -u):$(id -g) -v "${PWD}":/cx-server/mount/ ppiper/cx-server-companion:latest init-cx-server
