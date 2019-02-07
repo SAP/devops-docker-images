@@ -7,7 +7,7 @@ This image can be used to build SAP Multitarget Applications (MTA) containing Ja
 
 On a linux machine you can run 
 
-`docker run --rm -v `pwd`:/project -it mta-archive-builder:latest mtaBuild --version`
+`docker run -v `pwd`:/project --rm mta-archive-builder mtaBuild --version`
 
 This will execute the MTA archive builder and print its version information.
 
