@@ -7,11 +7,15 @@ This image can be used to build SAP Multitarget Applications (MTA) containing Ja
 
 On a linux machine you can run 
 
-`docker run -v `pwd`:/project --rm mta-archive-builder mtaBuild --version`
+```
+docker run -v `pwd`:/project --rm mta-archive-builder mtaBuild --version
+```
 
 This will execute the MTA archive builder and print its version information.
 
-`docker run --rm -v `pwd`:/project -it mta-archive-builder:latest mtaBuild --mtar dummy.mtar --build-target NEO build`
+```
+docker run --rm -v `pwd`:/project -it mta-archive-builder:latest mtaBuild --mtar dummy.mtar --build-target NEO build
+```
 
 This will build an `mtar` file for SAP Cloud Platform (Neo). The folder containing the project needs to be mounted into the image at `/project`.
 
