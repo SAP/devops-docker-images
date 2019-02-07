@@ -10,7 +10,7 @@ This repository contains Dockerfiles that are designed to run project "Piper" pi
 
 For detailed usage information please check the README.md in the corresponding folder.
 
-###  Dockerfiles
+### Dockerfiles
 
 The following files are still being prepared, and are not yet released:
 
@@ -45,7 +45,7 @@ You can consume these images in three different flavors:
     docker run ...
     ````
 
-Specific instructions how to run the containers are stored within the same directory.
+    Specific instructions how to run the containers are stored within the same directory.
 
 2. Pull from hub.docker.com
 
@@ -61,6 +61,23 @@ Specific instructions how to run the containers are stored within the same direc
     In case you are using [project "Piper"](https://sap.github.io/jenkins-library/) you can configure certain steps 
     to use docker images instead of the local Jenkins environment. These steps will automatically pull and run these 
     images.
+ 
+### Setting up Jenkins Server
+The `cx-server` is a toolkit that is developed to manage the lifecycle of the Jenkins server.
+In order to use the toolkit, you need a file named `cx-server` and a configuration file `server.cfg`. 
+You can generate these files using the docker command
+
+```sh
+docker run -it --rm -u $(id -u):$(id -g) -v "${PWD}":/cx-server/mount/ ppiper/cx-server-companion:latest init-cx-server
+``` 
+
+Once the files are generated in the current directory, you can launch the below command to start the Jenkins server.
+
+```sh
+./cx-server start
+```
+
+If you would like to customize the Jenkins, [the operations guide](https://github.com/SAP/devops-docker-images/blob/master/docs/operations/cx-server-operations-guide.md) will provide more information on this along with the lifecycle management of the Jenkins. 
 
 ## How to obtain support
 
