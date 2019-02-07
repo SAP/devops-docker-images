@@ -38,7 +38,7 @@ cd ../jenkins-master/cx-server
 export PPIPER_INFRA_IT_CF_PASSWORD
 ./cx-server start
 
-cd ../../infrastructure-testing
+cd ../../infrastructure-tests
 
 docker run -v //var/run/docker.sock:/var/run/docker.sock -v $(pwd):/workspace \
  -e CASC_JENKINS_CONFIG=/workspace/jenkins.yml -e HOST=$(hostname) -e PPIPER_INFRA_IT_TEST_PROJECT \
