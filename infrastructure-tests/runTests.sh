@@ -37,6 +37,7 @@ docker push localhost:5000/ppiper/cf-cli:latest
 cd ../cx-server-companion/life-cycle-scripts
 export PPIPER_INFRA_IT_CF_PASSWORD
 export PPIPER_INFRA_IT_CF_USERNAME
+chmod +x cx-server
 ./cx-server start
 
 cd ../../infrastructure-tests
