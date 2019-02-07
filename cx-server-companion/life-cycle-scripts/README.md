@@ -5,11 +5,11 @@ This allows us to make the Cx Server work on Windows easily.
 
 This has a few consequences for developing the script, which are described in this document.
 
-When you make changes to `cx-server-companion/cx-server-companion.sh`, you need to build the `ppiper/cxserver-companion` image locally.
+When you make changes to `cx-server-companion/cx-server-companion.sh`, you need to build the `ppiper/cx-server-companion` image locally.
 From this directory (`jenkins-master/cx-server`), the command to do so is:
 
 ```bash
-docker build [--build-arg cx_server_base_uri=https://github.some.domain/raw/path/to/cx-server] -t ppiper/cxserver-companion ../../ppiper-cxserver-companion
+docker build [--build-arg cx_server_base_uri=https://github.some.domain/raw/path/to/cx-server] -t ppiper/cx-server-companion ../../ppiper-cx-server-companion
 ```
 
 The build argument `cx_server_base_uri` is optional and only required if you don't want to use the `cx-server` version from GitHub.com.

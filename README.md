@@ -67,7 +67,7 @@ In order to use the toolkit, you need a file named `cx-server` and a configurati
 You can generate these files using the docker command
 
 ```sh
-docker run -it --rm -u $(id -u):$(id -g) -v ${PWD}:/cx-server/mount/ ppiper/cxserver-companion:latest init-cx-server
+docker run -it --rm -u $(id -u):$(id -g) -v "${PWD}":/cx-server/mount/ ppiper/cx-server-companion:latest init-cx-server
 ``` 
 
 Once the files are generated in the current directory, you can launch the below command to start the Jenkins server.
