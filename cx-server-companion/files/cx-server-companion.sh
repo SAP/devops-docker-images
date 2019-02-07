@@ -86,21 +86,21 @@ function wait_for_successful_start()
 
     for ((i=0; i < attempts; i++)); do
 
-        if is_container_status "${containerName}" "exited" ; then
+        is_container_status "${containerName}" "running"
+        local isContainerRunning=$?
+
+        if [ $isContainerRunning -ne "${statusCodeSuccess}" ]; then
             echo ""
-            # stdErr would pollute the log when executing the 'docker logs' command itself. Therefore we redirect it to /dev/null
-            dockerLogs=$(docker logs "${containerName}" 2>/dev/null)
-            log_error "Container ${containerName} failed to start. Have a look at the docker logs to analyze what happened there: \n$dockerLogs"
+            log_error "Container ${containerName} failed to start. Please check your server.cfg."
             exit 1
         fi
 
-        if is_container_status "${containerName}" "running" ; then
-            echo -n "."
-            "${docker_cmd[@]}" 1> /dev/null
-            if [ $? -eq "${statusCodeSuccess}" ]; then
-                echo " success."
-                return 0
-            fi
+        echo -n "."
+        #set +x
+        "${docker_cmd[@]}" 1> /dev/null
+        if [ $? -eq "${statusCodeSuccess}" ]; then
+            echo " success."
+            return 0
         fi
 
         sleep "${delay}"
