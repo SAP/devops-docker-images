@@ -17,9 +17,8 @@ docker run -d -p 5000:5000 --restart always --name registry registry:2 || true
 
 # Prepare environment
 find ../cx-server-companion -type f -exec sed -i "" -e 's/ppiper/localhost:5000\/ppiper/g' {} \;
-find ../jenkins-master -type f -exec sed -i "" -e 's/ppiper/localhost:5000\/ppiper/g' {} \;
 mkdir -p ../jenkins-master/cx-server/jenkins-configuration
-cp testing-jenkins.yml ../jenkins-master/cx-server/jenkins-configuration #FIXME adapt new file location
+cp testing-jenkins.yml ../cx-server-companion/life-cycle-scripts/jenkins-configuration
 
 docker build -t localhost:5000/ppiper/container-structure-test:latest ../container-structure-test
 docker build -t localhost:5000/ppiper/jenkins-master:latest ../jenkins-master

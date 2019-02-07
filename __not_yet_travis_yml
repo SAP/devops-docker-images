@@ -1,8 +1,0 @@
-language: minimal
-services:
-  - docker
-script: cd infrastructure-testing && chmod +x runTests.sh && ./runTests.sh
-env:
-  global:
-    - PPIPER_INFRA_IT_TEST_PROJECT=fixme
-    - PPIPER_INFRA_IT_CF_USERNAME=fixme
