@@ -76,7 +76,7 @@ Once the files are generated in the current directory, you can launch the below 
 ./cx-server start
 ```
 
-If you would like to customize the Jenkins, [the operations guide](https://github.com/SAP/devops-docker-images/blob/master/docs/operations/cx-server-lifecycle.md) will provide more information on this along with the lifecycle management of the Jenkins. 
+If you would like to customize the Jenkins, [the operations guide](https://github.com/SAP/devops-docker-images/blob/master/docs/operations/cx-server-operations-guide.md) will provide more information on this along with the lifecycle management of the Jenkins. 
 
 ## How to obtain support
 
