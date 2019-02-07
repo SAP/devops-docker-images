@@ -590,6 +590,10 @@ function start_jenkins_container()
         if [ -e /cx-server/mount/jenkins-configuration ]; then
             environment_variable_parameters+=(-e CASC_JENKINS_CONFIG=/var/cx-server/jenkins-configuration)
         fi
+
+        environment_variable_parameters+=(-e PPIPER_INFRA_IT_CF_PASSWORD)
+        environment_variable_parameters+=(-e PPIPER_INFRA_IT_CF_USERNAME)
+
         if [ ! -z "${cx_server_path}" ]; then
             if [ "${host_os}" = windows ] ; then
                 # transform windows path like "C:\abc\abc" to "//C/abc/abc"
