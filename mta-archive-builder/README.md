@@ -26,7 +26,7 @@ This will build an `mtar` file for SAP Cloud Platform (Neo). The folder containi
 - SAP registry (`@sap:registry https://npm.sap.com`) contained in global node configuration.
 - Maven
 
-MTA delegates to other build tools. This image provides node and maven, so MTA can delegate
+The MTA Archive Builder delegates module builds to other build tools. This image provides nodejs and maven, so the archive builder can delegate
 to these build technologies. In case more build tools are needed inherit from this image and
 add more build tools.
 
