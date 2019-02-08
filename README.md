@@ -21,6 +21,7 @@ The following files are still being prepared, and are not yet released:
 | CM Client | Interact with SAP Solution Manager or CTS using the command line. | [cm-client/](cm-client/) |
 | CloudFoundry CLI | Command-line tools for CloudFoundry, with plugins for blue-green deploy and MTA. | [cf-cli/](cf-cli/) |
 | Jenkinsfile Runner| [Jenkinsfile Runner](https://github.com/jenkinsci/jenkinsfile-runner) based on `ppiper/jenkins-master`, allows running a `Jenkinsfile` without a long-running, stateful Jenkins master. | [jenkinsfile-runner/](jenkinsfile-runner/) |
+| Node Browsers | Web browsers to be used for end to end tests of web applications in Jenkins pipelines | [node-browsers/](node-browsers/) |
 
 ## General Requirements
 
