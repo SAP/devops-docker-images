@@ -557,6 +557,7 @@ function start_jenkins_container()
         local environment_variable_parameters=()
         if [ ${cache_enabled} = true ] ; then
             environment_variable_parameters+=(-e "DL_CACHE_NETWORK=${network_name}")
+            environment_variable_parameters+=(-e "DL_CACHE_HOSTNAME=${nexus_container_name}")
         fi
 
         # Read proxy parameters separated by new line
