@@ -1,4 +1,4 @@
-FROM jenkins/jnlp-slave:3.23-1-alpine
+FROM jenkins/jnlp-slave:3.27-1-alpine
 USER root
 
 # add group & user
