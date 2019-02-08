@@ -22,6 +22,7 @@ The following images are published on [hub.docker.com](https://hub.docker.com/se
 | CloudFoundry CLI | command line tools for CloudFoundry, with plugins for blue-green deploy and MTA. | [ppiper/cf-cli](https://hub.docker.com/r/ppiper/cf-cli) |
 | Jenkinsfile Runner| [Jenkinsfile Runner](https://github.com/jenkinsci/jenkinsfile-runner) based on `ppiper/jenkins-master`, allows running a `Jenkinsfile` without a long-running, stateful Jenkins master. | [ppiper/jenkinsfile-runner](https://hub.docker.com/r/ppiper/jenkinsfile-runner) |
 | Life Cycle Container| Sidecar image for life-cycle management of the cx-server|[ppiper/cx-server-companion](https://hub.docker.com/r/ppiper/cx-server-companion)|
+| Container Structure Test|[Container Structure Test](https://github.com/GoogleContainerTools/container-structure-test) with shell to work with `ppiper/jenkins-master`|[ppiper/container-structure-test](https://hub.docker.com/r/ppiper/container-structure-test)|
 
 
 ### Docker Files
