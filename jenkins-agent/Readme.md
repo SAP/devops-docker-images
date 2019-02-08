@@ -20,6 +20,10 @@ To build this image locally, open a terminal in the directory of the Dockerfile 
 docker build -t ppiper/jenkins-agent .
 ```
 
+## Usage
+
+When adding a new node to Jenkins, use the `./var/jenkins_home/launch-jenkins-agent.sh [sshuser] [sshhost]` script as _Launch command_.
+
 ## License
 
 Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved.
