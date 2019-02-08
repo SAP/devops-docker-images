@@ -11,6 +11,7 @@ This directory contains testing code for the infrastructure that is defined in t
 ## Running as a Service
 
 See `.travis.yml` file for configuration.
+Be sure to update the SAP CloudPlatform credentials.
 
 ## Running locally
 

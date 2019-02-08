@@ -1,5 +1,4 @@
-jenkins:
-  numExecutors: 10
+# Configuration for the Build-orchestrator Jenkins
 unclassified:
   globallibraries:
     libraries:

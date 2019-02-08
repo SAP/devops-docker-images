@@ -6,7 +6,7 @@ jobs:
           branchSources {
               git {
                   remote("https://github.com/SAP/cloud-s4-sdk-book") //fixme read from env var
-                  includes('infrastructure-integration-test')
+                  includes('infrastructure-integration-test') // Only include one branch because the Git repo has too many branches to build, and only this branch is relevant to the test
               }
           }
       }
