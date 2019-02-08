@@ -12,7 +12,7 @@ For detailed usage information please check the README.md in the corresponding f
 
 ### Docker Images
 
-The following images are already published:
+The following images are published on [hub.docker.com](https://hub.docker.com/search?q=ppiper&type=image):
 
 | Name | Description | Link |
 |------|-------------|------|
