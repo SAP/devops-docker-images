@@ -3,8 +3,7 @@ FROM node:11-alpine
 ARG npm_registry=https://registry.npmjs.org/
 
 #Install dependencies for running the cx server script in this container
-RUN apk add --no-cache bash docker curl && \
-    rm -rf /var/lib/apt/lists/* /var/cache/apt/*
+RUN apk add --no-cache bash docker curl
 
 WORKDIR /cx-server
 

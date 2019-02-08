@@ -1,6 +1,6 @@
 # cx-server-companion
 
-Dockerfile for an image with the utility scripts that helps with the lifecycle managemment of the [cx-server](https://github.com/SAP/devops-docker-images/blob/master/README.md#setting-up-jenkins-server).
+Dockerfile for an image with the utility scripts that helps with the lifecycle management of the [cx-server](https://github.com/SAP/devops-docker-images/blob/master/README.md#setting-up-jenkins-server).
 This image is to be used as described in the [operations guide](https://github.com/SAP/devops-docker-images/blob/master/docs/operations/cx-server-operations-guide.md). 
 
 ## Download
