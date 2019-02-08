@@ -13,7 +13,7 @@ docker pull ppiper/node-browsers
 
 ## Build
 
-To build this image locally, open a terminal in the directory of the Dockerfile an run
+To build this image locally, open a terminal in the directory of the Dockerfile and run
 
 ```
 docker build -t ppiper/node-browsers .
