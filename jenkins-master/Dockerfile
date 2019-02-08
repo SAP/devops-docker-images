@@ -4,6 +4,7 @@ USER root
 
 COPY init_jenkins.groovy /usr/share/jenkins/ref/init.groovy.d/init_jenkins.groovy.override
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+COPY launch-jenkins-agent.sh /usr/share/jenkins/ref/launch-jenkins-agent.sh.override
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
