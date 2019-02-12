@@ -17,6 +17,6 @@ credentials:
           - usernamePassword:
               scope: GLOBAL
               id: "devops-docker-images-IT-cf"
-              username: ${PPIPER_INFRA_IT_CF_USERNAME}
-              password: ${PPIPER_INFRA_IT_CF_PASSWORD}
+              username: ${CX_INFRA_IT_CF_USERNAME}
+              password: ${CX_INFRA_IT_CF_PASSWORD}
               description: "SAP CP Trail account."

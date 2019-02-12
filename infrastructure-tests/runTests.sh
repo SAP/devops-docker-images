@@ -1,13 +1,13 @@
 #!/bin/sh -e
 
 # Sanity check
-if [ -z "$PPIPER_INFRA_IT_CF_USERNAME" ]; then
-    echo "Failure: Variable PPIPER_INFRA_IT_CF_USERNAME is unset"
+if [ -z "$CX_INFRA_IT_CF_USERNAME" ]; then
+    echo "Failure: Variable CX_INFRA_IT_CF_USERNAME is unset"
     exit 1
 fi
 
-if [ -z "$PPIPER_INFRA_IT_CF_PASSWORD" ]; then
-    echo "Failure: Variable PPIPER_INFRA_IT_CF_PASSWORD is unset"
+if [ -z "$CX_INFRA_IT_CF_PASSWORD" ]; then
+    echo "Failure: Variable CX_INFRA_IT_CF_PASSWORD is unset"
     exit 1
 fi
 
@@ -35,9 +35,12 @@ docker push localhost:5000/ppiper/cf-cli:latest
 
 # Boot our unit-under-test Jenkins master instance using the `cx-server` script
 cd ../cx-server-companion/life-cycle-scripts
-export PPIPER_INFRA_IT_CF_PASSWORD
-export PPIPER_INFRA_IT_CF_USERNAME
-echo "PPIPER_INFRA_IT_CF_PASSWORD\nPPIPER_INFRA_IT_CF_USERNAME" > custom-environment.list
+TEST_ENVIRONMENT=(CX_INFRA_IT_CF_USERNAME CX_INFRA_IT_CF_PASSWORD)
+for var in "${TEST_ENVIRONMENT[@]}"
+do
+   export $var
+   echo $var >> custom-environment.list
+done
 chmod +x cx-server
 ./cx-server start
 
@@ -46,5 +49,5 @@ cd ../../infrastructure-tests
 # Use Jenkinsfile runner to orchastrate the example project build.
 # See `Jenkinsfile` in this directory for details on what is happening.
 docker run -v //var/run/docker.sock:/var/run/docker.sock -v $(pwd):/workspace \
- -e CASC_JENKINS_CONFIG=/workspace/jenkins.yml -e HOST=$(hostname) -e PPIPER_INFRA_IT_TEST_PROJECT \
+ -e CASC_JENKINS_CONFIG=/workspace/jenkins.yml -e HOST=$(hostname) \
  ppiper/jenkinsfile-runner

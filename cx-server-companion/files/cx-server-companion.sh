@@ -592,8 +592,9 @@ function start_jenkins_container()
             environment_variable_parameters+=(-e CASC_JENKINS_CONFIG=/var/cx-server/jenkins-configuration)
         fi
 
-        environment_variable_parameters+=(-e PPIPER_INFRA_IT_CF_PASSWORD)
-        environment_variable_parameters+=(-e PPIPER_INFRA_IT_CF_USERNAME)
+        for var in $(env | grep ^CX) do
+            environment_variable_parameters+=(-e $var)
+        done
 
         if [ ! -z "${cx_server_path}" ]; then
             if [ "${host_os}" = windows ] ; then
