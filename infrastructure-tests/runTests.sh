@@ -22,11 +22,7 @@ mkdir -p ../cx-server-companion/life-cycle-scripts/jenkins-configuration
 cp testing-jenkins.yml ../cx-server-companion/life-cycle-scripts/jenkins-configuration
 
 docker build -t localhost:5000/ppiper/jenkins-master:latest ../jenkins-master
-
-# The cx-server script will be updated to the version where this URI points to.
-#If you need to change it in a PR to work, change it here temporarily and move it afterwards back to upstream.
-docker build --build-arg cx_server_base_uri=https://raw.githubusercontent.com/sap/devops-docker-images/master/jenkins-master/cx-server/cx-server -t localhost:5000/ppiper/cx-server-companion:latest ../cx-server-companion
-
+docker build -t localhost:5000/ppiper/cx-server-companion:latest ../cx-server-companion
 docker build -t localhost:5000/ppiper/cf-cli ../cf-cli
 
 docker tag localhost:5000/ppiper/jenkins-master:latest ppiper/jenkins-master:latest
