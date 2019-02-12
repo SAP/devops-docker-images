@@ -12,9 +12,6 @@ timeout(time: 5, unit: 'HOURS') {
             if (!env.HOST) {
                 error "Violated assumption: Environment variable env.HOST is not set. This must be set as the hostname."
             }
-            if (!env.PPIPER_INFRA_IT_TEST_PROJECT) {
-                error "Violated assumption: Environment variable env.PPIPER_INFRA_IT_TEST_PROJECT is not set. This must be set as a link to a git repository of a suitable test project."
-            }
         }
 
         JenkinsController jenkins

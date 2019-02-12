@@ -2,8 +2,3 @@ language: minimal
 services:
 - docker
 script: cd infrastructure-tests && chmod +x runTests.sh && ./runTests.sh
-env:
-  global:
-  - PPIPER_INFRA_IT_TEST_PROJECT=https://github.com/SAP/cloud-s4-sdk-book
-  - PPIPER_INFRA_IT_CF_USERNAME=P2001099548
-  - secure: VX/bXI+Y6hzcP8NlYAAgUvbes89SSM3n8oQfsJRAjBNQqmgoYMXKZZeosgiACpveUKAL+8fXY6NlxtdSp9VvmPaw+mso3emQPW6RcfFK+cn4VQbif8YXfLUdgPKLmudrzzkcjljwWvMv9anUdYFAlAqvaOD6qy5eWiC9mVpe87UKq+XvBxlfllFvRtjtJgPfFCyGDo9xW1zoq9DvgRrbGackFfLG+fv+mlk3UI3uuZgoeCUQi83AuHvktVtePGZDqVi3PXDkmbdbdsDi53ON8//wZ6cCdyqz9GXNRv98j+TbtwcecIzyCZ1iyi9gbmHDTNSiXC141dhVm+AOgm5tUnCZsB3BCg90das0+LiWQGeCCoz9DGNSVPRWbJxIT9+NuU5Z9LgAelh4npHgTd21tAUs0LdJIbZAMx4N6mbdR83Su29Qd3C78U4J3fcXcS9ctkPlhe32FfVswr1RXKM4ylxvnFpHAt4Zo/RHMoF4dRC/3lPCFtS3la4VsD/zZxPNKQ8Xk0UY5o9dnJ6pllCTuPltc45oG9Vne0xtilI2PLmdqBIRSlN2awzw5vKq6t/qBH21ABaPXwetDKcoNXBq/how6hhIftWwZWP6zBExTJHq70qz2hDC7Ce7m8EEUBTaHub27ljPGVVInIqvlvOxRaZ7bZiJYJ+BCEeLq9J1AAs=

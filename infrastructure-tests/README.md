@@ -18,7 +18,6 @@ Be sure to update the SAP CloudPlatform credentials.
 Docker is required, and at least 4 GB of memory assigned to Docker.
 
 ```bash
-export PPIPER_INFRA_IT_TEST_PROJECT="https://github.com/someuser/somerepo"
 export PPIPER_INFRA_IT_CF_USERNAME="myusername"
 export PPIPER_INFRA_IT_CF_PASSWORD="mypassword"
 ./runTests.sh
