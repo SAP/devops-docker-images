@@ -21,7 +21,6 @@ find ../cx-server-companion -type f -exec sed -i "" -e 's/ppiper/localhost:5000\
 mkdir -p ../cx-server-companion/life-cycle-scripts/jenkins-configuration
 cp testing-jenkins.yml ../cx-server-companion/life-cycle-scripts/jenkins-configuration
 
-docker build -t localhost:5000/ppiper/container-structure-test:latest ../container-structure-test
 docker build -t localhost:5000/ppiper/jenkins-master:latest ../jenkins-master
 
 # The cx-server script will be updated to the version where this URI points to.
