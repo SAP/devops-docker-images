@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 # Sanity check
 if [ -z "$CX_INFRA_IT_CF_USERNAME" ]; then
