@@ -1,7 +1,7 @@
 #! /bin/sh
 
 
-$SAPBIN/node_modules/grunt-cli/bin/grunt --stack --no-color --gruntfile $SAPBIN/run_rfc_task.js "$@" > /dev/stderr
+$SAPBIN/node_modules/grunt-cli/bin/grunt --stack --no-color --gruntfile $SAPBIN/run_rfc_task.js "$@" 1>&2
 RC=$?
 
 # In case a transport request has been created this file provides the ID of
@@ -11,7 +11,7 @@ TRACE_FILE=dev_rfc.trc
 
 if [ -f "${TRACE_FILE}" ]
 then
-  cat "${TRACE_FILE}" > /dev/stderr
+  cat "${TRACE_FILE}" 1>&2
 fi
 
 if [ -f "${TRANSPORT_REQUEST_FILE}" ]
@@ -19,4 +19,3 @@ then
    cat "${TRANSPORT_REQUEST_FILE}"
 fi
 exit $RC
- 
