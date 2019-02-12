@@ -1,3 +1,4 @@
 node_modules
 life-cycle-scripts/backup
 life-cycle-scripts/jenkins-configuration
+life-cycle-scripts/custom-environment.list

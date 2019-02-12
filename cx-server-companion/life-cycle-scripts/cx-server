@@ -27,8 +27,7 @@ fi
         --env DEVELOPER_MODE \
         --env host_os=unix \
         --env cx_server_path="${PWD}" \
-	--env PPIPER_INFRA_IT_CF_PASSWORD \
-	--env PPIPER_INFRA_IT_CF_USERNAME \
+        --env-file custom-environment.list \
         ppiper/cx-server-companion /cx-server/cx-server-companion.sh "$@"
     exit $?
 }
