@@ -557,6 +557,7 @@ function start_jenkins_container()
         local environment_variable_parameters=()
         if [ ${cache_enabled} = true ] ; then
             environment_variable_parameters+=(-e "DL_CACHE_NETWORK=${network_name}")
+            environment_variable_parameters+=(-e "DL_CACHE_HOSTNAME=${nexus_container_name}")
         fi
 
         # Read proxy parameters separated by new line
@@ -590,6 +591,13 @@ function start_jenkins_container()
         if [ -e /cx-server/mount/jenkins-configuration ]; then
             environment_variable_parameters+=(-e CASC_JENKINS_CONFIG=/var/cx-server/jenkins-configuration)
         fi
+
+        # Pass custom environment variables prefixed by 'CX', may be used to pass values into Configuration as Code
+        for var in $(env | grep ^CX | cut -d'=' -f1)
+        do
+            environment_variable_parameters+=(-e $var)
+        done
+
         if [ ! -z "${cx_server_path}" ]; then
             if [ "${host_os}" = windows ] ; then
                 # transform windows path like "C:\abc\abc" to "//C/abc/abc"
