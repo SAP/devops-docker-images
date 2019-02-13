@@ -19,7 +19,7 @@ find ../cx-server-companion -type f -exec sed -i -e 's_ppiper/localhost:5000_ppi
 
 # Copy over life cycle script for testing
 cp ../cx-server-companion/life-cycle-scripts/{cx-server,server.cfg} .
-mkdir -p /jenkins-configuration
+mkdir -p jenkins-configuration
 cp testing-jenkins.yml jenkins-configuration
 
 docker build -t localhost:5000/ppiper/jenkins-master:latest ../jenkins-master
