@@ -4,3 +4,4 @@ infrastructure-tests/custom-environment.list
 infrastructure-tests/cx-server
 infrastructure-tests/jenkins-configuration/
 infrastructure-tests/server.cfg
+*.DS_Store
