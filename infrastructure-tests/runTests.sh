@@ -51,8 +51,7 @@ docker run -v //var/run/docker.sock:/var/run/docker.sock -v $(pwd):/workspace \
  ppiper/jenkinsfile-runner
 
 # cleanup
-rm -r cx-server server.cfg
-
 if [ ! "$TRAVIS" = true ] ; then
+    rm -f cx-server server.cfg custom-environment.list
     echo "Modified your git repo, you might want to do a git checkout before re-running."
 fi
