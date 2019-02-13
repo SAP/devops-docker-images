@@ -593,7 +593,7 @@ function start_jenkins_container()
         fi
 
         # Pass custom environment variables prefixed by 'CX', may be used to pass values into Configuration as Code
-        for var in $(env | grep ^CX)
+        for var in $(env | grep ^CX | cut -d'=' -f1)
         do
             environment_variable_parameters+=(-e $var)
         done
