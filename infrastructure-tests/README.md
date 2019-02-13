@@ -11,7 +11,11 @@ This directory contains testing code for the infrastructure that is defined in t
 ## Running as a Service
 
 See `.travis.yml` file for configuration.
-Be sure to update the SAP CloudPlatform credentials.
+
+Configure the following variables (secrets)
+
+* `CX_INFRA_IT_CF_USERNAME` (user name for deployment to SAP Cloud Platform)
+* `CX_INFRA_IT_CF_PASSWORD` (password for deployment to SAP Cloud Platform)
 
 ## Running locally
 
