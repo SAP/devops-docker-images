@@ -15,6 +15,7 @@ module.exports = function(grunt) {
     var abapApplicationDesc = process.env.ABAP_APPLICATION_DESC;
     var abapPackage = process.env.ABAP_PACKAGE;
     var zipFileURL = process.env.ZIP_FILE_URL;
+    var codePage = process.env.CODE_PAGE;
     var transportDescription = process.env.TRANSPORT_DESCRIPTION;
     var targetDir = process.env.SAPDATADIR;
 
@@ -42,7 +43,7 @@ module.exports = function(grunt) {
             options: {
                 conn: abapConn,
                 zipFileURL: zipFileURL,
-                codePage: "UTF8"
+                codePage: codePage
             }
         },
         releaseTransport: {
