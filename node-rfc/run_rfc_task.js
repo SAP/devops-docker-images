@@ -16,6 +16,7 @@ module.exports = function(grunt) {
     var abapPackage = process.env.ABAP_PACKAGE;
     var zipFileURL = process.env.ZIP_FILE_URL;
     var codePage = process.env.CODE_PAGE;
+    var acceptUnixStyleLineEndings = process.env.ABAP_ACCEPT_UNIX_STYLE_EOL;
     var transportDescription = process.env.TRANSPORT_DESCRIPTION;
     var targetDir = process.env.SAPDATADIR;
 
@@ -43,7 +44,8 @@ module.exports = function(grunt) {
             options: {
                 conn: abapConn,
                 zipFileURL: zipFileURL,
-                codePage: codePage
+                codePage: codePage,
+                acceptUnixStyleLineEndings: acceptUnixStyleLineEndings
             }
         },
         releaseTransport: {
@@ -145,7 +147,8 @@ module.exports = function(grunt) {
             IV_PACKAGE: abapPackage,
             IV_WORKBENCH_REQUEST: transportRequest,
             IV_TEST_MODE: "-",
-            IV_EXTERNAL_CODE_PAGE: this.options().codePage
+            IV_EXTERNAL_CODE_PAGE: this.options().codePage,
+            IV_ACCEPT_UNIX_STYLE_EOL: this.options().acceptUnixStyleLineEndings
         };
         var done = this.async();
         grunt.log.writeln("Uploading application from", url);
