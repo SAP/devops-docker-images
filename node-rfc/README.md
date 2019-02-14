@@ -43,6 +43,7 @@ docker build  --build-arg NWRFC_FILE=https://<repoURL>/NWRFC.zip --file Dockerfi
 | **ABAP_APPLICATION_DESC** | ABAP Application description |
 | **ABAP_PACKAGE** | ABAP package name |
 | **ZIP_FILE_URL**     |  URL of the UI5 zip file location to upload |
+| **CODE_PAGE** | code page like UTF8 |
 | **TRANSPORT_DESCRIPTION** | Transport description text |
 
 Run it with:
