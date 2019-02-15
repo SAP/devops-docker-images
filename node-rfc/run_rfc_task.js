@@ -19,6 +19,7 @@ module.exports = function(grunt) {
     var acceptUnixStyleLineEndings = process.env.ABAP_ACCEPT_UNIX_STYLE_EOL;
     var transportDescription = process.env.TRANSPORT_DESCRIPTION;
     var targetDir = process.env.SAPDATADIR;
+    var verbose = process.env.VERBOSE;
 
     // Global Variables
     var ctsDataFile = targetDir + "/CTS_Data.txt";
@@ -45,7 +46,8 @@ module.exports = function(grunt) {
                 conn: abapConn,
                 zipFileURL: zipFileURL,
                 codePage: codePage,
-                acceptUnixStyleLineEndings: acceptUnixStyleLineEndings
+                acceptUnixStyleLineEndings: acceptUnixStyleLineEndings,
+                verbose: verbose
             }
         },
         releaseTransport: {
@@ -140,6 +142,7 @@ module.exports = function(grunt) {
         }
         grunt.log.writeln("Transport request:", transportRequest);
         var url = this.options().zipFileURL;
+        var verbose = this.options().verbose;
         var importParameters = {
             IV_URL: url,
             IV_SAPUI5_APPLICATION_NAME: abapApplicationName,
@@ -161,6 +164,11 @@ module.exports = function(grunt) {
                     done(false);
                     return;
                 }
+
+                if(verbose == 'true' ) {
+                    grunt.log.writeln("Return:", returnValue);
+                }
+
                 grunt.log.writeln("Application uploaded.");
                 done();
             },
