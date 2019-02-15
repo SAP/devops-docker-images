@@ -19,6 +19,7 @@ module.exports = function(grunt) {
     var acceptUnixStyleLineEndings = process.env.ABAP_ACCEPT_UNIX_STYLE_EOL;
     var transportDescription = process.env.TRANSPORT_DESCRIPTION;
     var targetDir = process.env.SAPDATADIR;
+    var failUploadOnWarning = process.env.FAIL_UPLOAD_ON_WARNING;
 
     // Global Variables
     var ctsDataFile = targetDir + "/CTS_Data.txt";
@@ -45,7 +46,8 @@ module.exports = function(grunt) {
                 conn: abapConn,
                 zipFileURL: zipFileURL,
                 codePage: codePage,
-                acceptUnixStyleLineEndings: acceptUnixStyleLineEndings
+                acceptUnixStyleLineEndings: acceptUnixStyleLineEndings,
+                failUploadOnWarning: failUploadOnWarning
             }
         },
         releaseTransport: {
@@ -140,6 +142,7 @@ module.exports = function(grunt) {
         }
         grunt.log.writeln("Transport request:", transportRequest);
         var url = this.options().zipFileURL;
+        var failUploadOnWarning = this.options().failUploadOnWarning;
         var importParameters = {
             IV_URL: url,
             IV_SAPUI5_APPLICATION_NAME: abapApplicationName,
@@ -155,7 +158,7 @@ module.exports = function(grunt) {
         rfcConnect("/UI5/UI5_REPOSITORY_LOAD_HTTP", importParameters, this)
             .then(
             function(returnValue) {
-                if (returnValue.EV_SUCCESS == "E" || returnValue.EV_SUCCESS == "W") {
+                if (returnValue.EV_SUCCESS == "E" || (failUploadOnWarning != "false" && returnValue.EV_SUCCESS == "W")) {
                     grunt.log.errorlns("Error invoking", "/UI5/UI5_REPOSITORY_LOAD_HTTP");
                     grunt.log.writeln("Return:", returnValue);
                     done(false);
