@@ -167,14 +167,21 @@ module.exports = function(grunt) {
                     grunt.log.writeln("Return:", returnValue);
                     done(false);
                     return;
+                } else if (returnValue.EV_SUCCESS == 'S') {
+                    grunt.log.writeln("Application uploaded.");
+                    done();
+                } else {
+                    grunt.log.writeln("Invalid return status (EV_SUCCESS): " + returnValue.EV_SUCCESS);
+                    done(false);
+                    return;
                 }
-
                 if(verbose == 'true' ) {
                     grunt.log.writeln("Return:", returnValue);
                 }
 
                 grunt.log.writeln("Application uploaded.");
                 done();
+
             },
             function() {
                 done(false);
