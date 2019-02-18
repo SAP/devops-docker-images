@@ -19,7 +19,9 @@ module.exports = function(grunt) {
     var acceptUnixStyleLineEndings = process.env.ABAP_ACCEPT_UNIX_STYLE_EOL;
     var transportDescription = process.env.TRANSPORT_DESCRIPTION;
     var targetDir = process.env.SAPDATADIR;
+    var verbose = process.env.VERBOSE;
     var failUploadOnWarning = process.env.FAIL_UPLOAD_ON_WARNING;
+
 
     // Global Variables
     var ctsDataFile = targetDir + "/CTS_Data.txt";
@@ -47,6 +49,7 @@ module.exports = function(grunt) {
                 zipFileURL: zipFileURL,
                 codePage: codePage,
                 acceptUnixStyleLineEndings: acceptUnixStyleLineEndings,
+                verbose: verbose
                 failUploadOnWarning: failUploadOnWarning
             }
         },
@@ -142,6 +145,7 @@ module.exports = function(grunt) {
         }
         grunt.log.writeln("Transport request:", transportRequest);
         var url = this.options().zipFileURL;
+        var verbose = this.options().verbose;
         var failUploadOnWarning = this.options().failUploadOnWarning;
         var importParameters = {
             IV_URL: url,
@@ -164,6 +168,11 @@ module.exports = function(grunt) {
                     done(false);
                     return;
                 }
+
+                if(verbose == 'true' ) {
+                    grunt.log.writeln("Return:", returnValue);
+                }
+
                 grunt.log.writeln("Application uploaded.");
                 done();
             },
