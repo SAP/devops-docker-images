@@ -49,7 +49,7 @@ module.exports = function(grunt) {
                 zipFileURL: zipFileURL,
                 codePage: codePage,
                 acceptUnixStyleLineEndings: acceptUnixStyleLineEndings,
-                verbose: verbose
+                verbose: verbose,
                 failUploadOnWarning: failUploadOnWarning
             }
         },
