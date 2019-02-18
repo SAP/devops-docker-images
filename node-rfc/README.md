@@ -1,9 +1,16 @@
 # RFC CTS+ Docker File
-## Description
-To bring your SAP Fiori application to your ABAP Front End Server you always need to create a transport request and upload the zip file to it. If you want to automate your delivery pipeline for this scenario, and you have your NW ABAP < 7.50 SP08, you can only do it by using RFC communication. But to get it run you need to do some installation and configuration steps.
-A detailed scenario description can be found in our [best practice guid][bestpractice].
 
-This Dockerfile provides an easy and consumable way for the node-rfc wrapper and the SAP NetWeaver RFC Library. The only thing you need to have is a container environment like docker to build and to execute the node-rfc wrapper image. You can use it standalone in your CI/CD environment or you can use it within our Jenkins shared library [project "Piper"][piper].
+## Description
+
+To bring an SAP UI5 application to an ABAP-Frontend-Server you need to create a transport request and upload the application. If you want to automate a Continuous Delivery pipeline for this scenario, you have two options.
+
+| Resommended Solution | Requirements | Link |
+|-----|----|----|
+| Use OData API | SAPUI 7.53 or newer and AS ABAP 7.50 SP08 or 7.51 SP07 or 7.52 SP03 or newer | [CM Client](https://github.com/SAP/devops-cm-client)
+| Use RFC Communication | older versions of AS ABAP | [CI Best Practices Guide][bestpractice] |
+
+Setting up the RFC communication is tedious and clutters the build server. Detailed instructions can be found in our [CI Best Practices Guide][bestpractice]. 
+This Dockerfile provides a simpler and cleaner way to run the node-rfc wrapper and the SAP NetWeaver RFC Library. The only thing you need to have is a Docker environment to build and to execute the node-rfc wrapper image. The image can be used stand-alone in a custom Continuous Delivery environment or you can use it within our Jenkins library [project "Piper"][piper].
 
 ## Requirements
 
