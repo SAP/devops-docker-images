@@ -30,9 +30,9 @@ You can [build][dockerbuild] your docker image in different ways.
 
 The build arguments can be a local path or an URL. Please consider the rules for the build context and the used [ADD][dockerbuildadd] command.
 
-Example: Build it with URLs
+The following example assumes the NWRFC library is accessible via HTTP:
 ```
-docker build  --build-arg NWRFC_FILE=https://<repoURL>/NWRFC.zip --file Dockerfile myrepo.git#:node-rfc
+docker build -t ppiper/node-rfc --build-arg NWRFC_FILE=https://<location>/nwrcf.zip --file Dockerfile https://github.com/SAP/devops-docker-images.git#:node-rfc
 ```
 
 ## How to execute it
