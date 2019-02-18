@@ -42,20 +42,20 @@ docker build -t ppiper/node-rfc --build-arg NWRFC_FILE=https://<location>/nwrcf.
 | **ABAP_DEVELOPMENT_USER** | ABAP user to access RFC |
 | **ABAP_DEVELOPMENT_PASSWORD** | ABAP user password  |
 | **ABAP_DEVELOPMENT_SERVER** | Application server URL |
-| **ABAP_DEVELOPMENT_INSTANCE** | ABAP Instance ID |
-| **ABAP_DEVELOPMENT_CLIENT** | ABAP Client ID |
-| **ABAP_APPLICATION_NAME** | ABAP Application name |
-| **ABAP_APPLICATION_DESC** | ABAP Application description |
+| **ABAP_DEVELOPMENT_INSTANCE** | ABAP instance ID |
+| **ABAP_DEVELOPMENT_CLIENT** | ABAP client ID |
+| **ABAP_APPLICATION_NAME** | ABAP application name |
+| **ABAP_APPLICATION_DESC** | ABAP application description |
 | **ABAP_PACKAGE** | ABAP package name |
 | **ZIP_FILE_URL**     |  URL of the UI5 zip file location to upload |
-| **CODE_PAGE** | code page like UTF8 |
+| **CODE_PAGE** | Code page like UTF8 |
 | **ABAP_ACCEPT_UNIX_STYLE_EOL** | true: 'X' or 'Yes' or '1', false: '-' |
 | **TRANSPORT_DESCRIPTION** | Transport description text |
 
-Run it with:
+Assuming you have built the image with using the tag `ppiper/node-rfc` you can run it with:
 
 ```
-docker run --env <Envornment variables> <image> cts createTransportRequest|uploadToABAP|releaseTransport
+docker run --env <environment variables> ppiper/node-rfc cts createTransportRequest|uploadToABAP|releaseTransport
 ```
 
 [piper]: https://sap.github.io/jenkins-library/
