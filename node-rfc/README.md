@@ -9,7 +9,6 @@ This Dockerfile provides an easy and consumable way for the node-rfc wrapper and
 
 * General requirements can be found at the [repository readme][general]
 * An S-User for [SAP ONE][sapone]
-* Please Download SAPCAR for Linux on x86_64 from [SAP ONE][sapone]
 * Please Download NWRFC library ```SAP NW RFC SDK 7.50``` for Linux on x86_64 from [SAP ONE][sapone]
 * A local docker image repository
 
