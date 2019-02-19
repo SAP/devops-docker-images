@@ -25,11 +25,12 @@ timeout(time: 5, unit: 'HOURS') {
             jenkins.buildJob('infrastructure-integration-test')
         }
 
-        parallel infraTestOnCloudFoundry: {
-            jenkins.waitForSuccess('infrastructure-integration-test', 'infrastructure-integration-test')
-        },
-        infraTestOnNeoEnvironment: {
-            jenkins.waitForSuccess('infrastructure-integration-test', 'infrastructure-integration-test-neo')
+        stage('Wait for successful build') {
+            parallel infraTestOnCloudFoundry: {
+                jenkins.waitForSuccess('infrastructure-integration-test', 'infrastructure-integration-test')
+            }, infraTestOnNeoEnvironment: {
+                jenkins.waitForSuccess('infrastructure-integration-test', 'infrastructure-integration-test-neo')
+            }
         }
     }
 }
