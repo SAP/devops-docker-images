@@ -1,0 +1,10 @@
+{
+  "name": "abap_rfc_upload",
+  "version": "0.0.1",
+  "description": "This packge.json only describes the dependencies to be able to call node-rfc",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+  
+  }
+}
