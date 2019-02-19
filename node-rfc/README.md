@@ -4,23 +4,23 @@
 
 To bring an SAP UI5 application to an ABAP-Frontend-Server you need to create a transport request and upload the application. If you want to automate a Continuous Delivery pipeline for this scenario, you have two options.
 
-| Resommended Solution | Requirements | Link |
+| Recommended Solution | Requirements | Link |
 |-----|----|----|
 | Use OData API | SAPUI 7.53 or newer and AS ABAP 7.50 SP08 or 7.51 SP07 or 7.52 SP03 or newer | [CM Client](cmclient)
-| Use RFC Communication | older versions of AS ABAP | [CI Best Practices Guide][bestpractice] |
+| Use RFC Communication | older versions of AS ABAP | This Docker image or follow the [CI Best Practices Guide][bestpractice] |
 
-Setting up the RFC communication is tedious and clutters the build server. Detailed instructions can be found in our [CI Best Practices Guide][bestpractice]. 
+Setting up the RFC communication is tedious and clutters the build server. Detailed instructions can be found in the [CI Best Practices Guide][bestpractice]. 
 This Dockerfile provides a simpler and cleaner way to run the node-rfc wrapper and the SAP NetWeaver RFC Library. The only thing you need to have is a Docker environment to build and to execute the node-rfc wrapper image. The image can be used stand-alone in a custom Continuous Delivery environment or you can use it within our Jenkins library [project "Piper"][piper].
 
 ## Requirements
 
-* General requirements can be found at the [repository readme][general]
+* General requirements can be found in the [repository readme][general]
 * An S-User for [SAP ONE][sapone]
 * Download NWRFC library ```SAP NW RFC SDK 7.50``` for Linux on x86_64 from [SAP ONE][sapone]
 
 ## How to build it
 
-You can [build][dockerbuild] your docker image in different ways. 
+This image will not be provided on hub.docker.com. You need to [build][dockerbuild] this Dockerfile locally before using it. 
 
 ### Build Arguments
 | Argument | Description |
@@ -37,7 +37,7 @@ docker build -t ppiper/node-rfc --build-arg NWRFC_FILE=https://<location>/nwrcf.
 ## How to execute it
 
 ### Environment Variables
-| Variable | Descritpion |
+| Variable | Description |
 | -------- | ----------- |
 | **ABAP_DEVELOPMENT_USER** | ABAP user to access RFC |
 | **ABAP_DEVELOPMENT_PASSWORD** | ABAP user password  |
