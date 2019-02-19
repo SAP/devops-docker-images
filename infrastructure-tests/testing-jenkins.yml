@@ -6,7 +6,7 @@ jobs:
           branchSources {
               git {
                   remote("https://github.com/SAP/cloud-s4-sdk-book") // todo this should be read from the environment, unclear how to set it via environment currently
-                  includes('infrastructure-integration-test') // Only include one branch because the Git repo has too many branches to build, and only this branch is relevant to the test
+                  includes('infrastructure-integration-test*') // The repo has too many branches, only build the ones relevant for this test (cf and neo)
               }
           }
       }

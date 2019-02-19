@@ -21,9 +21,16 @@ timeout(time: 5, unit: 'HOURS') {
             jenkins.waitForJenkinsStarted()
         }
 
-        stage('Test Pipeline with Example Projects') {
+        stage('Trigger Job') {
             jenkins.buildJob('infrastructure-integration-test')
-            jenkins.waitForSuccess('infrastructure-integration-test', 'infrastructure-integration-test')
+        }
+
+        stage('Wait for successful build') {
+            parallel cloudFoundry: {
+                jenkins.waitForSuccess('infrastructure-integration-test', 'infrastructure-integration-test')
+            }, neoEnvironment: {
+                jenkins.waitForSuccess('infrastructure-integration-test', 'infrastructure-integration-test-neo')
+            }
         }
     }
 }
