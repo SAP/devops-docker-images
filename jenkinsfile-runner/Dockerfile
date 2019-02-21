@@ -1,6 +1,6 @@
-FROM maven:3.5.2 as maven
+FROM maven:3.5 as maven
 
-RUN git clone -b 1.0-beta-6 https://github.com/jenkinsci/jenkinsfile-runner && \
+RUN git clone -b 1.0-beta-7 https://github.com/jenkinsci/jenkinsfile-runner && \
     cd jenkinsfile-runner && \
     mvn package --batch-mode -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
 
