@@ -6,7 +6,7 @@ To bring an SAP UI5 application to an ABAP-Frontend-Server you need to create a 
 
 | Recommended Solution | Requirements | Link |
 |-----|----|----|
-| Use OData API | SAPUI 7.53 or newer and AS ABAP 7.50 SP08 or 7.51 SP07 or 7.52 SP03 or newer | [CM Client](cmclient)
+| Use OData API | SAPUI 7.53 or newer and AS ABAP 7.50 SP08 or 7.51 SP07 or 7.52 SP03 or newer | [CM Client][cmclient]
 | Use RFC Communication | older versions of AS ABAP | This Docker image or follow the [CI Best Practices Guide][bestpractice] |
 
 Setting up the RFC communication is tedious and clutters the build server. Detailed instructions can be found in the [CI Best Practices Guide][bestpractice]. 
