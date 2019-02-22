@@ -9,10 +9,8 @@ When you make changes to `cx-server-companion/cx-server-companion.sh`, you need 
 From this directory (`jenkins-master/cx-server`), the command to do so is:
 
 ```bash
-docker build [--build-arg cx_server_base_uri=https://github.some.domain/raw/path/to/cx-server] -t ppiper/cx-server-companion ../../ppiper-cx-server-companion
+docker build -t ppiper/cx-server-companion ../../cx-server-companion
 ```
-
-The build argument `cx_server_base_uri` is optional and only required if you don't want to use the `cx-server` version from GitHub.com.
 
 When you make changes to `ppiper/jenkins-master`, you also need to build the image locally.
 The important part is that you tag the image after building it.
@@ -21,6 +19,8 @@ Assuming you changed an image, configured the `docker_registry` and `image_name`
 Usually, when running `cx-server`, the companion and Jenkins images are automatically pulled from Docker Hub.
 This is designed for simple usage, but if you've built the images yourself, it will overwrite your changes.
 To prevent this, set the environment variable `DEVELOPER_MODE` to _any_ value.
+
+Furthermore, if the developer mode (`DEVELOPER_MODE`) is switched on, you can also attach a remote debugging session to Jenkins. By default the port `5005` is exposed for this purpose. 
 
 Run in developer mode on Bash
 ```bash

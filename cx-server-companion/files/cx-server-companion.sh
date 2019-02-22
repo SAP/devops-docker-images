@@ -6,6 +6,7 @@ readonly cache_docker_image='sonatype/nexus3:3.14.0'
 readonly cxserver_companion_docker_image='ppiper/cx-server-companion'
 readonly container_port_http=8080
 readonly container_port_https=8443
+readonly container_debug_port=5005
 readonly network_name='cx-network'
 #Two times rev in combination with cut -f1 returns the last element of the cgroup which corresponds to the container id
 #Returns f323454ad3402f2513712 applied to 10:name=systemd:/docker/f323454ad3402f2513712
@@ -493,12 +494,13 @@ function start_jenkins_container()
         fi
     else
         customDockerfileDir="custom_image"
-        local port_mapping
+        local port_mapping=$(get_port_mapping)
+
         if [ -e "${customDockerfileDir}/Dockerfile" ]; then
             echo "Custom Dockerfile in '${customDockerfileDir} 'detected..."
             echo "Starting **customized** docker container for Cx Server."
             echo "Parameters:"
-            get_port_mapping port_mapping
+            print_ports
             echo "   - jenkins_home=${jenkins_home}"
             print_jenkins_config
             echo ""
@@ -513,7 +515,7 @@ function start_jenkins_container()
         else
             echo "Starting docker container for Cx Server."
             echo "Parameters:"
-            get_port_mapping port_mapping
+            print_ports
             echo "   - docker_registry=${docker_registry}"
             echo "   - docker_image=${docker_image}"
             print_jenkins_config
@@ -548,10 +550,19 @@ function start_jenkins_container()
             user_parameters+=(-u "1000:${docker_gid}")
         fi
 
-        local effective_java_opts=()
+        local additional_java_opts=()
+
+        if [ ! -z ${DEVELOPER_MODE} ]; then
+            additional_java_opts+=("-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=${container_debug_port}")
+        fi
+
         if [ ! -z "${x_java_opts}" ]; then
+            additional_java_opts+=("${x_java_opts}")
+        fi
+
+        if [ ! ${#additional_java_opts[@]} -eq 0 ]; then
             local container_java_opts="$(get_image_environment_variable "${image_name}" JAVA_OPTS)"
-            effective_java_opts+=(-e "JAVA_OPTS=${container_java_opts} ${x_java_opts}")
+            effective_java_opts+=(-e "JAVA_OPTS=${container_java_opts} ${additional_java_opts[@]}")
         fi
 
         local environment_variable_parameters=()
@@ -609,7 +620,7 @@ function start_jenkins_container()
         # start container
 
         local start_jenkins=()
-        start_jenkins+=(docker run "${user_parameters[@]}" --name "${jenkins_container_name}" -d -p ${port_mapping})
+        start_jenkins+=(docker run "${user_parameters[@]}" --name "${jenkins_container_name}" -d ${port_mapping})
         start_jenkins+=("${mount_parameters[@]}" "${environment_variable_parameters[@]}" "${image_name}")
         run "${start_jenkins[@]}"
 
@@ -918,19 +929,35 @@ function warn_low_memory_with_confirmation() {
     fi
 }
 
-function get_port_mapping(){
-    declare -n return_value=$1
-    local mapping=""
+function print_ports(){
     if [ "${tls_enabled}" == true ]; then
-        echo "   - https_port=${https_port}"
-        assert_config_set "https_port"
-        mapping="${https_port}:${container_port_https}"
-    else
-        echo "   - http_port=${http_port}"
         assert_config_set "http_port"
-        mapping="${http_port}:${container_port_http}"
+        echo "   - https_port=${https_port}"
+    else
+        assert_config_set "http_port"
+        echo "   - http_port=${http_port}"
     fi
-    return_value=$mapping
+
+    if [ ! -z ${DEVELOPER_MODE} ]; then
+        echo "   - debug_port=${debug_port}"
+    fi
+}
+
+function get_port_mapping(){
+    local port_mapping=()
+    if [ "${tls_enabled}" == true ]; then
+        assert_config_set "https_port"
+        port_mapping+=("-p ${https_port}:${container_port_https}")
+    else
+        assert_config_set "http_port"
+        port_mapping+=("-p ${http_port}:${container_port_http}")
+    fi
+
+    if [ ! -z ${DEVELOPER_MODE} ]; then
+         port_mapping+=("-p ${debug_port}:${container_debug_port}")
+    fi
+
+    echo "${port_mapping[@]}"
 }
 
 ### Start of Script
