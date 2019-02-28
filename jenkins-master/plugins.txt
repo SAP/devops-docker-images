@@ -28,10 +28,6 @@ matrix-auth
 nexus-artifact-uploader
 parameterized-trigger
 performance
-pipeline-build-step
-pipeline-input-step
-pipeline-milestone-step
-pipeline-stage-step
 pipeline-utility-steps
 pmd
 rebuild
@@ -40,6 +36,3 @@ ssh-agent
 timestamper
 warnings-ng
 workflow-aggregator
-workflow-basic-steps
-workflow-cps
-workflow-multibranch
