@@ -36,7 +36,6 @@ Parameterized-Remote-Trigger
 parameterized-trigger
 performance
 pipeline-build-step
-pipeline-githubnotify-step
 pipeline-input-step
 pipeline-milestone-step
 pipeline-stage-step
