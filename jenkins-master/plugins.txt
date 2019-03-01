@@ -15,7 +15,6 @@ credentials-binding
 cucumber-testresult-plugin
 docker-workflow
 email-ext
-embeddable-build-status
 extended-read-permission
 findbugs
 gatling
