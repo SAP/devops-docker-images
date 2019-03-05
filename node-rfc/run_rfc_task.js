@@ -40,7 +40,8 @@ module.exports = function(grunt) {
             options: {
                 conn: abapConn,
                 author: abapDevelopmentUser,
-                description: transportDescription
+                description: transportDescription,
+                verbose: verbose
             }
         },
         uploadToABAP: {
@@ -55,13 +56,15 @@ module.exports = function(grunt) {
         },
         releaseTransport: {
             options: {
-                conn: abapConn
+                conn: abapConn,
+                verbose: verbose
             }
         }
     });
 
     var rfcConnect = function(functionModule, importParameters, gruntContext) {
         return new Promise(function(resolve, reject) {
+            var verbose = gruntContext.options().verbose
             var conn = gruntContext.options().conn;
             var client = new rfc.Client(conn);
 
@@ -82,7 +85,9 @@ module.exports = function(grunt) {
                             return reject();
                         }
                         client.close();
-                        grunt.log.writeln("Messages:", res.EV_LOG_MESSAGES);
+                        if(verbose == 'true') {
+                            grunt.log.writeln("Result:", res);
+                        }
                         return resolve(res);
                     });
             });
