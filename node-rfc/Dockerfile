@@ -33,8 +33,6 @@ RUN apt-get update && \
     cd ${SAPBIN} && \
     npm install grunt grunt-contrib-jshint grunt-cli node-rfc@next --save
 
-VOLUME $SAPDATADIR
-
 	
 	
 	
