@@ -2,6 +2,7 @@
 
 var rfc = require("node-rfc");
 var fs = require("fs");
+var homedir = require('os').homedir();
 
 module.exports = function(grunt) {
 
@@ -18,13 +19,12 @@ module.exports = function(grunt) {
     var codePage = process.env.CODE_PAGE;
     var acceptUnixStyleLineEndings = process.env.ABAP_ACCEPT_UNIX_STYLE_EOL;
     var transportDescription = process.env.TRANSPORT_DESCRIPTION;
-    var targetDir = process.env.SAPDATADIR;
     var verbose = process.env.VERBOSE;
     var failUploadOnWarning = process.env.FAIL_UPLOAD_ON_WARNING;
 
 
     // Global Variables
-    var ctsDataFile = targetDir + "/CTS_Data.txt";
+    var ctsDataFile = homedir + "/CTS_Data.txt";
 
     // Project configuration.
     var abapConn = {
@@ -114,8 +114,8 @@ module.exports = function(grunt) {
                     return;
                 }
                 grunt.log.writeln("Transport request", returnValue.REQUESTID, "created.");
-                if (fs.existsSync(targetDir) === false) {
-                    fs.mkdirSync(targetDir);
+                if (fs.existsSync(homedir) === false) {
+                    fs.mkdirSync(homedir);
                 }
                 fs.writeFile(ctsDataFile,
                     JSON.stringify(
@@ -127,7 +127,6 @@ module.exports = function(grunt) {
                             done(false);
                             return;
                         }
-                        grunt.log.writeln("Created file:", ctsDataFile);
                         done();
                     }
                 )
