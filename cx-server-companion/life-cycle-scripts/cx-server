@@ -16,6 +16,14 @@ else
     echo No interactive terminal, run Docker without '-it' flag
 fi
 
+env_file_command=''
+env_file='custom-environment.list'
+
+if [ -f ${env_file} ]; then
+    env_file_command="--env-file $env_file"
+    echo ${env_file_command}
+fi
+
 # These braces ensure that the block in them cannot be overridden by updating this file on the fly.
 # The exit inside protects against unintended effect when the new script file is bigger than its old version.
 # See: https://stackoverflow.com/questions/3398258/edit-shell-script-while-its-running
@@ -27,7 +35,7 @@ fi
         --env DEVELOPER_MODE \
         --env host_os=unix \
         --env cx_server_path="${PWD}" \
-        --env-file custom-environment.list \
+        ${env_file_command} \
         ppiper/cx-server-companion /cx-server/cx-server-companion.sh "$@"
     exit $?
 }
