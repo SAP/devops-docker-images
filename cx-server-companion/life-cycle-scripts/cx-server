@@ -16,12 +16,11 @@ else
     echo No interactive terminal, run Docker without '-it' flag
 fi
 
-env_file_command=''
+custom_env_file_parameter=''
 env_file='custom-environment.list'
 
 if [ -f ${env_file} ]; then
-    env_file_command="--env-file $env_file"
-    echo ${env_file_command}
+    custom_env_file_parameter="--env-file $env_file"
 fi
 
 # These braces ensure that the block in them cannot be overridden by updating this file on the fly.
@@ -35,7 +34,7 @@ fi
         --env DEVELOPER_MODE \
         --env host_os=unix \
         --env cx_server_path="${PWD}" \
-        ${env_file_command} \
+        ${custom_env_file_parameter} \
         ppiper/cx-server-companion /cx-server/cx-server-companion.sh "$@"
     exit $?
 }
