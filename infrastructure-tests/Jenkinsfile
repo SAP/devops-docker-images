@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 import com.sap.piper.testutils.JenkinsController
 
-@Library(['piper-library-os']) _
+@Library(['jenkins-library-test']) _
 
 timeout(time: 5, unit: 'HOURS') {
 
