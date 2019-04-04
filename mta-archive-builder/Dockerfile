@@ -64,6 +64,10 @@ RUN apt-get update && apt-get install -y \
     INSTALLED_MAVEN_VERSION=`mvn -version |head -n1 |cut -d ' ' -f  3` && \
     echo "[INFO] maven version: \"${INSTALLED_MAVEN_VERSION}\"." && \
     #
+    # Install essential build tools and python, required for building db modules
+    #
+    apt-get install -y build-essential python-minimal && \
+    #
     # Cleanup curl (was only needed for downloading artifacts)
     #
     apt-get remove --purge --autoremove -y \
