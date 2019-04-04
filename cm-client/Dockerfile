@@ -1,6 +1,6 @@
 FROM openjdk:8-jre-slim
 
-ARG version=2.0.1
+ARG version=1.0.0
 
 ENV CMCLIENT_HOME /opt/sap/cmclient
 
