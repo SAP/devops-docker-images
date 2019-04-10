@@ -2,4 +2,4 @@ version: "3"
 services:
   sut:
     build: .
-    command: /run_tests.sh
+    command: /var/jenkins_home/run_tests.sh

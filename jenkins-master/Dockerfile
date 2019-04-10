@@ -12,6 +12,7 @@ RUN apt-get update && \
         ca-certificates \
         curl \
         gnupg2 \
+        maven \
         software-properties-common && \
     curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
     apt-key fingerprint 0EBFCD88 && \
@@ -31,3 +32,6 @@ USER jenkins
 ENV JAVA_OPTS $JAVA_OPTS -Djenkins.install.runSetupWizard=false -Dhudson.model.DirectoryBrowserSupport.CSP=
 
 EXPOSE 8080 8443
+
+COPY run_tests.sh /var/jenkins_home
+COPY Jenkinsfile /var/jenkins_home
