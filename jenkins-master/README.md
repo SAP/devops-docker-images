@@ -21,6 +21,29 @@ To build this image locally, open a terminal in the directory of the Dockerfile 
 docker build -t ppiper/jenkins-master .
 ```
 
+## Test
+
+This image has a very simple test case to check if Jenkins is able to boot with the given plugin configuration.
+The tests are run by DockerHub's "Autotest" feature.
+
+To run them locally, you need [Docker Compose](https://docs.docker.com/compose/).
+
+Run the following commands
+
+```shell
+docker-compose --file docker-compose.test.yml build
+docker-compose --file docker-compose.test.yml run sut
+```
+
+If the test passes, the exit code of the command should be `0` and you should see some log output ending in 
+
+```
+[Pipeline] End of Pipeline
+Finished: SUCCESS
+```
+
+If the command exits with code `1`, the test failed.
+
 ## License
 
 Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved.

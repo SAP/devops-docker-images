@@ -32,5 +32,5 @@ ENV JAVA_OPTS $JAVA_OPTS -Djenkins.install.runSetupWizard=false -Dhudson.model.D
 
 EXPOSE 8080 8443
 
-COPY run_tests.sh /var/jenkins_home
-COPY Jenkinsfile /var/jenkins_home
+# Files required for DockerHub Autotest
+COPY tests/* /var/jenkins_home/
