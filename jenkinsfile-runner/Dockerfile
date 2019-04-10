@@ -8,7 +8,11 @@ RUN curl -O https://repo.jenkins-ci.org/releases/io/jenkins/jenkinsfile-runner/j
 RUN mkdir /jenkins-war && unzip /usr/share/jenkins/jenkins.war -d /jenkins-war && \
     mkdir -p /var/cx-server/jenkins-configuration
 
+# "Default" Jenkinsfile for test case
+COPY Jenkinsfile /workspace/Jenkinsfile
+
 ENTRYPOINT ["/jenkinsfile-runner/bin/jenkinsfile-runner", \
             "--jenkins-war", "/jenkins-war", \
             "--plugins", "/usr/share/jenkins/ref/plugins", \
-            "--file", "/workspace"]
+            "--file", "/workspace", \
+            "--no-sandbox"]
