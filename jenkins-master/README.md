@@ -31,7 +31,8 @@ To run them locally, you need [Docker Compose](https://docs.docker.com/compose/)
 Run the following commands
 
 ```shell
-docker-compose --file docker-compose.test.yml build
+docker build -t ppiper/jenkins-master:latest .
+docker tag ppiper/jenkins-master:latest jenkins-master_sut:latest
 docker-compose --file docker-compose.test.yml run sut
 ```
 
