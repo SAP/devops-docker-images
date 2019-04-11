@@ -9,5 +9,5 @@ mkdir app && unzip /usr/share/jenkins/jenkins.war -d app/jenkins
 bin/jenkinsfile-runner \
         --jenkins-war app/jenkins \
         --plugins /usr/share/jenkins/ref/plugins \
-        --file /var/jenkins_home \
+        --file /autotest \
         --no-sandbox
