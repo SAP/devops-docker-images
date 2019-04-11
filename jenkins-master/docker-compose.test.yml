@@ -2,4 +2,4 @@ version: "3"
 services:
   sut:
     image: jenkins-master_sut:latest
-    command: /var/jenkins_home/run_tests.sh
+    command: /autotest/run_tests.sh
