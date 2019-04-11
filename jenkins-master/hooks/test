@@ -1,0 +1,3 @@
+#!/bin/bash -eu
+
+docker-compose --file docker-compose.test.yml run sut

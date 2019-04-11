@@ -1,5 +1,5 @@
 version: "3"
 services:
   sut:
-    build: .
+    image: jenkins-master_sut:latest
     command: /var/jenkins_home/run_tests.sh
