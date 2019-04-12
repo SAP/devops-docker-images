@@ -5,7 +5,7 @@ docker run --name cx-jenkins-master-test --detach --privileged --publish 8080:80
   -v $(pwd):/src \
   -v /var/run/docker.sock:/var/run/docker.sock \
   $IMAGE_NAME
-sleep 60 # Wait for Jenkins to boot
+sleep 180 # Wait for Jenkins to boot
 
 # Fail when no 2xx status code is returned
 curl --fail http://localhost:8080/api/json
