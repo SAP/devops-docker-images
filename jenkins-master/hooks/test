@@ -1,3 +1,14 @@
 #!/bin/bash -eu
 
-docker-compose --file docker-compose.test.yml run sut
+set -x
+
+echo "=> Smoke-test Jenkins master"
+docker run --name cx-jenkins-master-test --detach --privileged --publish 8080:8080  \
+  -v $(pwd):/src \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  $IMAGE_NAME
+sleep 60
+curl --fail http://localhost:8080/api/json
+
+#echo "=> Test a simple pipeline in Jenkinsfile runner"
+#docker-compose --file docker-compose.test.yml run sut
