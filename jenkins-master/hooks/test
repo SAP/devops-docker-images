@@ -1,11 +1,11 @@
 #!/bin/bash -eu
 
 echo "=> Smoke-test Jenkins master"
-docker run --name cx-jenkins-master-test --detach --privileged --publish 8080:8080  \
-  -v $(pwd):/src \
+docker run --name cx-jenkins-master-test --detach \
   -v /var/run/docker.sock:/var/run/docker.sock \
   $IMAGE_NAME
-sleep 180 # Wait for Jenkins to boot
+sleep 90 # Wait for Jenkins to boot
 
 # Fail when no 2xx status code is returned
+docker exec cx-jenkins-master-test curl http://localhost:8080/api/json #fixme testing
 docker exec cx-jenkins-master-test curl --fail http://localhost:8080/api/json
