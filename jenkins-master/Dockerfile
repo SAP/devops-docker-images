@@ -6,10 +6,6 @@ COPY init_jenkins.groovy /usr/share/jenkins/ref/init.groovy.d/init_jenkins.groov
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 COPY launch-jenkins-agent.sh /usr/share/jenkins/ref/launch-jenkins-agent.sh.override
 
-# Files required for DockerHub Autotest
-RUN mkdir /autotest
-COPY tests/* /autotest/
-
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         apt-transport-https \

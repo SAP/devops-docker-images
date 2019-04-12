@@ -4,4 +4,3 @@
 # See https://docs.docker.com/docker-hub/builds/advanced/ for more info.
 
 docker build -f $DOCKERFILE_PATH -t $IMAGE_NAME .
-docker tag $IMAGE_NAME jenkins-master_sut:latest
