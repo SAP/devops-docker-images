@@ -1,12 +1,9 @@
 #!/bin/bash -eux
 
 echo "=> Smoke-test Jenkins master"
-docker run --name cx-jenkins-master-test --detach \
+docker run --name cx-jenkins-master-test --detach --publish 8080:8080 \
   -v /var/run/docker.sock:/var/run/docker.sock \
   $IMAGE_NAME
 
-# Wait for Jenkins to boot, this might take long on DockerHub, so in doubt allow for some more time
-sleep 300
-
-# Fail when no 2xx status code is returned
-docker exec cx-jenkins-master-test curl --fail http://localhost:8080/api/json
+# Wait up to 5 minutes for Jenkins to be up 
+docker exec cx-jenkins-master-test timeout 300 bash -c "until curl --fail http://localhost:8080/api/json; do sleep 5; done"

@@ -26,24 +26,14 @@ docker build -t ppiper/jenkins-master .
 This image has a very simple test case to check if Jenkins is able to boot with the given plugin configuration.
 The tests are run by DockerHub's "Autotest" feature.
 
-To run them locally, you need [Docker Compose](https://docs.docker.com/compose/).
-
 Run the following commands
 
 ```shell
-docker build -t ppiper/jenkins-master:latest .
-docker tag ppiper/jenkins-master:latest jenkins-master_sut:latest
-docker-compose --file docker-compose.test.yml run sut
+DOCKERFILE_PATH=Dockerfile IMAGE_NAME=ppiper/jenkins-master:that hooks/build
+IMAGE_NAME=ppiper/jenkins-master:that hooks/test
 ```
 
-If the test passes, the exit code of the command should be `0` and you should see some log output ending in 
-
-```
-[Pipeline] End of Pipeline
-Finished: SUCCESS
-```
-
-If the command exits with code `1`, the test failed.
+If the test passes, the exit code of the command should be `0`, and another value otherwise.
 
 ## License
 
