@@ -1,17 +1,18 @@
-FROM maven:3.5 as maven
-
-RUN git clone -b 1.0-beta-7 https://github.com/jenkinsci/jenkinsfile-runner && \
-    cd jenkinsfile-runner && \
-    mvn package --batch-mode -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
-
 FROM ppiper/jenkins-master
 
 USER root
-RUN mkdir /app && unzip /usr/share/jenkins/jenkins.war -d /app/jenkins && \
-    mkdir -p /var/cx-server/jenkins-configuration
-COPY --from=maven /jenkinsfile-runner/app/target/appassembler /app
+RUN curl -O https://repo.jenkins-ci.org/releases/io/jenkins/jenkinsfile-runner/jenkinsfile-runner/1.0-beta-7/jenkinsfile-runner-1.0-beta-7-app.zip && \
+    unzip jenkinsfile-runner-1.0-beta-7-app.zip -d jenkinsfile-runner && \
+    rm jenkinsfile-runner-1.0-beta-7-app.zip
 
-ENTRYPOINT ["/app/bin/jenkinsfile-runner", \
-            "--jenkins-war", "/app/jenkins", \
+RUN mkdir /jenkins-war && unzip /usr/share/jenkins/jenkins.war -d /jenkins-war && \
+    mkdir -p /var/cx-server/jenkins-configuration
+
+# "Default" Jenkinsfile for test case
+COPY Jenkinsfile /workspace/Jenkinsfile
+
+ENTRYPOINT ["/jenkinsfile-runner/bin/jenkinsfile-runner", \
+            "--jenkins-war", "/jenkins-war", \
             "--plugins", "/usr/share/jenkins/ref/plugins", \
-            "--file", "/workspace"]
+            "--file", "/workspace", \
+            "--no-sandbox"]
