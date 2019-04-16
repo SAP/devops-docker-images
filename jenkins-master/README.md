@@ -21,6 +21,20 @@ To build this image locally, open a terminal in the directory of the Dockerfile 
 docker build -t ppiper/jenkins-master .
 ```
 
+## Test
+
+This image has a very simple test case to check if Jenkins is able to boot with the given plugin configuration.
+The tests are run by DockerHub's "Autotest" feature.
+
+Run the following commands
+
+```shell
+DOCKERFILE_PATH=Dockerfile IMAGE_NAME=ppiper/jenkins-master:that hooks/build
+IMAGE_NAME=ppiper/jenkins-master:that hooks/test
+```
+
+If the test passes, the exit code of the command should be `0`, and another value otherwise.
+
 ## License
 
 Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved.
