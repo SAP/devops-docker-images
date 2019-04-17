@@ -2,7 +2,7 @@ FROM openjdk:8-jdk-slim
 
 ARG MTA_USER_HOME=/home/mta
 ARG MTA_HOME='/opt/sap/mta'
-ARG MTA_VERSION=1.1.14
+ARG MTA_VERSION=1.1.19
 
 ARG NODE_VERSION=v10.13.0
 
