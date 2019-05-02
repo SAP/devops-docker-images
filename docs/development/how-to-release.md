@@ -12,6 +12,11 @@ Namespaced tags may also contain postfix to document which tool version is packa
 
 ## How to perform a release
 
-* https://github.com/SAP/devops-docker-images/releases
+* Ensure all [automated tests are 'green' in the current `master` branch](https://github.com/SAP/devops-docker-images/commits/master)
+* Go to the [releases page on GitHub](https://github.com/SAP/devops-docker-images/releases)
 * Select an appropriate tag name like `v17` (by default increase the last release to the next major version )
 * Fill out release notes informing the user about actions they need to take when using this release or new features
+* Publish the release
+* Observe the release builds on [DockerHub](https://hub.docker.com/u/ppiper)
+    * Check if builds don't trigger or fail to build
+
