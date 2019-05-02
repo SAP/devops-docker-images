@@ -4,7 +4,8 @@ This guide describes life-cycle management of the Cx Server for Continuous Integ
 
 #### Introduction
 The `cx-server` and the `server.cfg` files will help to manage the complete lifecycle of Jenkins server. You can generated these file by using the below docker command.
-```
+
+```bash
 docker run -it --rm -u $(id -u):$(id -g) -v "${PWD}":/cx-server/mount/ ppiper/cx-server-companion:latest init-cx-server
 ```
 
