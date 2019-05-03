@@ -12,7 +12,7 @@ ENV MTA_JAR_LOCATION="${MTA_HOME}/lib/mta.jar"
 
 ENV M2_HOME=/opt/maven/apache-maven-${MAVEN_VERSION}
 
-ADD scripts/mtaBuild.sh ${MTA_HOME}/bin/mtaBuild.sh
+COPY scripts/mtaBuild.sh ${MTA_HOME}/bin/mtaBuild.sh
 
 RUN apt-get update && apt-get install -y \
       curl && \
