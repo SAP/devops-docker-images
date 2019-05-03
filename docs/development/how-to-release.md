@@ -1,10 +1,10 @@
 # Release Documentation
 
-A release of [devops-docker-images](https://github.com/SAP/devops-docker-images) is defined by git tags and cohesive tags on [Docker Hub](https://hub.docker.com/u/ppiper).
-Release versions follow the convention `v{number}` with optional dot versions (valid examples are `v3` and `v17.2`).
+A release of [devops-docker-images](https://github.com/SAP/devops-docker-images) is defined by a git tag and cohesive tags on [Docker Hub](https://hub.docker.com/u/ppiper).
+Release versions numbers are defined as matching the expression `/^v(\d+)$/`, so `v17` is a valid example.
 
 Additional namespaced git tags for individual images (like `cmclient-1.0.0.0`) may exist and are not considered a release of the overall project.
-Namespaced tags may also contain postfix to document which tool version is packaged, like `jenkinsfile-runner-v3-1.0-beta-7`.
+Namespaced tags may also contain postfix to document which tool version is packaged, like `jenkinsfile-runner-v{n}-1.0-beta-7`.
 
 [Existing releases](https://github.com/SAP/devops-docker-images/releases)
 
