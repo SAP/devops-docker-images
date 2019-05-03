@@ -27,11 +27,11 @@ This image will not be provided on hub.docker.com. You need to [build][dockerbui
 | ---------| ------------|
 | **NWRFC_FILE** | Path to your NWRFC zip file |
 
-The build arguments can be a local path or an URL. Please consider the rules for the build context and the used [ADD][dockerbuildadd] command.
+The build arguments has to be a local path. Please consider the rules for the build context and the used [COPY][dockerbuildcopy] command.
 
-The following example assumes the NWRFC library is accessible via HTTP:
+The following example shows the build command:
 ```
-docker build -t ppiper/node-rfc --build-arg NWRFC_FILE=https://<location>/nwrcf.zip --file Dockerfile https://github.com/SAP/devops-docker-images.git#:node-rfc
+docker build -t ppiper/node-rfc --build-arg NWRFC_FILE=nwrcf.zip --file Dockerfile https://github.com/SAP/devops-docker-images.git#:node-rfc
 ```
 
 ## How to execute it
@@ -64,6 +64,6 @@ docker run --env <environment variables> ppiper/node-rfc cts createTransportRequ
 [bestpractice]: https://developers.sap.com/tutorials/ci-best-practices-fiori-abap.html
 [general]: https://github.com/SAP/devops-docker-images/blob/master/README.md
 [dockerbuild]: https://docs.docker.com/engine/reference/commandline/build/
-[dockerbuildadd]: https://docs.docker.com/engine/reference/builder/#add
+[dockerbuildcopy]: https://docs.docker.com/engine/reference/builder/#copy
 [dockerrun]: https://docs.docker.com/engine/reference/run/
 [cmclient]: https://github.com/SAP/devops-cm-client
