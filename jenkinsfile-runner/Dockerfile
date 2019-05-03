@@ -1,3 +1,4 @@
+# hadolint ignore=DL3006
 FROM ppiper/jenkins-master
 
 USER root
