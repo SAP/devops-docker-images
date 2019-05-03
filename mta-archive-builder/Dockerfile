@@ -22,18 +22,18 @@ RUN #!/bin/bash \
     #
     # Install mta
     #
-    mkdir -p `dirname ${MTA_JAR_LOCATION}` && \
+    mkdir -p $(dirname "${MTA_JAR_LOCATION}") && \
     curl --fail \
          --silent \
          --cookie "eula_3_1_agreed=tools.hana.ondemand.com/developer-license-3_1.txt;" \
-         --output ${MTA_JAR_LOCATION} \
-      https://tools.hana.ondemand.com/additional/mta_archive_builder-${MTA_VERSION}.jar && \
+         --output "${MTA_JAR_LOCATION}" \
+      "https://tools.hana.ondemand.com/additional/mta_archive_builder-${MTA_VERSION}.jar" && \
     curl --fail \
          --silent \
-         --output ${MTA_HOME}/LICENSE.txt \
+         --output "${MTA_HOME}/LICENSE.txt" \
        https://tools.hana.ondemand.com/developer-license-3_1.txt && \
-    ln -s ${MTA_HOME}/bin/mtaBuild.sh /usr/local/bin/mtaBuild && \
-    INSTALLED_MTA_VERSION=`mtaBuild --version` && \
+    ln -s "${MTA_HOME}/bin/mtaBuild.sh" /usr/local/bin/mtaBuild && \
+    INSTALLED_MTA_VERSION="$(mtaBuild --version)" && \
     echo "[INFO] mta version: \"${INSTALLED_MTA_VERSION}\"." && \
     #
     # Install git
@@ -44,11 +44,11 @@ RUN #!/bin/bash \
     # Install node
     #
     NODE_HOME=/opt/nodejs; mkdir -p ${NODE_HOME} && \
-    curl --fail --silent --output - http://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.gz \
-     |tar -xzv -f - -C ${NODE_HOME} && \
-    ln -s ${NODE_HOME}/node-${NODE_VERSION}-linux-x64/bin/node /usr/local/bin/node && \
-    ln -s ${NODE_HOME}/node-${NODE_VERSION}-linux-x64/bin/npm /usr/local/bin/npm && \
-    INSTALLED_NODE_VERSION=`node --version` && \
+    curl --fail --silent --output - "http://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.gz" \
+     |tar -xzv -f - -C "${NODE_HOME}" && \
+    ln -s "${NODE_HOME}/node-${NODE_VERSION}-linux-x64/bin/node" /usr/local/bin/node && \
+    ln -s "${NODE_HOME}/node-${NODE_VERSION}-linux-x64/bin/npm" /usr/local/bin/npm && \
+    INSTALLED_NODE_VERSION="$(node --version)" && \
     echo "[INFO] node version: \"${INSTALLED_NODE_VERSION}\"." && \
     #
     # Provide SAP registry
@@ -58,13 +58,13 @@ RUN #!/bin/bash \
     # Install maven
     #
     echo "[INFO] installing maven." && \
-    M2_BASE=`dirname ${M2_HOME}` && \
-    mkdir -p ${M2_BASE} && \
-    curl --fail --silent --output - https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
-      | tar -xzvf - -C ${M2_BASE} && \
-    ln -s ${M2_HOME}/bin/mvn /usr/local/bin/mvn && \
-    chmod --recursive a+w ${M2_HOME}/conf/* && \
-    INSTALLED_MAVEN_VERSION=`mvn -version |head -n1 |cut -d ' ' -f  3` && \
+    M2_BASE="$(dirname ${M2_HOME})" && \
+    mkdir -p "${M2_BASE}" && \
+    curl --fail --silent --output - "https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz" \
+      | tar -xzvf - -C "${M2_BASE}" && \
+    ln -s "${M2_HOME}/bin/mvn" /usr/local/bin/mvn && \
+    chmod --recursive a+w "${M2_HOME}/conf/*" && \
+    INSTALLED_MAVEN_VERSION=$(mvn -version |head -n1 |cut -d ' ' -f  3) && \
     echo "[INFO] maven version: \"${INSTALLED_MAVEN_VERSION}\"." && \
     #
     # Install essential build tools and python, required for building db modules
@@ -78,13 +78,13 @@ RUN #!/bin/bash \
     #
     # Provide dedicated user for running the image
     #
-    useradd --home-dir ${MTA_USER_HOME} \
+    useradd --home-dir "${MTA_USER_HOME}" \
             --create-home \
             --shell /bin/bash \
             --user-group \
             --uid 1000 \
             --comment 'SAP-MTA tooling' \
-            --password `echo weUseMta |openssl passwd -1 -stdin` mta && \
+            --password $(echo weUseMta |openssl passwd -1 -stdin) mta && \
     # Check below should be active, but we get version 1.1.8 installed
     # when demanding version 1.1.7. When activating the check below, don't forget to add
     # ' && \' to the line above
