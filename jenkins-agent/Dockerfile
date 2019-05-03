@@ -1,7 +1,10 @@
 FROM openjdk:8-jre-slim
 
 ENV JENKINS_HOME /var/jenkins_home
-  
+
+# https://github.com/hadolint/hadolint/wiki/DL4006
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         git \
@@ -18,7 +21,7 @@ RUN apt-get update && \
        $(lsb_release -cs) \
        stable" && \
     apt-get update && \
-    apt-get -y install docker-ce && \
+    apt-get -y --no-install-recommends install docker-ce && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
 # add group & user

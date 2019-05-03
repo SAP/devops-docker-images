@@ -11,6 +11,8 @@ RUN mkdir /jenkins-war && unzip /usr/share/jenkins/jenkins.war -d /jenkins-war &
 # "Default" Jenkinsfile for test case
 COPY Jenkinsfile /workspace/Jenkinsfile
 
+USER jenkins
+
 ENTRYPOINT ["/jenkinsfile-runner/bin/jenkinsfile-runner", \
             "--jenkins-war", "/jenkins-war", \
             "--plugins", "/usr/share/jenkins/ref/plugins", \
