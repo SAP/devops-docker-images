@@ -18,7 +18,7 @@ else
 fi
 
 docker_arguments=(--rm
-    "${DOCKER_IT_FLAG}"
+    $DOCKER_IT_FLAG
     --mount "source=${PWD},target=/cx-server/mount,type=bind"
     --workdir /cx-server/mount
     --volume /var/run/docker.sock:/var/run/docker.sock
