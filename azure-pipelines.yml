@@ -1,0 +1,13 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+  timeoutInMinutes: 0
+
+steps:
+- script: cd infrastructure-tests && chmod +x runTests.sh && ./runTests.sh
+  displayName: 'Run infrastructure tests'
+  env:
+    CX_INFRA_IT_CF_PASSWORD: $(cfPassword)
+    CX_INFRA_IT_CF_USERNAME: $(cfUsername)
