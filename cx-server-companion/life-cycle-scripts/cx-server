@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x #FIXME debugging
 
 # Ensure that Docker is installed
 command -v docker > /dev/null 2>&1 || { echo >&2 "Docker does not seem to be installed. Please install Docker and ensure that the 'docker' command is included in \$PATH."; exit 1; }
