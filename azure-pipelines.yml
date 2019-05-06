@@ -6,7 +6,7 @@ pool:
   timeoutInMinutes: 0
 
 steps:
-- script: cd infrastructure-tests && chmod +x runTests.sh && ./runTests.sh
+- script: docker info && docker --version
   displayName: 'Run infrastructure tests'
   env:
     CX_INFRA_IT_CF_PASSWORD: $(cfPassword)
