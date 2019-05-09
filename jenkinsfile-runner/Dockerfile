@@ -1,6 +1,9 @@
+# Inhereting form 'latest' Jenkins master is ok since this image is controlled by us
 # hadolint ignore=DL3006
 FROM ppiper/jenkins-master
 
+# User needs to be root for access to mounted Docker socket
+# hadolint ignore=DL3002
 USER root
 RUN curl -O https://repo.jenkins-ci.org/releases/io/jenkins/jenkinsfile-runner/jenkinsfile-runner/1.0-beta-7/jenkinsfile-runner-1.0-beta-7-app.zip && \
     unzip jenkinsfile-runner-1.0-beta-7-app.zip -d jenkinsfile-runner && \
@@ -11,8 +14,6 @@ RUN mkdir /jenkins-war && unzip /usr/share/jenkins/jenkins.war -d /jenkins-war &
 
 # "Default" Jenkinsfile for test case
 COPY Jenkinsfile /workspace/Jenkinsfile
-
-USER jenkins
 
 ENTRYPOINT ["/jenkinsfile-runner/bin/jenkinsfile-runner", \
             "--jenkins-war", "/jenkins-war", \
