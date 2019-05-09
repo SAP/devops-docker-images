@@ -19,7 +19,6 @@ find ../cx-server-companion -type f -exec sed -i -e 's/ppiper/localhost:5000\/pp
 
 # Copy over life cycle script for testing
 cp ../cx-server-companion/life-cycle-scripts/{cx-server,server.cfg} .
-echo "cache_enabled=false" >> server.cfg # Disable download cache because it does not seedup thing in this scenario
 mkdir -p jenkins-configuration
 cp testing-jenkins.yml jenkins-configuration
 
