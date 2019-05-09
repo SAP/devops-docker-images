@@ -53,6 +53,8 @@ docker run -v //var/run/docker.sock:/var/run/docker.sock -v $(pwd):/workspace \
  -e CASC_JENKINS_CONFIG=/workspace/jenkins.yml -e HOST=$(hostname) \
  ppiper/jenkinsfile-runner
 
+docker logs --details cx-nexus
+
 # cleanup
 if [ ! "$TRAVIS" = true ] ; then
     rm -f cx-server server.cfg custom-environment.list
