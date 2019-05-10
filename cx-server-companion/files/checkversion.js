@@ -109,7 +109,7 @@ function extractVersionNumbers(aTags) {
  * @returns version number, or null if not present
  */
 function getVersionNumberFromTagName(strTag) {
-    const match = strTag.match(/^v(\d+)$/);
+    const match = strTag.match(/^v([\d.]+)$/);
     if (match) {
         const versionNumber = Number.parseInt(match[1]);
         if (!(versionNumber.toString().length == strTag.length - 1)) {

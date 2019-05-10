@@ -204,7 +204,7 @@ You can do it by executing below commands.
 
 #### Plugins
 
-All the plugins that are required to run the SAP S/4HANA Cloud SDK Continuous Delivery Pipeline and the Piper steps are already pre-installed.
+All the plugins that are required to run the SAP Cloud SDK Continuous Delivery Pipeline and the Piper steps are already pre-installed.
 If you update or downgrade them to a specific version, it will be lost every time the `cx-server` image is updated. 
 All the plugins are updated with the latest version. 
 If there is a need, the user can install additional plugins and configure them. 
@@ -227,7 +227,7 @@ docker system prune --all
 
 You can find the logs of the `cx-server` and the caching server as part of the Docker logs on the host machine. 
 
-```
+```bash
 docker logs cx-jenkins-master
 docker logs cx-nexus
 ```
