@@ -36,6 +36,8 @@ Namespaced tags may also contain postfix to document which tool version is packa
 ## Fixes
 *
 
-## Incompatible Changes [Remove if none exist, document mitigation if they do]
+<!-- Remove if none exist, document mitigation if they do
+## Incompatible Changes
 *
+-->
 ```
