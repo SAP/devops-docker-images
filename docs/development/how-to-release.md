@@ -24,7 +24,7 @@ Namespaced tags may also contain postfix to document which tool version is packa
 
 ### Release notes template
 
-```
+```markdown
 # Release `vX`
 
 ## New Functionality
@@ -36,4 +36,6 @@ Namespaced tags may also contain postfix to document which tool version is packa
 ## Fixes
 *
 
+## Incompatible Changes [Remove if none exist, document mitigation if they do]
+*
 ```
