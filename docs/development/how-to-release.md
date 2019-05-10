@@ -1,11 +1,9 @@
 # Release Documentation
 
-[List of existing releases](https://github.com/SAP/devops-docker-images/releases)
+See the [list of existing releases on GitHub](https://github.com/SAP/devops-docker-images/releases).
 
 A release of [devops-docker-images](https://github.com/SAP/devops-docker-images) is defined by a git tag and cohesive image tags on [Docker Hub](https://hub.docker.com/u/ppiper).
-Release version numbers are defined as matching the expression `^v([\d.]+)$`, so `v17` is a valid example, and `v17.3` is too.
-Usually we don't do dot releases, so the number does not carry any semantic meaning.
-The default version number for a release should always be the next whole integer compared to the previous release.
+Release version numbers are defined as matching the expression `/^v(\d+)$/`, so `v17` is a valid example, and `v17.3` is invalid.
 
 Additional namespaced git tags for individual images (like `cmclient-1.0.0.0`) may exist and are not considered a release of the overall project.
 Namespaced tags may also contain postfix to document which tool version is packaged, like `jenkinsfile-runner-v{n}-1.0-beta-7`.
