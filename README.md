@@ -31,11 +31,13 @@ The following images are published on [hub.docker.com](https://hub.docker.com/se
 All images have a Docker tag `latest`.
 Individual images may provide additional tags corresponding to releases.
 
-[Existing releases](https://github.com/SAP/devops-docker-images/releases)
+Existing releases are listed on the [GitHub releases page](https://github.com/SAP/devops-docker-images/releases).
+Official releases follow the pattern `v{VersionNumber}`.
+Additional namespaced tags for certain images do exist and are not a release of the project.
 
 Developer documentation for releases is available in the [release documentation document](docs/development/how-to-release.md).
 
-[Update Jenkins master](https://github.com/SAP/devops-docker-images/blob/master/docs/operations/cx-server-operations-guide.md#update-image)
+Information on updating the Jenkins master including the bundled plugins is available in [the respective section of the operations guide](https://github.com/SAP/devops-docker-images/blob/master/docs/operations/cx-server-operations-guide.md#update-image).
 
 ### Docker Files
 
