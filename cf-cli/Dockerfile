@@ -24,9 +24,5 @@ WORKDIR /home/piper
 # hadolint ignore=DL4001
 RUN cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org \
     && cf install-plugin blue-green-deploy -f -r CF-Community \
-    && wget --quiet "${MTA_PLUGIN_URL}" \
-       --directory-prefix /home/piper/downloads \
-    && chmod +x /home/piper/downloads/mta_plugin_linux_amd64 \
-    && cf install-plugin /home/piper/downloads/mta_plugin_linux_amd64 -f \
-    && rm -rf /home/piper/downloads \
+    && cf install-plugin ${MTA_PLUGIN_URL} -f \
     && cf plugins
