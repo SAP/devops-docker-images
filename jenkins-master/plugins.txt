@@ -20,6 +20,7 @@ github-branch-source
 greenballs
 htmlpublisher
 http_request
+influxdb
 jacoco
 job-dsl
 junit
