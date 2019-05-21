@@ -2,6 +2,8 @@ FROM buildpack-deps:stretch-curl
 
 ENV VERSION 0.1
 
+ARG MTA_PLUGIN_URL=https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/download/v2.1.0/mta_plugin_linux_amd64
+
 # https://github.com/hadolint/hadolint/wiki/DL4006
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -22,7 +24,7 @@ WORKDIR /home/piper
 # hadolint ignore=DL4001
 RUN cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org \
     && cf install-plugin blue-green-deploy -f -r CF-Community \
-    && wget --quiet "https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/download/v2.1.0/mta_plugin_linux_amd64" \
+    && wget --quiet "${MTA_PLUGIN_URL}" \
        --directory-prefix /home/piper/downloads \
     && chmod +x /home/piper/downloads/mta_plugin_linux_amd64 \
     && cf install-plugin /home/piper/downloads/mta_plugin_linux_amd64 -f \
