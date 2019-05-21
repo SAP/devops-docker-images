@@ -2,7 +2,8 @@ FROM buildpack-deps:stretch-curl
 
 ENV VERSION 0.1
 
-ARG MTA_PLUGIN_URL=https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/download/v2.1.0/mta_plugin_linux_amd64
+ARG MTA_PLUGIN_VERSION=2.1.0
+ARG MTA_PLUGIN_URL=https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/download/v${MTA_PLUGIN_VERSION}/mta_plugin_linux_amd64
 
 # https://github.com/hadolint/hadolint/wiki/DL4006
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
