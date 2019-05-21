@@ -23,7 +23,7 @@ ARG MTA_PLUGIN_VERSION=2.1.0
 ARG MTA_PLUGIN_URL=https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/download/v${MTA_PLUGIN_VERSION}/mta_plugin_linux_amd64
 
 # hadolint ignore=DL4001
-RUN cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org \
-    && cf install-plugin blue-green-deploy -f -r CF-Community \
-    && cf install-plugin ${MTA_PLUGIN_URL} -f \
-    && cf plugins
+RUN cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org && \
+    cf install-plugin blue-green-deploy -f -r CF-Community && \
+    cf install-plugin ${MTA_PLUGIN_URL} -f && \
+    cf plugins
