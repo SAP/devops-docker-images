@@ -19,12 +19,10 @@ RUN addgroup -gid 1000 piper && \
 USER piper
 WORKDIR /home/piper
 
-# hadolint ignore=DL4001
-RUN cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org \
-    && cf install-plugin blue-green-deploy -f -r CF-Community \
-    && wget --quiet "https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/download/v2.1.0/mta_plugin_linux_amd64" \
-       --directory-prefix /home/piper/downloads \
-    && chmod +x /home/piper/downloads/mta_plugin_linux_amd64 \
-    && cf install-plugin /home/piper/downloads/mta_plugin_linux_amd64 -f \
-    && rm -rf /home/piper/downloads \
-    && cf plugins
+ARG MTA_PLUGIN_VERSION=2.1.0
+ARG MTA_PLUGIN_URL=https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/download/v${MTA_PLUGIN_VERSION}/mta_plugin_linux_amd64
+
+RUN cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org && \
+    cf install-plugin blue-green-deploy -f -r CF-Community && \
+    cf install-plugin ${MTA_PLUGIN_URL} -f && \
+    cf plugins
