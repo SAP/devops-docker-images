@@ -30,8 +30,8 @@ timeout(time: 5, unit: 'HOURS') {
                 jenkins.waitForSuccess('infrastructure-integration-test', 'infrastructure-integration-test')
             }, neoEnvironment: {
                 jenkins.waitForSuccess('infrastructure-integration-test', 'infrastructure-integration-test-neo')
-            }, cloudFoundryCap: {
-                jenkins.waitForSuccess('infrastructure-integration-test', 'infrastructure-integration-test-cap')
+//            }, cloudFoundryCap: {
+//                jenkins.waitForSuccess('infrastructure-integration-test', 'infrastructure-integration-test-cap')
             }
         }
     }
