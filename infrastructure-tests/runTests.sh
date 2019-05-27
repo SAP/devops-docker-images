@@ -22,11 +22,11 @@ cp ../cx-server-companion/life-cycle-scripts/{cx-server,server.cfg} .
 mkdir -p jenkins-configuration
 cp testing-jenkins.yml jenkins-configuration
 
-docker build -t localhost:5000/ppiper/jenkins-master:latest ../jenkins-master
-docker build -t localhost:5000/ppiper/cx-server-companion:latest ../cx-server-companion
-docker build -t localhost:5000/ppiper/cf-cli ../cf-cli
-docker build -t localhost:5000/ppiper/neo-cli ../neo-cli
-docker build -t localhost:5000/ppiper/mta-archive-builder ../mta-archive-builder
+docker build --quiet --tag localhost:5000/ppiper/jenkins-master:latest ../jenkins-master
+docker build --quiet --tag localhost:5000/ppiper/cx-server-companion:latest ../cx-server-companion
+docker build --quiet --tag localhost:5000/ppiper/cf-cli ../cf-cli
+docker build --quiet --tag localhost:5000/ppiper/neo-cli ../neo-cli
+docker build --quiet --tag localhost:5000/ppiper/mta-archive-builder ../mta-archive-builder
 
 docker tag localhost:5000/ppiper/jenkins-master:latest ppiper/jenkins-master:latest
 docker tag localhost:5000/ppiper/cx-server-companion:latest ppiper/cx-server-companion:latest
