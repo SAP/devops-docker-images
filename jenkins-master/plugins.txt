@@ -4,9 +4,10 @@ blueocean
 build-monitor-plugin
 build-timeout
 checkmarx
+cobertura
 command-launcher
 configuration-as-code
-configuration-as-code-support 
+configuration-as-code-support
 credentials
 credentials-binding
 cucumber-testresult-plugin

@@ -2,7 +2,7 @@ FROM openjdk:8-jdk-slim
 
 ARG MTA_USER_HOME=/home/mta
 ARG MTA_HOME='/opt/sap/mta'
-ARG MTA_VERSION=1.1.7
+ARG MTA_VERSION=1.1.19
 
 ARG NODE_VERSION=v10.13.0
 
@@ -61,8 +61,13 @@ RUN apt-get update && apt-get install -y \
     curl --fail --silent --output - https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
       | tar -xzvf - -C ${M2_BASE} && \
     ln -s ${M2_HOME}/bin/mvn /usr/local/bin/mvn && \
+    chmod --recursive a+w ${M2_HOME}/conf/* && \
     INSTALLED_MAVEN_VERSION=`mvn -version |head -n1 |cut -d ' ' -f  3` && \
     echo "[INFO] maven version: \"${INSTALLED_MAVEN_VERSION}\"." && \
+    #
+    # Install essential build tools and python, required for building db modules
+    #
+    apt-get install -y build-essential python-minimal && \
     #
     # Cleanup curl (was only needed for downloading artifacts)
     #

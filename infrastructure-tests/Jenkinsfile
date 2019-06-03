@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 import com.sap.piper.testutils.JenkinsController
 
-@Library(['piper-library-os']) _
+@Library(['jenkins-library-test']) _
 
 timeout(time: 5, unit: 'HOURS') {
 
@@ -30,6 +30,8 @@ timeout(time: 5, unit: 'HOURS') {
                 jenkins.waitForSuccess('infrastructure-integration-test', 'infrastructure-integration-test')
             }, neoEnvironment: {
                 jenkins.waitForSuccess('infrastructure-integration-test', 'infrastructure-integration-test-neo')
+            }, cloudFoundryCap: {
+                jenkins.waitForSuccess('infrastructure-integration-test', 'infrastructure-integration-test-cap')
             }
         }
     }

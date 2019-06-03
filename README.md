@@ -26,6 +26,18 @@ The following images are published on [hub.docker.com](https://hub.docker.com/se
 | Container Structure Test|[Container Structure Test](https://github.com/GoogleContainerTools/container-structure-test) with shell to work with `ppiper/jenkins-master`|[ppiper/container-structure-test](https://hub.docker.com/r/ppiper/container-structure-test)|
 | Node Browsers | Web browsers to be used for end to end tests of web applications in Jenkins pipelines | [node-browsers/](node-browsers/) |
 
+#### Versioning
+
+All images have a Docker tag `latest`.
+Individual images may provide additional tags corresponding to releases.
+
+Existing releases are listed on the [GitHub releases page](https://github.com/SAP/devops-docker-images/releases).
+Official releases follow the pattern `v{VersionNumber}`.
+Additional namespaced tags for certain images do exist and are not a release of the project.
+
+Developer documentation for releases is available in the [release documentation document](docs/development/how-to-release.md).
+
+Information on updating the Jenkins master including the bundled plugins is available in [the respective section of the operations guide](https://github.com/SAP/devops-docker-images/blob/master/docs/operations/cx-server-operations-guide.md#update-image).
 
 ### Docker Files
 
