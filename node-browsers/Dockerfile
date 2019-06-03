@@ -1,4 +1,5 @@
-FROM node:stretch
+# node-10 is LTS and required for sap approuter. EOL: 2021-04-01
+FROM node:10-stretch
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends chromium firefox-esr xvfb libxi6 libgconf-2-4 default-jre && \
