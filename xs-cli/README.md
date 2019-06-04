@@ -16,9 +16,7 @@ This image will not be provided on hub.docker.com. You need to [build][dockerbui
 | ---------| ------------|
 | **XSZIP** | Path to your XS CLI zip file |
 
-The build arguments can be a local path or an URL. Please consider the rules for the build context and the used [ADD][dockerbuildadd] command.
-
-The following example assumes the xs command line client package is accessible via HTTP:
+Example:
 ```
 docker build -t ppiper/xs-cli --build-arg XSZIP=XS_CLIENT00P_<version>.ZIP --file Dockerfile https://github.com/SAP/devops-docker-images.git#:xs-cli
 ```
