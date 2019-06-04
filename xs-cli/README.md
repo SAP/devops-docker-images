@@ -20,7 +20,7 @@ The build arguments can be a local path or an URL. Please consider the rules for
 
 The following example assumes the xs command line client package is accessible via HTTP:
 ```
-docker build -t ppiper/xs-cli --build-arg XSZIP=https://<location>/xs.onpremise.runtime.client_linuxx86_64-<version>.zip --file Dockerfile https://github.com/SAP/devops-docker-images.git#:xs-cli
+docker build -t ppiper/xs-cli --build-arg XSZIP=xs.onpremise.runtime.client_linuxx86_64-<version>.zip --file Dockerfile https://github.com/SAP/devops-docker-images.git#:xs-cli
 ```
 
 ## How to execute it
@@ -32,7 +32,7 @@ docker run  ppiper/xs-xli xs <command>
 
 
 # License
-Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved. This file is licensed under the Apache Software License, v. 2 except as noted otherwise in the LICENSE file.
+Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved. This file is licensed under the Apache Software License, v. 2 except as noted otherwise in the LICENSE file.
 
 Please note that Docker images can contain other software which may be licensed under different licenses. This License file is also included in the Docker image. For any usage of built Docker images please make sure to check the licenses of the artifacts contained in the images.
 
