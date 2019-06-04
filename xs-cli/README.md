@@ -5,7 +5,7 @@ To bring an XS application to a HANA XS Server you need to deploy the applicatio
 ## Requirements
 * General requirements can be found in the [repository readme][general]
 * An S-User for [SAP ONE][sapone]
-* Download XS command line client ```xs.onpremise.runtime.client_linuxx86_64-<version>.zip``` for Linux on x86_64 from [SAP ONE][sapone]
+* Download XS command line client ```XS_CLIENT00P_<version>.ZIP``` for Linux on x86_64 from [SAP ONE][sapone]
 
 ## How to build it
 
@@ -20,7 +20,7 @@ The build arguments can be a local path or an URL. Please consider the rules for
 
 The following example assumes the xs command line client package is accessible via HTTP:
 ```
-docker build -t ppiper/xs-cli --build-arg XSZIP=xs.onpremise.runtime.client_linuxx86_64-<version>.zip --file Dockerfile https://github.com/SAP/devops-docker-images.git#:xs-cli
+docker build -t ppiper/xs-cli --build-arg XSZIP=XS_CLIENT00P_<version>.ZIP --file Dockerfile https://github.com/SAP/devops-docker-images.git#:xs-cli
 ```
 
 ## How to execute it
