@@ -6,6 +6,9 @@ COPY init_jenkins.groovy /usr/share/jenkins/ref/init.groovy.d/init_jenkins.groov
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 COPY launch-jenkins-agent.sh /usr/share/jenkins/ref/launch-jenkins-agent.sh.override
 
+# https://github.com/hadolint/hadolint/wiki/DL4006
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         apt-transport-https \
