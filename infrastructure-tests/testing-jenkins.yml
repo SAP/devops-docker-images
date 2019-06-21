@@ -5,8 +5,8 @@ jobs:
       multibranchPipelineJob('infrastructure-integration-test') {
           branchSources {
               git {
-                  remote("https://github.com/SAP/cloud-s4-sdk-book") // todo this should be read from the environment, unclear how to set it via environment currently
-                  includes('infrastructure-integration-test*') // The repo has too many branches, only build the ones relevant for this test (cf and neo)
+                  remote("https://github.com/piper-validation/cloud-s4-sdk-book") // todo this should be read from the environment, unclear how to set it via environment currently
+                  includes('infrastructure-integration-test*') // Only build the branches relevant for this test
               }
           }
       }
@@ -20,3 +20,4 @@ credentials:
               username: ${CX_INFRA_IT_CF_USERNAME}
               password: ${CX_INFRA_IT_CF_PASSWORD}
               description: "SAP CP Trail account."
+
