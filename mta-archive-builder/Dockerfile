@@ -16,9 +16,9 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 COPY scripts/mtaBuild.sh ${MTA_HOME}/bin/mtaBuild.sh
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && \
+    apt-get install --yes --no-install-recommends \
       curl && \
-    rm -rf /var/lib/apt/lists/* && \
     #
     # Install mta
     #
@@ -39,7 +39,8 @@ RUN apt-get update && apt-get install -y \
     # Install git
     #
     apt-get update && \
-    apt-get install -y git && \
+    apt-get install --yes --no-install-recommends \
+      git && \
     #
     # Install node
     #
@@ -69,12 +70,15 @@ RUN apt-get update && apt-get install -y \
     #
     # Install essential build tools and python, required for building db modules
     #
-    apt-get install -y build-essential python-minimal && \
+    apt-get install --yes --no-install-recommends \
+      build-essential \
+      python-minimal && \
     #
     # Cleanup curl (was only needed for downloading artifacts)
     #
-    apt-get remove --purge --autoremove -y \
+    apt-get remove --purge --autoremove --yes \
       curl && \
+    rm -rf /var/lib/apt/lists/* && \
     #
     # Provide dedicated user for running the image
     #
