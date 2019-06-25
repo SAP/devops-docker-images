@@ -12,11 +12,11 @@ ENV MTA_JAR_LOCATION="${MTA_HOME}/lib/mta.jar"
 
 ENV M2_HOME=/opt/maven/apache-maven-${MAVEN_VERSION}
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 COPY scripts/mtaBuild.sh ${MTA_HOME}/bin/mtaBuild.sh
 
-RUN #!/bin/bash \
-    set -o pipefail \
-    apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y \
       curl && \
     rm -rf /var/lib/apt/lists/* && \
     #
