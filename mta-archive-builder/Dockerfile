@@ -96,6 +96,8 @@ RUN apt-get update && \
    [ "${NODE_VERSION}" = "${INSTALLED_NODE_VERSION}" ] || { echo "[ERROR] Installed node version '${INSTALLED_NODE_VERSION}' does not match expected node version '${NODE_VERSION}'."; exit 1; } && \
    [ "${MAVEN_VERSION}" = "${INSTALLED_MAVEN_VERSION}" ] || { echo "[ERROR] Installed maven version '${INSTALLED_MAVEN_VERSION}' does not match expected maven version '${MAVEN_VERSION}'."; exit 1; }
 
+RUN mkdir /project && chmod 777 /project
+
 WORKDIR /project
 
 ENV PATH=./node_modules/.bin:$PATH
