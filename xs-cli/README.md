@@ -1,28 +1,28 @@
 # XS CLI Docker File
 ## Description
-To bring an SAP HANA XS Advanced application to a SAP HANA Server you need to deploy the application with the xs command line tool. This Dockerfile can wrap the xs command line client and the resulting image is intended to run with the Jenkins pipeline library [project "Piper"][piper]. 
+To bring an SAP HANA XS Advanced application to an SAP HANA Server, deploy the application with the XS command-line tool. With this Dockerfile, you can wrap the XS command-line client and run the resulting image with the Jenkins pipeline library of [project "Piper"][piper]. 
 
 ## Requirements
 * General requirements can be found in the [repository readme][general]
 * An S-User for [SAP ONE][sapone]
-* Download XS command line client ```XS_CLIENT00P_<version>.ZIP``` for Linux on x86_64 from [SAP ONE][sapone]
+* Download XS command-line client ```XS_CLIENT00P_<version>.ZIP``` for Linux on x86_64 from [SAP ONE][sapone]
 
-## How to build it
+## How to Build It
 
-This image will not be provided on hub.docker.com. You need to [build][dockerbuild] this Dockerfile locally before using it. Here you can find a [tutorial][xsclient] how to get the xs command line client package.
+This image is not provided on hub.docker.com. Instead, [build][dockerbuild] this Dockerfile locally before using it. Here, you can find a [tutorial][xsclient] on how to get the XS command-line client package.
 
 ### Build Arguments
 | Argument | Description |
 | ---------| ------------|
-| **XSZIP** | Path to your XS CLI zip file |
+| **XSZIP** | Path to your XS CLI ZIP file |
 
 Example:
 ```
 docker build -t ppiper/xs-cli --build-arg XSZIP=XS_CLIENT00P_<version>.ZIP --file Dockerfile https://github.com/SAP/devops-docker-images.git#:xs-cli
 ```
 
-## How to execute it
-Assuming you have built the image with using the tag `ppiper/xs-cli` you can run it with:
+## How to Execute It
+Assuming you have built the image by using the tag `ppiper/xs-cli`, you can run it with:
 
 ```
 docker run  ppiper/xs-cli xs <command>

@@ -46,7 +46,7 @@ The following Dockerfiles will not be published as images. You have to build the
 | Name | Description | Link |
 |------|-------------|------|
 | Node-rfc | Interact with CTS+ having NW ABAP < 7.50 | [/node-rfc](https://github.com/SAP/devops-docker-images/tree/master/node-rfc)|
-| xs-cli | xs command line client | [/xs-cli](https://github.com/SAP/devops-docker-images/tree/master/xs-cli)|
+| xs-cli | XS command-line client | [/xs-cli](https://github.com/SAP/devops-docker-images/tree/master/xs-cli)|
 
 ## General Requirements
 
