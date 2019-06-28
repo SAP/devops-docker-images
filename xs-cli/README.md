@@ -1,6 +1,6 @@
 # XS CLI Docker File
 ## Description
-To bring an XS application to a HANA XS Server you need to deploy the application with the xs command line tool. This Dockerfile can wrap the xs command line client and the resulting image is intended to run with our Jenkins pipeline library [project "Piper"][piper]. 
+To bring an SAP HANA XS Advanced application to a SAP HANA Server you need to deploy the application with the xs command line tool. This Dockerfile can wrap the xs command line client and the resulting image is intended to run with the Jenkins pipeline library [project "Piper"][piper]. 
 
 ## Requirements
 * General requirements can be found in the [repository readme][general]
@@ -25,7 +25,7 @@ docker build -t ppiper/xs-cli --build-arg XSZIP=XS_CLIENT00P_<version>.ZIP --fil
 Assuming you have built the image with using the tag `ppiper/xs-cli` you can run it with:
 
 ```
-docker run  ppiper/xs-xli xs <command>
+docker run  ppiper/xs-cli xs <command>
 ```
 
 
