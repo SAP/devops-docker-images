@@ -72,7 +72,7 @@ RUN apt-get update && \
     #
     apt-get install --yes --no-install-recommends \
       build-essential \
-      python-minimal && \
+      python2.7 && \
     #
     # Cleanup curl (was only needed for downloading artifacts)
     #
