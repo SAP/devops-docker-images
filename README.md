@@ -1,3 +1,21 @@
+# Deprecation notice
+
+This repository is deprecated. Its content is split up in multiple new repositories.
+The Docker images are already built from the new repositories.
+Please open any issues or pull requests there.
+
+The new repositories are:
+
+* [Cx Server](https://github.com/SAP/devops-docker-cx-server)
+    * Jenkins master
+    * Jenkins agents
+    * Cx Server companion
+* [CF cli](https://github.com/SAP/devops-docker-cf-cli)
+* [Neo cli](https://github.com/SAP/devops-docker-neo-cli)
+* [MTA Builder](https://github.com/SAP/devops-docker-mta-archive-builder)
+* [Node browsers](https://github.com/SAP/devops-docker-node-browsers)
+
+
 ## Description
 
 This is a collection of [_Dockerfiles_](https://docs.docker.com/engine/reference/builder/) for images that can be used in _Continuous Delivery_ (CD) pipelines 
