@@ -1,6 +1,0 @@
-#!/bin/bash -eux
-# DockerHub hook to implement the 'build once' principle with tests.
-# We build the image here, and tag it for use in the test.
-# See https://docs.docker.com/docker-hub/builds/advanced/ for more info.
-
-docker build -f $DOCKERFILE_PATH -t $IMAGE_NAME .
