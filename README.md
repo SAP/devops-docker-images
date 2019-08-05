@@ -6,7 +6,7 @@ tools and environments that are required to execute pipeline steps.
 
 If you want to learn how to use project "Piper" please have a look at [the documentation](https://github.com/SAP/jenkins-library/blob/master/README.md). Introductory material and a lot of SAP scenarios not covered by project "Piper" are described in our [Continuous Integration Best Practices](https://developers.sap.com/tutorials/ci-best-practices-intro.html).
 
-**Note:**: This repository has been split up.
+**Note:** This repository has been split up.
 Please refer to the following repositories for current Dockerfiles and documentation:
 
 * [Cx Server](https://github.com/SAP/devops-docker-cx-server)
