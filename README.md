@@ -18,6 +18,22 @@ Please refer to the following repositories for current Dockerfiles and documenta
 * [MTA Builder](https://github.com/SAP/devops-docker-mta-archive-builder)
 * [Node browsers](https://github.com/SAP/devops-docker-node-browsers)
 
+### Docker Images
+
+The following images are published on [hub.docker.com](https://hub.docker.com/search?q=ppiper&type=image):
+
+| Name | Description | Docker Image |
+|------|-------------|------|
+| Jenkins | Preconfigured Jenkins to run project "Piper" pipelines. | [ppiper/jenkins-master](https://hub.docker.com/r/ppiper/jenkins-master) |
+| MTA Archive Builder | Build SAP Multitarget Applications with the [MTA archive builder](https://help.sap.com/viewer/58746c584026430a890170ac4d87d03b/Cloud/en-US/ba7dd5a47b7a4858a652d15f9673c28d.html). | [ppiper/mta-archive-builder](https://hub.docker.com/r/ppiper/mta-archive-builder) |
+| CM Client | Interact with SAP Solution Manager or CTS using the command line. | [ppiper/cm-client](https://hub.docker.com/r/ppiper/cm-client) |
+| CloudFoundry CLI | command line tools for CloudFoundry, with plugins for blue-green deploy and MTA. | [ppiper/cf-cli](https://hub.docker.com/r/ppiper/cf-cli) |
+| Neo CLI | SAP Cloud Platform Tools for Neo. | [neo-cli/](neo-cli/) |
+| Jenkinsfile Runner| [Jenkinsfile Runner](https://github.com/jenkinsci/jenkinsfile-runner) based on `ppiper/jenkins-master`, allows running a `Jenkinsfile` without a long-running, stateful Jenkins master. | [ppiper/jenkinsfile-runner](https://hub.docker.com/r/ppiper/jenkinsfile-runner) |
+| Life Cycle Container| Sidecar image for life-cycle management of the cx-server|[ppiper/cx-server-companion](https://hub.docker.com/r/ppiper/cx-server-companion)|
+| Container Structure Test|[Container Structure Test](https://github.com/GoogleContainerTools/container-structure-test) with shell to work with `ppiper/jenkins-master`|[ppiper/container-structure-test](https://hub.docker.com/r/ppiper/container-structure-test)|
+| Node Browsers | Web browsers to be used for end to end tests of web applications in Jenkins pipelines | [node-browsers/](node-browsers/) |
+
 ## How to obtain support
 
 Feel free to open new issues for feature requests, bugs or general feedback on
