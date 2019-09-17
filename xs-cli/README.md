@@ -9,7 +9,7 @@ To bring an SAP HANA XS Advanced application to an SAP HANA Server, deploy the a
 
 ## How to Build It
 
-This image is not provided on hub.docker.com. Instead, [build][dockerbuild] this Dockerfile locally before using it. Here, you can find a [tutorial][xsclient] on how to get the XS command-line client package.
+This image is not provided on hub.docker.com. Instead, [build][dockerbuild] this Dockerfile locally before using it. You need to clone the repository or download the Dockerfile and put the XS CLI ZIP file into the same directory. Here, you can find a [tutorial][xsclient] on how to get the XS command-line client package.
 
 ### Build Arguments
 | Argument | Description |
@@ -18,7 +18,7 @@ This image is not provided on hub.docker.com. Instead, [build][dockerbuild] this
 
 Example:
 ```
-docker build -t ppiper/xs-cli --build-arg XSZIP=XS_CLIENT00P_<version>.ZIP --file Dockerfile https://github.com/SAP/devops-docker-images.git#:xs-cli
+docker build -t ppiper/xs-cli --build-arg XSZIP=XS_CLIENT00P_<version>.ZIP .
 ```
 
 ## How to Execute It
