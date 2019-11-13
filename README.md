@@ -33,6 +33,8 @@ The following images are published on [hub.docker.com](https://hub.docker.com/se
 | Life Cycle Container| Sidecar image for life-cycle management of the cx-server|[ppiper/cx-server-companion](https://hub.docker.com/r/ppiper/cx-server-companion)|
 | Container Structure Test|[Container Structure Test](https://github.com/GoogleContainerTools/container-structure-test) with shell to work with `ppiper/jenkins-master`|[ppiper/container-structure-test](https://hub.docker.com/r/ppiper/container-structure-test)|
 | Node Browsers | Web browsers to be used for end to end tests of web applications in Jenkins pipelines | [node-browsers/](https://hub.docker.com/r/ppiper/node-browsers/) |
+| SAP HANA XS Advanced CLI | Command line tools to deploy to SAP HANA XS Advanced | [Dockerfile](https://github.com/SAP/devops-docker-xsa-cli/) |
+
 
 ## How to obtain support
 
