@@ -27,7 +27,7 @@ The following images are published on [hub.docker.com](https://hub.docker.com/se
 | Jenkins | Use a preconfigured Jenkins to run project "Piper" pipelines. | [ppiper/jenkins-master](https://hub.docker.com/r/ppiper/jenkins-master) |
 | MTA Archive Builder | Build multitarget applications with the [MTA Archive Builder](https://help.sap.com/viewer/58746c584026430a890170ac4d87d03b/Cloud/en-US/ba7dd5a47b7a4858a652d15f9673c28d.html). | [ppiper/mta-archive-builder](https://hub.docker.com/r/ppiper/mta-archive-builder) |
 | CM Client | Interact with SAP Solution Manager or CTS using the command line. | [ppiper/cm-client](https://hub.docker.com/r/ppiper/cm-client) |
-| CloudFoundry CLI | Use command line tools for Cloud Foundry with plugins for blue-green deploy and MTA. | [ppiper/cf-cli](https://hub.docker.com/r/ppiper/cf-cli) |
+| CloudFoundry CLI | Use command line tools for Cloud Foundry with plugins for blue-green deployment and MTA. | [ppiper/cf-cli](https://hub.docker.com/r/ppiper/cf-cli) |
 | Neo CLI | Use SAP Cloud Platform tools for Neo. | [neo-cli/](https://hub.docker.com/r/ppiper/neo-cli/) |
 | Jenkinsfile Runner| Run a `Jenkinsfile` without a long-running, stateful Jenkins master. The [Jenkinsfile Runner](https://github.com/jenkinsci/jenkinsfile-runner) is based on `ppiper/jenkins-master`. | [ppiper/jenkinsfile-runner](https://hub.docker.com/r/ppiper/jenkinsfile-runner) |
 | Life Cycle Container| Improve life-cycle management of the cx-server by using a sidecar image|[ppiper/cx-server-companion](https://hub.docker.com/r/ppiper/cx-server-companion).|
