@@ -11,4 +11,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build jacoco-cli --file Dockerfile --tag ppiper/jacoco-cli:latest
+      run: cd jacoco-cli; docker build . --file Dockerfile --tag ppiper/jacoco-cli:latest
