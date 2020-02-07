@@ -12,8 +12,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: cd jacoco-cli; docker build . --file Dockerfile --tag ppiper/jacoco-cli:latest
-    - name: Push to Docker Hub
+    - name: Push to Docker Hub (only on master branch)
       if: github.ref == 'refs/heads/master'
       run: |
-        echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+        echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USER }} --password-stdin
         docker push ppiper/jacoco-cli:latest
