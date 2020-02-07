@@ -17,3 +17,4 @@ jobs:
       run: |
         echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USER }} --password-stdin
         docker push ppiper/jacoco-cli:latest
+        rm -f /home/runner/.docker/config.json
