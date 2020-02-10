@@ -6,7 +6,7 @@ ENV CMCLIENT_HOME /opt/sap/cmclient
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # hadolint ignore=SC2015
-RUN PROTOCOL='http' && \
+RUN PROTOCOL='https' && \
     REPO_URL='repo1.maven.org/maven2' && \
     G='com.sap.devops.cmclient' && \
     A='dist.cli' && \
