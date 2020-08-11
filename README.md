@@ -45,14 +45,6 @@ the [GitHub issues page of this project][devops-docker-images-issues].
 Read and understand our [contribution guidelines][contribution]
 before opening a pull request.
 
-## License
-
-Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved.
-This file is licensed under the Apache Software License, v. 2 except as noted
-otherwise in the [LICENSE file][license].
-
-Please note that Docker images can contain other software which may be licensed under different licenses. This License file is also included in the Docker image. For any usage of built Docker images please make sure to check the licenses of the artifacts contained in the images.
-
 [devops-docker-images-issues]: https://github.com/SAP/devops-docker-images/issues
 [license]: https://github.com/SAP/devops-docker-images/blob/master/LICENSE
 [contribution]: https://github.com/SAP/devops-docker-images/blob/master/CONTRIBUTING.md
