@@ -20,6 +20,7 @@ module.exports = function(grunt) {
     var acceptUnixStyleLineEndings = process.env.ABAP_ACCEPT_UNIX_STYLE_EOL;
     var transportDescription = process.env.TRANSPORT_DESCRIPTION;
     var targetDir = process.env.SAPDATADIR;
+    var testMode = process.env.TEST_MODE
     var verbose = process.env.VERBOSE;
     var failUploadOnWarning = process.env.FAIL_UPLOAD_ON_WARNING;
 
@@ -51,6 +52,7 @@ module.exports = function(grunt) {
                 zipFileURL: zipFileURL,
                 codePage: codePage,
                 acceptUnixStyleLineEndings: acceptUnixStyleLineEndings,
+                testMode: testMode,
                 verbose: verbose,
                 failUploadOnWarning: failUploadOnWarning
             }
@@ -154,13 +156,15 @@ module.exports = function(grunt) {
         var url = this.options().zipFileURL;
         var verbose = this.options().verbose;
         var failUploadOnWarning = this.options().failUploadOnWarning;
+        var testMode = this.options().testMode;
+        if ( !testMode ) testMode = "-";
         var importParameters = {
             IV_URL: url,
             IV_SAPUI5_APPLICATION_NAME: abapApplicationName,
             IV_SAPUI5_APPLICATION_DESC: abapApplicationDesc,
             IV_PACKAGE: abapPackage,
             IV_WORKBENCH_REQUEST: transportRequest,
-            IV_TEST_MODE: "-",
+            IV_TEST_MODE: testMode,
             IV_EXTERNAL_CODE_PAGE: this.options().codePage,
             IV_ACCEPT_UNIX_STYLE_EOL: this.options().acceptUnixStyleLineEndings
         };
