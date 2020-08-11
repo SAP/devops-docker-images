@@ -2,6 +2,7 @@
 
 var rfc = require("node-rfc");
 var fs = require("fs");
+var util = require('util');
 
 module.exports = function(grunt) {
 
@@ -143,6 +144,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask("uploadToABAP", "Uploads the application to the ABAP System", function(transportRequest) {
+        util.inspect.defaultOptions.maxArrayLength = null;
         grunt.log.writeln("Uploading to ABAP");
         if (!transportRequest) {
             grunt.log.errorlns("No Transport request specified.");
