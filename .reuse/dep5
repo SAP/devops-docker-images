@@ -1,5 +1,5 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: SAP/devops-docker-images
+Upstream-Name: github.com/SAP/devops-docker-images
 Upstream-Contact: thorsten.duda_AT_sap.com
 Source: https://github.com/SAP/devops-docker-images
 Disclaimer: The code in this project may include calls to APIs (“API Calls”) of
@@ -23,7 +23,9 @@ Disclaimer: The code in this project may include calls to APIs (“API Calls”)
  and non-commercial test and evaluation of such API Calls. Nothing herein grants
  you any rights to use or access any SAP External Product, or provide any third
  parties the right to use of access any SAP External Product, through API Calls.
+ Please note that Docker images can contain other software which may be licensed under different licenses.
+ For any usage of built Docker images please make sure to check the licenses of the artifacts contained in the images.
 
 Files: **
-Copyright:  2018-2020 SAP SE or an SAP affiliate company and project "Piper" contributors
+Copyright:  2017-2020 SAP SE or an SAP affiliate company and contributors
 License: Apache-2.0

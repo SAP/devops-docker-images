@@ -4,6 +4,10 @@ There are two primary ways to help:
 * using the issue tracker, and
 * changing the code-base.
 
+## Developer Certificate of Origin (DCO)
+
+Due to legal reasons, contributors will be asked to accept a DCO before they submit the first pull request to this projects, this happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
+
 ## Using the issue tracker
 
 Use the issue tracker to suggest feature requests, report bugs, and ask
