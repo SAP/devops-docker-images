@@ -11,10 +11,6 @@ If you want to learn how to use project "Piper" please have a look at [the docum
 **Note:** This repository has been split up.
 Please refer to the following repositories for current Dockerfiles and documentation:
 
-* [Cx Server](https://github.com/SAP/devops-docker-cx-server)
-    * Jenkins master
-    * Jenkins agents
-    * Cx Server companion
 * [CF cli](https://github.com/SAP/devops-docker-cf-cli)
 * [Neo cli](https://github.com/SAP/devops-docker-neo-cli)
 * [Cloud MTA Builder](https://sap.github.io/cloud-mta-build-tool)
@@ -26,14 +22,11 @@ The following images are published on [hub.docker.com](https://hub.docker.com/se
 
 | Name | Description | Docker Image |
 |------|-------------|------|
-| Jenkins | Use a preconfigured Jenkins to run project "Piper" pipelines. | [ppiper/jenkins-master](https://hub.docker.com/r/ppiper/jenkins-master) |
 | Cloud MTA Build Tool | Build multitarget applications with the [Cloud MTA Build Tool](https://sap.github.io/cloud-mta-build-tool/). | [devxci/mbtci](https://hub.docker.com/r/devxci/mbtci) |
 | CM Client | Interact with SAP Solution Manager or CTS using the command line. | [ppiper/cm-client](https://hub.docker.com/r/ppiper/cm-client) |
 | CloudFoundry CLI | Use command line tools for Cloud Foundry with plugins for blue-green deployment and MTA. | [ppiper/cf-cli](https://hub.docker.com/r/ppiper/cf-cli) |
 | Neo CLI | Use SAP Cloud Platform tools for Neo. | [neo-cli/](https://hub.docker.com/r/ppiper/neo-cli/) |
 | Jenkinsfile Runner| Run a `Jenkinsfile` without a long-running, stateful Jenkins master. The [Jenkinsfile Runner](https://github.com/jenkinsci/jenkinsfile-runner) is based on `ppiper/jenkins-master`. | [ppiper/jenkinsfile-runner](https://hub.docker.com/r/ppiper/jenkinsfile-runner) |
-| Life Cycle Container| Improve life-cycle management of the cx-server by using a sidecar image.|[ppiper/cx-server-companion](https://hub.docker.com/r/ppiper/cx-server-companion) |
-| Container Structure Test| Run [container structure tests](https://github.com/GoogleContainerTools/container-structure-test) with a shell for `ppiper/jenkins-master`.|[ppiper/container-structure-test](https://hub.docker.com/r/ppiper/container-structure-test)|
 | Node Browsers | Use web browsers for end-to-end tests of web applications in Jenkins pipelines. | [node-browsers/](https://hub.docker.com/r/ppiper/node-browsers/) |
 | SAP HANA XS Advanced CLI | Use command line tools to deploy to SAP HANA XS Advanced. | [Dockerfile](https://github.com/SAP/devops-docker-xsa-cli/) |
 
