@@ -17,7 +17,7 @@ Please refer to the following repositories for current Dockerfiles and documenta
     * Cx Server companion
 * [CF cli](https://github.com/SAP/devops-docker-cf-cli)
 * [Neo cli](https://github.com/SAP/devops-docker-neo-cli)
-* [MTA Builder](https://github.com/SAP/devops-docker-mta-archive-builder)
+* [Cloud MTA Builder](https://sap.github.io/cloud-mta-build-tool)
 * [Node browsers](https://github.com/SAP/devops-docker-node-browsers)
 
 ### Docker Images
